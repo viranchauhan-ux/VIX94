@@ -7038,6 +7038,115 @@ html.vix94-player-url #cornerLogo {
 </style>
 
 <link rel="stylesheet" href="/vix94-redesign.css" id="vix94-redesign-css">
+<style id="vix94-mini-player-final">
+/* Keep playback controls together in the persistent top bar. */
+#vix94PersistentBrowse{
+    top:0!important;
+    right:0!important;
+    bottom:0!important;
+    left:0!important;
+    padding-top:env(safe-area-inset-top)!important;
+    background:var(--v94-bg,#050505)!important;
+}
+
+#vix94MiniNowPlaying{
+    flex:0 0 62px!important;
+    min-height:62px!important;
+    padding-left:max(14px,env(safe-area-inset-left))!important;
+    padding-right:max(14px,env(safe-area-inset-right))!important;
+    background:color-mix(in srgb,var(--v94-surface,#101010) 94%,transparent)!important;
+    border-bottom:1px solid var(--v94-border,rgba(255,255,255,.14))!important;
+}
+
+#vix94MiniPrevious{
+    position:static!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:auto!important;
+    width:42px!important;
+    min-width:42px!important;
+    height:40px!important;
+    min-height:40px!important;
+    padding:0!important;
+    margin:0!important;
+    flex:0 0 42px!important;
+}
+
+#vix94MiniPlay,
+#vix94MiniNext{
+    width:42px!important;
+    min-width:42px!important;
+    height:40px!important;
+    min-height:40px!important;
+    flex:0 0 42px!important;
+}
+
+#vix94MiniTitle{
+    color:var(--v94-text,#fff)!important;
+    font-size:13px!important;
+}
+
+#vix94MiniArtist,
+#vix94MiniLive{
+    color:var(--v94-text-3,rgba(255,255,255,.62))!important;
+    font-size:10px!important;
+}
+
+#vix94MiniControls{
+    gap:8px!important;
+    flex:0 0 auto!important;
+}
+
+html[data-vix-theme="light"] #vix94PersistentBrowse{
+    background:var(--v94-bg,#f2f4ee)!important;
+}
+
+html[data-vix-theme="light"] #vix94MiniNowPlaying{
+    background:rgba(255,255,255,.92)!important;
+    border-bottom-color:var(--v94-border,rgba(7,9,9,.16))!important;
+}
+
+html[data-vix-theme="light"] .vix94MiniControl{
+    border-color:var(--v94-border-strong,rgba(7,9,9,.30))!important;
+    background:var(--v94-surface-2,#edf1e9)!important;
+    color:var(--v94-text,#111714)!important;
+}
+
+html[data-vix-theme="light"] .vix94MiniControl svg{
+    stroke:var(--v94-text,#111714)!important;
+}
+
+@media(max-width:600px){
+    #vix94MiniNowPlaying{
+        flex-basis:64px!important;
+        min-height:64px!important;
+        gap:7px!important;
+    }
+
+    #vix94MiniPrevious,
+    #vix94MiniPlay,
+    #vix94MiniNext{
+        width:44px!important;
+        min-width:44px!important;
+        height:42px!important;
+        min-height:42px!important;
+    }
+
+    #vix94MiniControls{
+        gap:6px!important;
+    }
+
+    #vix94MiniTitle{
+        font-size:12px!important;
+    }
+
+    #vix94MiniArtist,
+    #vix94MiniLive{
+        font-size:9px!important;
+    }
+}
+</style>
 </head>
 
 
