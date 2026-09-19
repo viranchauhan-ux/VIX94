@@ -16,6 +16,21 @@
   function applyTheme(theme){
     document.documentElement.setAttribute("data-vix-theme",theme);
 
+    const themeColor=document.querySelector('meta[name="theme-color"]');
+    if(themeColor){
+      themeColor.setAttribute(
+        "content",
+        theme==="light" ? "#f2f4ee" : "#070909"
+      );
+    }
+
+    document.querySelectorAll(
+      ".logo img, .corner-logo, #vix94GlobalMenuBrand img"
+    ).forEach(function(logo){
+      logo.src="/vix94logo.png";
+      logo.dataset.themeLogo=theme;
+    });
+
     const button=document.getElementById("vix94ThemeToggle");
     const state=document.getElementById("vix94ThemeState");
 

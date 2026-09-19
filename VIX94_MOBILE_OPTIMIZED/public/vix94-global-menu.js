@@ -16,16 +16,6 @@
         ["CONTACT","/contact.html"]
     ];
 
-    /*
-     * Hide old top navigation on content pages.
-     * Legal navigation is deliberately excluded.
-     */
-    document.querySelectorAll("header nav").forEach(function(nav){
-        if(!nav.closest(".legal-top")){
-            nav.classList.add("vix94-legacy-navigation");
-        }
-    });
-
     const button=document.createElement("button");
 
     button.id="vix94GlobalMenuButton";
