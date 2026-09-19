@@ -393,8 +393,6 @@ input[type="range"]:focus-visible {
 }
 </style>
 
-
-
 <style>
 /* ==========================================================
    VIX 94' — MOBILE OVERLAP + VOLUME FIX
@@ -13317,10 +13315,135 @@ html[data-vix-theme="light"] #landing .vix94-party-button{
 }
 
 @media(max-width:600px){
+    #radio > .player{
+        width:min(92vw,520px)!important;
+        max-width:520px!important;
+        padding:clamp(18px,5vw,28px)!important;
+        border:1px solid rgba(230,255,224,.22)!important;
+        border-radius:28px!important;
+        background:rgba(10,16,15,.82)!important;
+        box-shadow:0 24px 70px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.06)!important;
+        backdrop-filter:blur(18px)!important;
+        -webkit-backdrop-filter:blur(18px)!important;
+    }
+
+    #radio .artwork-disc{
+        margin-bottom:16px!important;
+    }
+
+    #radio .on-air{
+        font-size:10px!important;
+        letter-spacing:.18em!important;
+    }
+
+    #radio .song-title{
+        margin-top:8px!important;
+        font-size:clamp(20px,6vw,28px)!important;
+        font-weight:800!important;
+    }
+
+    #radio .song-artist{
+        margin-top:6px!important;
+        font-size:11px!important;
+        letter-spacing:.12em!important;
+    }
+
+    #radio .controls{
+        margin-top:20px!important;
+    }
+
+    #radio .time{
+        font-size:10px!important;
+        font-weight:700!important;
+    }
+
+    #radio .progress{
+        height:8px!important;
+        margin-top:8px!important;
+        border-radius:999px!important;
+        background:rgba(230,255,224,.24)!important;
+    }
+
+    #radio .player-buttons{
+        display:grid!important;
+        grid-template-columns:1fr 1.2fr 1fr!important;
+        gap:8px!important;
+        width:100%!important;
+        margin-top:18px!important;
+    }
+
     #radio .player-button,
     #radio .player-button.main,
-    #radio .eq-button{
+    #radio .eq-button,
+    #radio #eqButton{
         min-height:48px!important;
+        width:100%!important;
+        border-radius:14px!important;
+        font-size:10px!important;
+        font-weight:800!important;
+        letter-spacing:.12em!important;
+    }
+
+    #radio #playButton{
+        background:#d9ff64!important;
+        border-color:#d9ff64!important;
+        color:#070909!important;
+        box-shadow:0 8px 22px rgba(217,255,100,.16)!important;
+    }
+
+    #radio .vix94-eq-launch-row{
+        margin-top:10px!important;
+    }
+
+    #radio #eqButton{
+        min-height:40px!important;
+        width:auto!important;
+        padding:0 18px!important;
+        border-radius:999px!important;
+    }
+
+    #radio .volume{
+        justify-content:center!important;
+        margin-top:14px!important;
+        font-size:10px!important;
+        font-weight:800!important;
+        letter-spacing:.12em!important;
+    }
+
+    #radio .volume input[type="range"]{
+        accent-color:#d9ff64!important;
+    }
+
+    html[data-vix-theme="light"] #radio > .player{
+        border-color:rgba(7,9,9,.18)!important;
+        background:rgba(255,255,255,.82)!important;
+        box-shadow:0 24px 70px rgba(7,9,9,.12),inset 0 1px 0 rgba(255,255,255,.9)!important;
+        backdrop-filter:none!important;
+        -webkit-backdrop-filter:none!important;
+    }
+
+    html[data-vix-theme="light"] #radio .progress{
+        background:rgba(7,9,9,.20)!important;
+    }
+
+    html[data-vix-theme="light"] #radio .player-button,
+    html[data-vix-theme="light"] #radio .player-button.main,
+    html[data-vix-theme="light"] #radio .eq-button,
+    html[data-vix-theme="light"] #radio #eqButton{
+        border-color:rgba(7,9,9,.26)!important;
+        background:#111714!important;
+        color:#f2f4ee!important;
+        box-shadow:none!important;
+    }
+
+    html[data-vix-theme="light"] #radio #playButton{
+        background:#7b9d1d!important;
+        border-color:#7b9d1d!important;
+        color:#fff!important;
+    }
+
+    html[data-vix-theme="light"] #radio .volume input[type="range"]{
+        accent-color:#111714!important;
     }
 
     html[data-vix-theme="light"] #landing .vix94-radio-box,
@@ -13380,4 +13503,34 @@ html[data-vix-theme="light"] #landing .vix94-party-button{
     }
 }
 
+</style>
+
+<style id="vix94-player-button-contrast-final">
+#radio#radio .player-buttons #previousButton,
+#radio#radio .player-buttons #nextButton{
+    background:#f4f7ef!important;
+    border-color:#f4f7ef!important;
+    color:#070909!important;
+}
+
+#radio#radio .player-buttons #playButton{
+    background:#d9ff64!important;
+    border-color:#d9ff64!important;
+    color:#070909!important;
+    box-shadow:0 8px 22px rgba(217,255,100,.18)!important;
+}
+
+html[data-vix-theme="light"] #radio#radio .player-buttons #previousButton,
+html[data-vix-theme="light"] #radio#radio .player-buttons #nextButton{
+    background:#111714!important;
+    border-color:#111714!important;
+    color:#f2f4ee!important;
+}
+
+html[data-vix-theme="light"] #radio#radio .player-buttons #playButton{
+    background:#7b9d1d!important;
+    border-color:#7b9d1d!important;
+    color:#fff!important;
+    box-shadow:0 8px 22px rgba(123,157,29,.22)!important;
+}
 </style>
