@@ -13534,3 +13534,29 @@ html[data-vix-theme="light"] #radio#radio .player-buttons #playButton{
     box-shadow:0 8px 22px rgba(123,157,29,.22)!important;
 }
 </style>
+
+<style id="vix94-player-overflow-final">
+@media(max-width:600px){
+    #radio .controls,
+    #radio .player-buttons{
+        width:100%!important;
+        max-width:100%!important;
+        min-width:0!important;
+        box-sizing:border-box!important;
+    }
+
+    #radio .player-buttons{
+        grid-template-columns:minmax(0,1fr) minmax(0,1.12fr) minmax(0,1fr)!important;
+        gap:6px!important;
+    }
+
+    #radio .player-buttons .player-button,
+    #radio .player-buttons #previousButton,
+    #radio .player-buttons #playButton,
+    #radio .player-buttons #nextButton{
+        min-width:0!important;
+        max-width:100%!important;
+        box-sizing:border-box!important;
+    }
+}
+</style>

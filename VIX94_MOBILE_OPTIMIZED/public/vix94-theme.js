@@ -4,13 +4,8 @@
   const KEY="vix94-theme";
 
   function getTheme(){
-    const saved=localStorage.getItem(KEY);
-    if(saved==="light" || saved==="dark") return saved;
-
-    return window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme:light)").matches
-      ? "light"
-      : "dark";
+    localStorage.removeItem(KEY);
+    return "dark";
   }
 
   function applyTheme(theme){
@@ -20,7 +15,7 @@
     if(themeColor){
       themeColor.setAttribute(
         "content",
-        theme==="light" ? "#f2f4ee" : "#070909"
+        "#070909"
       );
     }
 
@@ -35,17 +30,15 @@
     const state=document.getElementById("vix94ThemeState");
 
     if(button){
-      button.textContent=theme==="light" ? "LIGHT" : "DARK";
+      button.textContent="DARK";
       button.setAttribute(
         "aria-label",
-        theme==="light"
-          ? "Switch to dark mode"
-          : "Switch to light mode"
+        "Dark mode is enabled"
       );
     }
 
     if(state){
-      state.textContent=theme==="light" ? "LIGHT MODE" : "DARK MODE";
+      state.textContent="DARK MODE";
     }
   }
 
@@ -56,8 +49,8 @@
     const control=document.createElement("div");
     control.id="vix94ThemeControl";
     control.innerHTML=
-      '<span id="vix94ThemeState">DARK MODE</span>'+
-      '<button id="vix94ThemeToggle" type="button" aria-label="Switch theme">DARK</button>';
+      '<span id="vix94ThemeState">DARK MODE</span>'+ 
+      '<button id="vix94ThemeToggle" type="button" aria-label="Dark mode is enabled">DARK</button>';
 
     const close=document.getElementById("vix94GlobalMenuClose");
 
@@ -73,13 +66,8 @@
       event.preventDefault();
       event.stopPropagation();
 
-      const next=
-        document.documentElement.getAttribute("data-vix-theme")==="light"
-          ? "dark"
-          : "light";
-
-      localStorage.setItem(KEY,next);
-      applyTheme(next);
+      localStorage.removeItem(KEY);
+      applyTheme("dark");
     });
 
     applyTheme(getTheme());
