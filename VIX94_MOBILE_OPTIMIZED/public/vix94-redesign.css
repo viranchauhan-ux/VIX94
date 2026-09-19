@@ -919,6 +919,137 @@ body:has(.legal-page) #vix94GlobalMenuButton{
   }
 }
 
+/* ==========================================================
+   RADIO APP SURFACE
+   Presentation only: the audio graph and player hooks stay intact.
+   ========================================================== */
+
+#app{
+  background:
+    radial-gradient(circle at 50% 36%,rgba(217,255,100,.08),transparent 28%),
+    linear-gradient(145deg,#070909,#111817)!important;
+}
+
+#app .background{
+  opacity:.72!important;
+  filter:grayscale(.35) saturate(.78) contrast(1.08)!important;
+}
+
+#app .background::after{
+  opacity:.05!important;
+}
+
+#app .header .status,
+#app .header .status *{
+  color:var(--v94-text-2,#f4f7ef)!important;
+  opacity:1!important;
+}
+
+#radio .on-air,
+#radio .song-title,
+#radio .song-artist,
+#radio .time,
+#radio .volume,
+#radio .eq-button{
+  color:var(--v94-text,#f4f7ef)!important;
+}
+
+#radio .song-artist,
+#radio .time,
+#radio .volume,
+#radio .eq-button{
+  opacity:1!important;
+}
+
+#radio .progress{
+  background:var(--v94-border-strong,rgba(230,255,224,.36))!important;
+}
+
+#radio .player-button,
+#radio .player-button.main,
+#radio .eq-button,
+#radio .volume input[type="range"]{
+  border-color:var(--v94-border-strong,rgba(230,255,224,.36))!important;
+  background:color-mix(in srgb,var(--v94-surface,#111817) 84%,transparent)!important;
+  color:var(--v94-text,#f4f7ef)!important;
+}
+
+#radio .player-button:hover,
+#radio .eq-button:hover{
+  background:var(--v94-accent,#d9ff64)!important;
+  border-color:var(--v94-accent,#d9ff64)!important;
+  color:var(--v94-ink,#070909)!important;
+}
+
+html[data-vix-theme="light"] body:has(#radio),
+html[data-vix-theme="light"] body:has(#radio) #app{
+  background:
+    radial-gradient(circle at 50% 18%,rgba(123,157,29,.12),transparent 30%),
+    linear-gradient(145deg,#f2f4ee,#e7ebe2)!important;
+  color:var(--v94-text)!important;
+}
+
+html[data-vix-theme="light"] #app .background{
+  opacity:.16!important;
+  filter:grayscale(1) saturate(.35) contrast(.94)!important;
+}
+
+html[data-vix-theme="light"] #app .background::after{
+  opacity:.025!important;
+}
+
+html[data-vix-theme="light"] #app .header .status,
+html[data-vix-theme="light"] #app .header .status *{
+  color:var(--v94-text-2)!important;
+}
+
+html[data-vix-theme="light"] #radio .on-air,
+html[data-vix-theme="light"] #radio .song-title,
+html[data-vix-theme="light"] #radio .song-artist,
+html[data-vix-theme="light"] #radio .time,
+html[data-vix-theme="light"] #radio .volume,
+html[data-vix-theme="light"] #radio .eq-button{
+  color:var(--v94-text)!important;
+}
+
+html[data-vix-theme="light"] #radio .progress{
+  background:rgba(7,9,9,.24)!important;
+}
+
+html[data-vix-theme="light"] #radio .progress::-webkit-progress-value,
+html[data-vix-theme="light"] #radio .progress::-webkit-slider-thumb{
+  background:var(--v94-text)!important;
+}
+
+html[data-vix-theme="light"] #radio .player-button,
+html[data-vix-theme="light"] #radio .player-button.main,
+html[data-vix-theme="light"] #radio .eq-button{
+  border-color:rgba(7,9,9,.30)!important;
+  background:rgba(255,255,255,.78)!important;
+  color:var(--v94-text)!important;
+  box-shadow:0 8px 24px rgba(7,9,9,.08)!important;
+}
+
+html[data-vix-theme="light"] #radio .player-button:hover,
+html[data-vix-theme="light"] #radio .eq-button:hover{
+  background:var(--v94-text)!important;
+  color:var(--v94-paper)!important;
+}
+
+@media(max-width:600px){
+  #radio .player-buttons{
+    gap:8px!important;
+    width:min(100%,360px)!important;
+  }
+
+  #radio .player-button,
+  #radio .player-button.main{
+    min-height:48px!important;
+    font-size:10px!important;
+    letter-spacing:.10em!important;
+  }
+}
+
 /* Final navigation ownership: content pages keep their mobile menu entry point. */
 body:has(.page) .vix94-legacy-navigation,
 body:has(.vix-page) .vix94-legacy-navigation,

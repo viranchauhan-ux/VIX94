@@ -13195,6 +13195,141 @@ window.vix94PlayFromRadioHome=function(){
 
     <script src="/vix94-global-menu.js" id="vix94-global-menu-js"></script>
 <script src="/vix94-theme.js" id="vix94-theme-js"></script>
+<style id="vix94-final-theme-surfaces">
+/* Final theme surfaces win over legacy homepage presentation blocks. */
+#app{
+    background:
+        radial-gradient(circle at 50% 34%,rgba(217,255,100,.09),transparent 30%),
+        linear-gradient(145deg,#070909,#111817)!important;
+}
+
+#app .background{
+    opacity:.62!important;
+    filter:grayscale(.45) saturate(.76) contrast(1.08)!important;
+}
+
+#app .header .status,
+#app .header .status *{
+    color:#f4f7ef!important;
+    opacity:1!important;
+}
+
+#radio .on-air,
+#radio .song-title,
+#radio .song-artist,
+#radio .time,
+#radio .volume,
+#radio .eq-button{
+    color:#f4f7ef!important;
+    opacity:1!important;
+}
+
+#radio .player-button,
+#radio .player-button.main,
+#radio .eq-button,
+#radio #eqButton{
+    border-color:rgba(230,255,224,.42)!important;
+    background:rgba(17,24,23,.78)!important;
+    color:#f4f7ef!important;
+}
+
+#radio .player-button:hover,
+#radio .eq-button:hover,
+#radio #eqButton:hover{
+    background:#d9ff64!important;
+    border-color:#d9ff64!important;
+    color:#070909!important;
+}
+
+html[data-vix-theme="light"] body:has(#radio),
+html[data-vix-theme="light"] body:has(#radio) #app{
+    background:
+        radial-gradient(circle at 50% 16%,rgba(123,157,29,.13),transparent 32%),
+        linear-gradient(145deg,#f2f4ee,#e7ebe2)!important;
+    color:#111714!important;
+}
+
+html[data-vix-theme="light"] #app .background{
+    opacity:0!important;
+}
+
+html[data-vix-theme="light"] #app .header .status,
+html[data-vix-theme="light"] #app .header .status *{
+    color:#111714!important;
+}
+
+html[data-vix-theme="light"] #radio .on-air,
+html[data-vix-theme="light"] #radio .song-title,
+html[data-vix-theme="light"] #radio .song-artist,
+html[data-vix-theme="light"] #radio .time,
+html[data-vix-theme="light"] #radio .volume,
+html[data-vix-theme="light"] #radio .eq-button{
+    color:#111714!important;
+}
+
+html[data-vix-theme="light"] #radio .player-button,
+html[data-vix-theme="light"] #radio .player-button.main,
+html[data-vix-theme="light"] #radio .eq-button,
+html[data-vix-theme="light"] #radio #eqButton{
+    border-color:rgba(7,9,9,.30)!important;
+    background:rgba(255,255,255,.82)!important;
+    color:#111714!important;
+    box-shadow:0 8px 24px rgba(7,9,9,.08)!important;
+}
+
+html[data-vix-theme="light"] #radio .player-button:hover,
+html[data-vix-theme="light"] #radio .eq-button:hover,
+html[data-vix-theme="light"] #radio #eqButton:hover{
+    background:#111714!important;
+    color:#f2f4ee!important;
+}
+
+html[data-vix-theme="light"] #landing .hero-logo,
+html[data-vix-theme="light"] #landing .corner-logo{
+    filter:invert(1) brightness(.22)!important;
+}
+
+html[data-vix-theme="light"] #landing .vix94-radio-box,
+html[data-vix-theme="light"] #landing .vix94-party-hero{
+    background:rgba(255,255,255,.82)!important;
+    border-color:rgba(7,9,9,.22)!important;
+    box-shadow:0 20px 60px rgba(7,9,9,.12)!important;
+    color:#111714!important;
+}
+
+html[data-vix-theme="light"] #landing .vix94-radio-box h2,
+html[data-vix-theme="light"] #landing .vix94-radio-box p,
+html[data-vix-theme="light"] #landing .vix94-party-hero h3,
+html[data-vix-theme="light"] #landing .vix94-party-hero p,
+html[data-vix-theme="light"] #landing .vix94-mode-label{
+    color:#111714!important;
+}
+
+html[data-vix-theme="light"] #landing .vix94-party-hero{
+    border-color:#7b9d1d!important;
+}
+
+html[data-vix-theme="light"] #landing .vix94-radio-button,
+html[data-vix-theme="light"] #landing .vix94-party-button{
+    background:#111714!important;
+    border-color:#111714!important;
+    color:#f2f4ee!important;
+}
+
+@media(max-width:600px){
+    #radio .player-button,
+    #radio .player-button.main,
+    #radio .eq-button{
+        min-height:48px!important;
+    }
+
+    html[data-vix-theme="light"] #landing .vix94-radio-box,
+    html[data-vix-theme="light"] #landing .vix94-party-hero{
+        backdrop-filter:none!important;
+        -webkit-backdrop-filter:none!important;
+    }
+}
+</style>
 </body>
 
 </html>
