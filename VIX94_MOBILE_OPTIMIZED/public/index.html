@@ -12202,6 +12202,10 @@ window.vix94PlayFromRadioHome=function(){
             updatePlaybackState
         );
 
+        const observer = new MutationObserver(function(){
+            updateMediaSession();
+        });
+
         [
             "songTitle",
             "artistName",
