@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Discover Music on VIX 94' — Music Discovery</title>
+  <meta name="description" content="Discover music from the VIX 94' library by artist, track and sound. Explore independent music and emerging artists.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vix94.buzz/discover.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vix94.buzz/discover.html">
+  <meta property="og:title" content="Discover Music on VIX 94' — Music Discovery">
+  <meta property="og:description" content="Discover music from the VIX 94' library by artist, track and sound. Explore independent music and emerging artists.">
+  <meta property="og:image" content="https://vix94.buzz/vix94logobg.png">
+  <meta property="og:image:alt" content="VIX 94'">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Discover Music on VIX 94' — Music Discovery">
+  <meta name="twitter:description" content="Discover music from the VIX 94' library by artist, track and sound. Explore independent music and emerging artists.">
+  <meta name="twitter:image" content="https://vix94.buzz/vix94logobg.png">
+
+  <link rel="icon" type="image/png" href="/vix94logobg.png">
+
+  <style>
+    :root{
+      --bg:#050505;
+      --fg:#fff;
+      --muted:rgba(255,255,255,.62);
+      --line:rgba(255,255,255,.14);
+      --panel:rgba(255,255,255,.035);
+    }
+
+    *{box-sizing:border-box}
+
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:Arial,Helvetica,sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+
+    .page{
+      min-height:100vh;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 50% 28%,rgba(255,255,255,.07),transparent 24%),
+        radial-gradient(circle at 12% 82%,rgba(255,255,255,.035),transparent 25%),
+        linear-gradient(180deg,#090909 0%,#030303 100%);
+    }
+
+    .stars{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.45;
+      background-image:
+        radial-gradient(circle at 8% 16%,rgba(255,255,255,.82) 0 1px,transparent 2px),
+        radial-gradient(circle at 19% 73%,rgba(255,255,255,.55) 0 1px,transparent 2px),
+        radial-gradient(circle at 31% 28%,rgba(255,255,255,.75) 0 1px,transparent 2px),
+        radial-gradient(circle at 47% 64%,rgba(255,255,255,.48) 0 1px,transparent 2px),
+        radial-gradient(circle at 62% 15%,rgba(255,255,255,.72) 0 1px,transparent 2px),
+        radial-gradient(circle at 78% 78%,rgba(255,255,255,.52) 0 1px,transparent 2px),
+        radial-gradient(circle at 92% 36%,rgba(255,255,255,.72) 0 1px,transparent 2px);
+      animation:drift 22s linear infinite;
+    }
+
+    @keyframes drift{
+      from{transform:translate3d(0,0,0)}
+      to{transform:translate3d(1vw,-1vh,0)}
+    }
+
+    header{
+      position:relative;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:24px 32px;
+      border-bottom:1px solid var(--line);
+      background:rgba(0,0,0,.5);
+      backdrop-filter:blur(18px);
+    }
+
+    .logo{
+      display:inline-flex;
+      text-decoration:none;
+    }
+
+    .logo img{
+      width:112px;
+      display:block;
+    }
+
+    nav{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:16px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:rgba(255,255,255,.68);
+      font-size:10px;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+    }
+
+    nav a:hover{color:#fff}
+
+    main{
+      position:relative;
+      z-index:2;
+      width:min(1120px,92vw);
+      margin:0 auto;
+      padding:76px 0 100px;
+    }
+
+    .kicker{
+      font-size:10px;
+      letter-spacing:.28em;
+      color:rgba(255,255,255,.42);
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:12px 0 18px;
+      font-size:clamp(40px,7vw,76px);
+      line-height:1;
+      letter-spacing:-.045em;
+    }
+
+    .lead{
+      max-width:760px;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+    }
+
+    .toolbar{
+      margin-top:34px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .search{
+      flex:1;
+      min-width:0;
+      padding:15px 18px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.045);
+      color:#fff;
+      outline:none;
+      font-size:14px;
+    }
+
+    .search:focus{
+      border-color:rgba(255,255,255,.34);
+      box-shadow:0 0 0 3px rgba(255,255,255,.04);
+    }
+
+    .button{
+      flex:0 0 auto;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 20px;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      color:#fff;
+      text-decoration:none;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+
+    .button:hover{background:rgba(255,255,255,.1)}
+
+    .results{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .card{
+      position:relative;
+      min-height:170px;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(180deg,rgba(255,255,255,.05),var(--panel));
+      text-decoration:none;
+      transition:.18s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(255,255,255,.28);
+      background:rgba(255,255,255,.06);
+    }
+
+    .number{
+      font-size:10px;
+      color:rgba(255,255,255,.34);
+      letter-spacing:.12em;
+    }
+
+    .title{
+      margin-top:28px;
+      font-size:21px;
+      line-height:1.18;
+      font-weight:700;
+    }
+
+    .artist{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .meta{
+      position:absolute;
+      left:22px;
+      bottom:20px;
+      font-size:9px;
+      letter-spacing:.16em;
+      color:rgba(255,255,255,.42);
+      text-transform:uppercase;
+    }
+
+    .status{
+      margin-top:30px;
+      color:rgba(255,255,255,.45);
+      font-size:11px;
+      letter-spacing:.08em;
+    }
+
+    footer{
+      position:relative;
+      z-index:2;
+      padding:28px 32px;
+      border-top:1px solid var(--line);
+      color:rgba(255,255,255,.38);
+      font-size:10px;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    .footer-inner{
+      width:min(1120px,92vw);
+      margin:0 auto;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    @media(max-width:760px){
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:18px;
+      }
+
+      nav{
+        justify-content:flex-start;
+        gap:11px;
+      }
+
+      main{
+        width:92vw;
+        padding:54px 0 76px;
+      }
+
+      h1{font-size:46px}
+
+      .toolbar{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .results{
+        grid-template-columns:1fr;
+      }
+
+      .button{
+        width:100%;
+      }
+
+      footer{padding:24px 18px}
+    }
+  
+    .vix-payment-wrap{display:flex;justify-content:center;margin:18px auto 4px;width:100%;}
+    .vix-payment-button{position:relative;z-index:9999;pointer-events:auto;display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #000;border-radius:12px;background:#000;color:#fff;text-decoration:none;cursor:pointer;max-width:260px;}
+    .vix-payment-logo{width:38px;height:38px;object-fit:contain;flex:0 0 38px;}
+    .vix-payment-text{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1;}
+    .vix-payment-title{font-family:Arial,sans-serif;color:#fff;margin-bottom:4px;font-size:12px;font-weight:600;letter-spacing:.03em;white-space:nowrap;}
+    .vix-payment-powered{font-family:Arial,sans-serif;color:#fff;font-size:8px;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+    .vix-payment-powered img{width:13px;height:13px;object-fit:contain;}
+    @media(max-width:700px){.vix-payment-wrap{margin-top:16px}.vix-payment-button{max-width:240px;padding:7px 10px}.vix-payment-logo{width:34px;height:34px;flex-basis:34px}.vix-payment-title{font-size:11px}.vix-payment-powered{font-size:7px}}
+
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Discover Music on VIX 94'",
+    "url":"https://vix94.buzz/discover.html",
+    "description":"Discover music from the VIX 94' library by artist, track and sound.",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"VIX 94'",
+      "url":"https://vix94.buzz/"
+    }
+  }
+  </script>
+    <link rel="stylesheet" href="/vix94-brand-system.css" id="vix94-global-brand-system">
+
+    <link rel="stylesheet" href="/vix94-global-menu.css" id="vix94-global-menu-css">
+<link rel="stylesheet" href="/vix94-redesign.css" id="vix94-redesign-css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="stars" aria-hidden="true"></div>
+
+    <header>
+      <a class="logo" href="/?player=1" aria-label="VIX 94' home">
+        <img src="/vix94logo.png" alt="VIX 94'">
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="/?player=1">Radio</a>
+        <a href="/about.html">About</a>
+        <a href="/discover.html">Discover</a>
+        <a href="/artists.html">Artists</a>
+        <a href="/recently-played.html">Recently Played</a>
+        <a href="/originals.html">Originals</a>
+        <a href="/submit.html">Submit Music</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="kicker">DISCOVER</div>
+      <h1>Find your next track.</h1>
+
+      <p class="lead">
+        Search the VIX 94' music library by artist or track name and explore
+        the records available in the current radio rotation.
+      </p>
+
+      <div class="toolbar">
+        <input
+          id="search"
+          class="search"
+          type="search"
+          placeholder="Search artist or track..."
+          aria-label="Search artist or track"
+          autocomplete="off"
+        >
+        <a class="button" href="/?player=1">Open Radio</a>
+      </div>
+
+      <div id="status" class="status">Loading VIX 94' music library…</div>
+      <section id="results" class="results" aria-live="polite"></section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>VIX 94' — ONLINE RADIO</span>
+        <span>Independent music. Handpicked sounds.</span>
+      </div>
+    
+    <div class="vix-payment-wrap">
+      <a class="vix-payment-button" href="https://payments.cashfree.com/forms/frequencyalive" target="_top" rel="noopener" aria-label="Fuel the Frequency" onclick="window.top.location.href='https://payments.cashfree.com/forms/frequencyalive'; return false;">
+        <img src="https://cashfree-checkoutcartimages-prod.cashfree.com/vix94logoFarmk3ltcfug_prod.png" alt="VIX 94'" class="vix-payment-logo">
+        <span class="vix-payment-text">
+          <span class="vix-payment-title">FUEL THE FREQUENCY</span>
+          <span class="vix-payment-powered">Powered By Cashfree <img src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg" alt="Cashfree"></span>
+        </span>
+      </a>
+    </div>
+  </footer>
+  </div>
+
+  <script>
+    const LIBRARY_URL =
+      "https://pub-feb120eabdf4471980ef8f1331d8baab.r2.dev/afterhoursmusicmix/library.json";
+
+    const searchInput =
+      document.getElementById("search");
+
+    const results =
+      document.getElementById("results");
+
+    const status =
+      document.getElementById("status");
+
+    function cleanName(filename){
+      return String(filename || "")
+        .split("/")
+        .pop()
+        .replace(/\.[^.]+$/,"")
+        .replace(/[_]+/g," ")
+        .replace(/\s+/g," ")
+        .trim();
+    }
+
+    function parseTrack(filename){
+      const clean =
+        cleanName(filename);
+
+      const parts =
+        clean.split(/\s+-\s+/);
+
+      if(parts.length >= 2){
+        return {
+          artist: parts.shift().trim(),
+          title: parts.join(" - ").trim(),
+          filename
+        };
+      }
+
+      return {
+        artist:"VIX 94' Selection",
+        title:clean || "Untitled",
+        filename
+      };
+    }
+
+    function escapeHtml(value){
+      return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+    }
+
+    function render(items){
+      if(!items.length){
+        results.innerHTML =
+          '<div class="status">No matching tracks found.</div>';
+        return;
+      }
+
+      results.innerHTML =
+        items.slice(0,120).map((track,index)=>`
+          <a
+            class="card"
+            href="/track.html?track=${encodeURIComponent(track.filename)}"
+          >
+            <div class="number">${String(index+1).padStart(2,"0")}</div>
+            <div class="title">${escapeHtml(track.title)}</div>
+            <div class="artist">${escapeHtml(track.artist)}</div>
+            <div class="meta">VIEW TRACK →</div>
+          </a>
+        `).join("");
+    }
+
+    let tracks = [];
+
+    async function load(){
+      try{
+        const response =
+          await fetch(
+            LIBRARY_URL,
+            {cache:"no-store"}
+          );
+
+        if(!response.ok){
+          throw new Error("Library request failed");
+        }
+
+        const files =
+          await response.json();
+
+        if(!Array.isArray(files)){
+          throw new Error("Invalid library");
+        }
+
+        tracks =
+          files
+            .filter(
+              file =>
+                typeof file === "string" &&
+                file.trim()
+            )
+            .map(parseTrack);
+
+        status.textContent =
+          tracks.length +
+          " tracks available in the VIX 94' library.";
+
+        render(tracks);
+
+      }catch(error){
+
+        console.error(error);
+
+        status.textContent =
+          "Music library could not be loaded.";
+
+      }
+    }
+
+    searchInput.addEventListener(
+      "input",
+      function(){
+
+        const query =
+          searchInput.value
+            .toLowerCase()
+            .trim();
+
+        if(!query){
+          render(tracks);
+          return;
+        }
+
+        const filtered =
+          tracks.filter(
+            track =>
+              (
+                track.title +
+                " " +
+                track.artist
+              )
+              .toLowerCase()
+              .includes(query)
+          );
+
+        render(filtered);
+      }
+    );
+
+    load();
+  </script>
+
+    <script src="/vix94-global-menu.js" id="vix94-global-menu-js"></script>
+<script src="/vix94-theme.js" id="vix94-theme-js"></script>
+</body>
+</html>

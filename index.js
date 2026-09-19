@@ -1,0 +1,304 @@
+
+import { DurableObject } from "cloudflare:workers";
+
+const ROOM_RE = /^[A-Z0-9]{6}$/;
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    if (url.pathname.startsWith("/listen/")) {
+      if (request.headers.get("Upgrade")?.toLowerCase() !== "websocket") {
+        return new Response("WebSocket required", { status: 426 });
+      }
+
+      const roomCode = (
+        url.pathname.slice("/listen/".length) || ""
+      ).toUpperCase();
+
+      if (!ROOM_RE.test(roomCode)) {
+        return new Response("Invalid room code", { status: 400 });
+      }
+
+      const id = env.PARTY_ROOM.idFromName(roomCode);
+      return env.PARTY_ROOM.get(id).fetch(request);
+    }
+
+    return new Response("VIX 94' Party Mode", {
+      headers: { "content-type": "text/plain;charset=UTF-8" }
+    });
+  }
+};
+
+export class PartyRoom extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.ctx = ctx;
+    this.env = env;
+  }
+
+  async fetch(request) {
+    if (request.headers.get("Upgrade")?.toLowerCase() !== "websocket") {
+      return new Response("WebSocket required", { status: 426 });
+    }
+
+    const pair = new WebSocketPair();
+    const client = pair[0];
+    const server = pair[1];
+
+    this.ctx.acceptWebSocket(server);
+
+    server.serializeAttachment({
+      clientId: crypto.randomUUID(),
+      username: "Guest",
+      creator: false,
+      joined: false,
+      joinedAt: Date.now()
+    });
+
+    return new Response(null, {
+      status: 101,
+      webSocket: client
+    });
+  }
+
+  async webSocketMessage(ws, message) {
+    let msg;
+
+    try {
+      msg = JSON.parse(message);
+    } catch (_) {
+      return;
+    }
+
+    const now = Date.now();
+
+    if (msg.type === "join") {
+      const attachment = ws.deserializeAttachment() || {};
+      let creatorId = await this.ctx.storage.get("creator-id");
+
+      /*
+       * First creator becomes the room host. Later joins cannot claim host.
+       */
+      let creator = false;
+
+      if (!creatorId && msg.creator === true) {
+        creator = true;
+        creatorId = attachment.clientId;
+        await this.ctx.storage.put("creator-id", creatorId);
+      } else if (creatorId === attachment.clientId) {
+        creator = true;
+      }
+
+      const username = String(msg.username || "Guest")
+        .trim()
+        .slice(0, 24) || "Guest";
+
+      ws.serializeAttachment({
+        ...attachment,
+        username,
+        creator,
+        joined: true
+      });
+
+      if (creator && msg.state && msg.state.src) {
+        await this.ctx.storage.put("state", {
+          ...msg.state,
+          serverAt: now
+        });
+      }
+
+      const state = await this.ctx.storage.get("state");
+      const currentCreator = await this.ctx.storage.get("creator-id");
+      const count = this.activeParticipantCount();
+
+      ws.send(JSON.stringify({
+        type: "room-state",
+        state: state || null,
+        hostId: currentCreator || null,
+        clientId: attachment.clientId,
+        count,
+        public: true,
+        username,
+        serverNow: now
+      }));
+
+      this.broadcastPresence();
+
+      return;
+    }
+
+    if (msg.type === "command") {
+      const attachment = ws.deserializeAttachment() || {};
+
+      /*
+       * ONLY THE ROOM CREATOR CAN CONTROL MUSIC.
+       */
+      if (!attachment.creator) {
+        return;
+      }
+
+      const allowed = [
+        "play",
+        "pause",
+        "next",
+        "previous",
+        "state"
+      ];
+
+      const command = String(msg.command || "");
+      if (!allowed.includes(command)) {
+        return;
+      }
+
+      const incomingState = msg.state || {};
+
+      const sentAt = Number(incomingState.sentAt);
+      const position = Number(incomingState.position);
+
+      const elapsed =
+        Number.isFinite(sentAt) &&
+        Number.isFinite(position)
+          ? Math.max(0, (now - sentAt) / 1000)
+          : 0;
+
+      const stored = {
+        ...incomingState,
+        position: position + elapsed,
+        serverAt: now,
+        command
+      };
+
+      await this.ctx.storage.put("state", stored);
+
+      this.broadcastAllExcept(ws, {
+        type: "command",
+        command,
+        state: stored,
+        serverNow: now
+      });
+
+      return;
+    }
+
+    if (msg.type === "clock") {
+      const attachment = ws.deserializeAttachment() || {};
+
+      if (!attachment.creator) {
+        return;
+      }
+
+      const state = msg.state || {};
+
+      const sentAt = Number(state.sentAt);
+      const position = Number(state.position);
+
+      const elapsed =
+        Number.isFinite(sentAt) &&
+        Number.isFinite(position)
+          ? Math.max(0, (now - sentAt) / 1000)
+          : 0;
+
+      const syncedState = {
+        ...state,
+        position: position + elapsed,
+        serverAt: now
+      };
+
+      await this.ctx.storage.put("state", syncedState);
+
+      this.broadcastAllExcept(ws, {
+        type: "clock",
+        state: syncedState,
+        serverNow: now
+      });
+
+      return;
+    }
+
+    if (msg.type === "chat") {
+      const attachment = ws.deserializeAttachment() || {};
+
+      const text = String(msg.text || "")
+        .trim()
+        .slice(0, 180);
+
+      if (!text) {
+        return;
+      }
+
+      /*
+       * Username comes from the WebSocket session, not the message payload.
+       */
+      const username =
+        String(attachment.username || "Guest")
+          .trim()
+          .slice(0, 24) || "Guest";
+
+      this.broadcastAll({
+        type: "chat",
+        username,
+        text,
+        serverNow: now
+      });
+
+      return;
+    }
+  }
+
+  async webSocketClose(ws) {
+    this.broadcastPresence();
+  }
+
+  async webSocketError(ws) {
+    this.broadcastPresence();
+  }
+
+  broadcastPresence() {
+    const count = this.activeParticipantCount();
+
+    this.broadcastAll({
+      type: "presence",
+      count,
+      serverNow: Date.now()
+    });
+  }
+
+  activeParticipantCount() {
+    let count = 0;
+
+    for (const ws of this.ctx.getWebSockets()) {
+      if (ws.readyState !== WebSocket.OPEN) continue;
+
+      const attachment = ws.deserializeAttachment() || {};
+      if (attachment.joined) count++;
+    }
+
+    return count;
+  }
+
+  broadcastAll(payload) {
+    const data = JSON.stringify(payload);
+
+    for (const ws of this.ctx.getWebSockets()) {
+      if (ws.readyState !== WebSocket.OPEN) continue;
+
+      try {
+        ws.send(data);
+      } catch (_) {}
+    }
+  }
+
+  broadcastAllExcept(except, payload) {
+    const data = JSON.stringify(payload);
+
+    for (const ws of this.ctx.getWebSockets()) {
+      if (ws === except) continue;
+      if (ws.readyState !== WebSocket.OPEN) continue;
+
+      try {
+        ws.send(data);
+      } catch (_) {}
+    }
+  }
+}

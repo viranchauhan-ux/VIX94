@@ -1,0 +1,613 @@
+/*
+============================================================
+VIX 94' — SITE-WIDE VISUAL SYSTEM
+Presentation layer only.
+DO NOT alter audio/player/equalizer behaviour.
+============================================================
+*/
+
+:root{
+  --v94-bg:#050505;
+  --v94-bg-2:#090909;
+  --v94-surface:#101010;
+  --v94-surface-2:#151515;
+  --v94-surface-3:#1b1b1b;
+  --v94-border:rgba(255,255,255,.10);
+  --v94-border-strong:rgba(255,255,255,.18);
+  --v94-text:#f7f7f7;
+  --v94-text-2:rgba(255,255,255,.68);
+  --v94-text-3:rgba(255,255,255,.42);
+  --v94-accent:#fff;
+  --v94-shadow:0 24px 70px rgba(0,0,0,.34);
+  --v94-radius:18px;
+  --v94-radius-sm:12px;
+  --v94-ease:cubic-bezier(.22,.8,.2,1);
+  color-scheme:dark;
+}
+
+html[data-vix-theme="light"]{
+  --v94-bg:#f4f4f1;
+  --v94-bg-2:#ededeb;
+  --v94-surface:#ffffff;
+  --v94-surface-2:#f8f8f6;
+  --v94-surface-3:#ececea;
+  --v94-border:rgba(0,0,0,.10);
+  --v94-border-strong:rgba(0,0,0,.18);
+  --v94-text:#111;
+  --v94-text-2:rgba(0,0,0,.66);
+  --v94-text-3:rgba(0,0,0,.44);
+  --v94-accent:#111;
+  --v94-shadow:0 24px 70px rgba(0,0,0,.12);
+  color-scheme:light;
+}
+
+html,
+body{
+  background:var(--v94-bg);
+  color:var(--v94-text);
+}
+
+body{
+  transition:
+    background-color .28s ease,
+    color .28s ease;
+}
+
+/* ==========================================================
+   GLOBAL MENU
+   ========================================================== */
+
+#vix94GlobalMenu{
+  background:rgba(0,0,0,.60)!important;
+  backdrop-filter:blur(18px) saturate(120%)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(120%)!important;
+  opacity:0;
+  transition:opacity .28s var(--v94-ease)!important;
+}
+
+#vix94GlobalMenu.open{
+  opacity:1;
+}
+
+#vix94GlobalMenuPanel{
+  width:min(480px,calc(100vw - 28px))!important;
+  max-height:calc(100svh - 28px)!important;
+  overflow:auto!important;
+  padding:26px!important;
+  border:1px solid var(--v94-border-strong)!important;
+  border-radius:24px!important;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24,24,24,.97),
+      rgba(7,7,7,.98)
+    )!important;
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.06)!important;
+  transform:translateY(14px) scale(.985)!important;
+  transition:transform .42s var(--v94-ease)!important;
+}
+
+#vix94GlobalMenu.open #vix94GlobalMenuPanel{
+  transform:translateY(0) scale(1)!important;
+}
+
+#vix94GlobalMenuEyebrow{
+  display:none!important;
+}
+
+#vix94GlobalMenuBrand{
+  margin:0 0 12px!important;
+}
+
+#vix94GlobalMenuBrand img{
+  display:block;
+  max-width:170px!important;
+  width:auto!important;
+  height:auto!important;
+}
+
+#vix94GlobalMenuFrequency{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:12px!important;
+  margin:2px 0 24px!important;
+  padding:11px 15px!important;
+  border:1px solid var(--v94-border)!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.035)!important;
+  color:#fff!important;
+  letter-spacing:.24em!important;
+  font-size:10px!important;
+  font-weight:800!important;
+}
+
+#vix94GlobalMenuLinks{
+  display:grid!important;
+  gap:7px!important;
+}
+
+#vix94GlobalMenuLinks a{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  min-height:52px!important;
+  padding:0 15px!important;
+  border:1px solid transparent!important;
+  border-radius:13px!important;
+  color:rgba(255,255,255,.78)!important;
+  background:transparent!important;
+  text-decoration:none!important;
+  letter-spacing:.10em!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  transition:
+    color .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    transform .2s var(--v94-ease)!important;
+}
+
+#vix94GlobalMenuLinks a::after{
+  content:"↗";
+  color:rgba(255,255,255,.25);
+  font-size:13px;
+  transition:transform .2s ease,color .2s ease;
+}
+
+#vix94GlobalMenuLinks a:hover,
+#vix94GlobalMenuLinks a:focus-visible{
+  color:#fff!important;
+  background:rgba(255,255,255,.07)!important;
+  border-color:rgba(255,255,255,.12)!important;
+  transform:translateX(4px)!important;
+  outline:none!important;
+}
+
+#vix94GlobalMenuLinks a:hover::after,
+#vix94GlobalMenuLinks a:focus-visible::after{
+  color:rgba(255,255,255,.72);
+  transform:translateX(3px);
+}
+
+#vix94GlobalMenuClose{
+  margin-top:18px!important;
+  width:100%!important;
+  min-height:46px!important;
+  border:1px solid rgba(255,255,255,.13)!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:rgba(255,255,255,.58)!important;
+  letter-spacing:.12em!important;
+  font-size:10px!important;
+  font-weight:700!important;
+  transition:all .2s ease!important;
+}
+
+#vix94GlobalMenuClose:hover{
+  color:#fff!important;
+  background:rgba(255,255,255,.06)!important;
+}
+
+/* Menu button */
+#vix94GlobalMenuButton,
+#vix94MenuButton{
+  position:relative!important;
+  z-index:10000!important;
+  min-height:40px!important;
+  padding:0 15px!important;
+  border:1px solid var(--v94-border)!important;
+  border-radius:999px!important;
+  background:rgba(0,0,0,.25)!important;
+  color:currentColor!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  letter-spacing:.14em!important;
+  cursor:pointer!important;
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    transform .2s var(--v94-ease)!important;
+}
+
+#vix94GlobalMenuButton:hover,
+#vix94MenuButton:hover{
+  background:rgba(255,255,255,.08)!important;
+  border-color:rgba(255,255,255,.22)!important;
+  transform:translateY(-1px)!important;
+}
+
+/* ==========================================================
+   THEME CONTROL
+   ========================================================== */
+
+#vix94ThemeControl{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:14px;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:13px;
+  background:rgba(255,255,255,.025);
+  color:rgba(255,255,255,.68);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.12em;
+}
+
+#vix94ThemeToggle{
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;
+  min-height:34px;
+  padding:0 12px;
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  font:inherit;
+  font-size:9px;
+  letter-spacing:.10em;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+
+#vix94ThemeToggle:hover{
+  background:rgba(255,255,255,.12);
+  transform:translateY(-1px);
+}
+
+/* ==========================================================
+   NON-PLAYER SITE PAGES
+   The main radio player is deliberately excluded.
+   ========================================================== */
+
+body:not(:has(#radio)) a{
+  transition:color .2s ease,opacity .2s ease;
+}
+
+body:not(:has(#radio)) input,
+body:not(:has(#radio)) textarea,
+body:not(:has(#radio)) select{
+  border-radius:12px;
+  transition:border-color .2s ease,box-shadow .2s ease,background .2s ease;
+}
+
+body:not(:has(#radio)) input:focus,
+body:not(:has(#radio)) textarea:focus,
+body:not(:has(#radio)) select:focus{
+  outline:none;
+  border-color:var(--v94-border-strong);
+  box-shadow:0 0 0 4px rgba(127,127,127,.10);
+}
+
+body:not(:has(#radio)) button{
+  transition:
+    transform .2s var(--v94-ease),
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    opacity .2s ease;
+}
+
+/* ==========================================================
+   PARTY MODE — PRESENTATION REDESIGN ONLY
+   IDs/classes are existing application hooks.
+   No audio or synchronization rules are modified.
+   ========================================================== */
+
+#partyPage{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,255,255,.055),transparent 32%),
+    linear-gradient(180deg,#050505 0%,#080808 48%,#050505 100%)!important;
+  color:#fff!important;
+}
+
+#partyPage #partyMain{
+  width:min(1380px,calc(100% - 32px))!important;
+  margin:0 auto!important;
+  padding:30px 0 42px!important;
+}
+
+#partyHero{
+  position:relative!important;
+  margin-bottom:20px!important;
+  padding:28px!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:22px!important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.018)
+    )!important;
+  box-shadow:0 24px 80px rgba(0,0,0,.28)!important;
+  overflow:hidden!important;
+}
+
+#partyHero::after{
+  content:"";
+  position:absolute;
+  right:-100px;
+  top:-100px;
+  width:280px;
+  height:280px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+#partyHeroTitle{
+  margin:0!important;
+  color:#fff!important;
+  font-weight:800!important;
+  letter-spacing:-.035em!important;
+}
+
+#partyHeroCopy{
+  color:rgba(255,255,255,.58)!important;
+}
+
+#partyEntry,
+#partyPlayer,
+#partyChat{
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:20px!important;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.045),
+      rgba(255,255,255,.015)
+    )!important;
+  box-shadow:0 22px 70px rgba(0,0,0,.24)!important;
+}
+
+#partyEntry{
+  padding:24px!important;
+}
+
+#partyPlayer{
+  padding:24px!important;
+}
+
+#partyChat{
+  overflow:hidden!important;
+}
+
+#partyArtwork{
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.45),
+    0 0 0 1px rgba(255,255,255,.08)!important;
+}
+
+#partyTrackTitle{
+  color:#fff!important;
+  font-weight:800!important;
+}
+
+#partyTrackArtist{
+  color:rgba(255,255,255,.54)!important;
+}
+
+#partyProgress{
+  background:rgba(255,255,255,.09)!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+}
+
+#partyProgressFill{
+  background:#fff!important;
+  border-radius:999px!important;
+}
+
+#partyTimes{
+  color:rgba(255,255,255,.42)!important;
+  font-variant-numeric:tabular-nums;
+}
+
+.party-input{
+  min-height:46px!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:12px!important;
+  background:rgba(0,0,0,.22)!important;
+  color:#fff!important;
+}
+
+.party-input:focus{
+  border-color:rgba(255,255,255,.25)!important;
+  box-shadow:0 0 0 4px rgba(255,255,255,.05)!important;
+}
+
+.party-btn{
+  min-height:44px!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.035)!important;
+  color:rgba(255,255,255,.82)!important;
+  letter-spacing:.10em!important;
+  font-weight:800!important;
+}
+
+.party-btn:hover{
+  background:rgba(255,255,255,.09)!important;
+  border-color:rgba(255,255,255,.22)!important;
+  color:#fff!important;
+  transform:translateY(-1px)!important;
+}
+
+.party-btn.primary{
+  background:#fff!important;
+  color:#050505!important;
+  border-color:#fff!important;
+}
+
+.party-btn.primary:hover{
+  background:#e9e9e9!important;
+  color:#000!important;
+}
+
+#partyPrev,
+#partyPlay,
+#partyNext{
+  min-width:0!important;
+}
+
+#partyHostControls{
+  border-top:1px solid rgba(255,255,255,.08)!important;
+}
+
+#partyRoomTools{
+  border-color:rgba(255,255,255,.08)!important;
+}
+
+#partyConnection{
+  border:1px solid rgba(255,255,255,.08)!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.025)!important;
+}
+
+#partyConnectionText,
+#partySync{
+  color:rgba(255,255,255,.58)!important;
+}
+
+#partyMessages{
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.18) transparent;
+}
+
+#partyCompose{
+  border-top:1px solid rgba(255,255,255,.08)!important;
+}
+
+#partyExit{
+  opacity:.62!important;
+}
+
+#partyExit:hover{
+  opacity:1!important;
+}
+
+#partyAudioPrompt{
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+
+#partyAudioCard{
+  border:1px solid rgba(255,255,255,.13)!important;
+  border-radius:20px!important;
+  background:#101010!important;
+  box-shadow:0 30px 90px rgba(0,0,0,.55)!important;
+}
+
+/* ==========================================================
+   LIGHT MODE — SHELLS ONLY
+   The radio turntable/equalizer visuals remain protected.
+   ========================================================== */
+
+html[data-vix-theme="light"] body:not(:has(#radio)){
+  background:var(--v94-bg)!important;
+  color:var(--v94-text)!important;
+}
+
+html[data-vix-theme="light"] body:not(:has(#radio)) #partyPage{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(0,0,0,.045),transparent 32%),
+    linear-gradient(180deg,#f6f6f3 0%,#eeeeeb 48%,#f6f6f3 100%)!important;
+  color:#111!important;
+}
+
+html[data-vix-theme="light"] body:not(:has(#radio)) #partyHero,
+html[data-vix-theme="light"] body:not(:has(#radio)) #partyEntry,
+html[data-vix-theme="light"] body:not(:has(#radio)) #partyPlayer,
+html[data-vix-theme="light"] body:not(:has(#radio)) #partyChat{
+  border-color:rgba(0,0,0,.09)!important;
+  background:rgba(255,255,255,.72)!important;
+  box-shadow:0 22px 70px rgba(0,0,0,.08)!important;
+}
+
+html[data-vix-theme="light"] #partyHeroTitle,
+html[data-vix-theme="light"] #partyTrackTitle{
+  color:#111!important;
+}
+
+html[data-vix-theme="light"] #partyHeroCopy,
+html[data-vix-theme="light"] #partyTrackArtist,
+html[data-vix-theme="light"] #partyConnectionText,
+html[data-vix-theme="light"] #partySync{
+  color:rgba(0,0,0,.58)!important;
+}
+
+html[data-vix-theme="light"] .party-input{
+  border-color:rgba(0,0,0,.12)!important;
+  background:#fff!important;
+  color:#111!important;
+}
+
+html[data-vix-theme="light"] .party-btn{
+  border-color:rgba(0,0,0,.12)!important;
+  background:rgba(0,0,0,.025)!important;
+  color:#222!important;
+}
+
+html[data-vix-theme="light"] .party-btn:hover{
+  background:rgba(0,0,0,.06)!important;
+  border-color:rgba(0,0,0,.20)!important;
+}
+
+html[data-vix-theme="light"] .party-btn.primary{
+  background:#111!important;
+  color:#fff!important;
+  border-color:#111!important;
+}
+
+/* ==========================================================
+   PERFORMANCE / MOTION
+   ========================================================== */
+
+.vix94-redesign-layer,
+#vix94GlobalMenuPanel,
+#partyHero,
+#partyEntry,
+#partyPlayer,
+#partyChat{
+  contain:paint;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+  }
+}
+
+@media (max-width:700px){
+  #vix94GlobalMenuPanel{
+    width:calc(100vw - 20px)!important;
+    max-height:calc(100svh - 20px)!important;
+    padding:20px!important;
+    border-radius:20px!important;
+  }
+
+  #vix94GlobalMenuLinks a{
+    min-height:49px!important;
+  }
+
+  #partyPage #partyMain{
+    width:min(100% - 20px,1380px)!important;
+    padding:18px 0 28px!important;
+  }
+
+  #partyHero,
+  #partyEntry,
+  #partyPlayer,
+  #partyChat{
+    border-radius:16px!important;
+  }
+}

@@ -1,0 +1,425 @@
+/* ============================================================
+   VIX 94' — GLOBAL BRAND SYSTEM
+   Shared visual language for the entire platform.
+   ============================================================ */
+
+:root{
+    --vix-bg:#050505;
+    --vix-bg-soft:#0a0a0a;
+    --vix-white:#fff;
+    --vix-text:rgba(255,255,255,.78);
+    --vix-muted:rgba(255,255,255,.42);
+    --vix-subtle:rgba(255,255,255,.22);
+    --vix-line:rgba(255,255,255,.12);
+    --vix-line-strong:rgba(255,255,255,.22);
+
+    --vix-blue:#159cff;
+    --vix-red:#ff3333;
+
+    --vix-radius:10px;
+    --vix-pill:999px;
+
+    --vix-font:
+        Inter,
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+}
+
+/* ---------- FOUNDATION ---------- */
+
+html{
+    background:var(--vix-bg);
+    color:var(--vix-white);
+    font-family:var(--vix-font);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+
+body{
+    background:var(--vix-bg);
+    color:var(--vix-text);
+    font-family:var(--vix-font);
+}
+
+/* ---------- UNIVERSAL BOX MODEL ---------- */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+/* ---------- LINKS ---------- */
+
+a{
+    color:inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+    outline:1px solid var(--vix-white);
+    outline-offset:3px;
+}
+
+/* ---------- BUTTON LANGUAGE ---------- */
+
+button{
+    font-family:inherit;
+}
+
+.party-btn,
+#partyCreatorChat,
+#partyExit,
+#partySend,
+#partyCopyCode,
+#partyShare,
+#partyHostControls .party-btn,
+#partyRoomTools .party-btn{
+
+    font-family:var(--vix-font)!important;
+
+    letter-spacing:.14em;
+    font-weight:700;
+    text-transform:uppercase;
+
+    border-radius:var(--vix-radius);
+
+    transition:
+        color .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+}
+
+.party-btn:hover,
+#partyCreatorChat:hover,
+#partyCopyCode:hover,
+#partyShare:hover{
+
+    color:#fff!important;
+    border-color:var(--vix-line-strong)!important;
+    background:rgba(255,255,255,.06)!important;
+}
+
+.party-btn:active,
+#partyCreatorChat:active,
+#partyCopyCode:active,
+#partyShare:active{
+    transform:translateY(1px);
+}
+
+/* ---------- MENU ---------- */
+
+#vix94MenuButton{
+
+    position:fixed!important;
+
+    left:14px!important;
+    bottom:max(14px,env(safe-area-inset-bottom))!important;
+
+    min-width:72px!important;
+    min-height:44px!important;
+
+    padding:0 18px!important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.20)!important;
+
+    border-radius:var(--vix-pill)!important;
+
+    background:
+        rgba(8,8,8,.86)!important;
+
+    color:
+        rgba(255,255,255,.76)!important;
+
+    font-family:var(--vix-font)!important;
+    font-size:9px!important;
+    font-weight:700!important;
+
+    letter-spacing:.18em!important;
+
+    box-shadow:
+        0 10px 32px rgba(0,0,0,.38)!important;
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    z-index:10000!important;
+}
+
+#vix94MenuButton:hover{
+    color:#fff!important;
+    border-color:rgba(255,255,255,.36)!important;
+    background:rgba(18,18,18,.94)!important;
+}
+
+/* ---------- MENU OVERLAY ---------- */
+
+#vix94SiteMenu{
+
+    font-family:var(--vix-font)!important;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255,255,255,.075),
+            transparent 30%
+        ),
+        rgba(0,0,0,.90)!important;
+
+    backdrop-filter:blur(26px);
+    -webkit-backdrop-filter:blur(26px);
+}
+
+#vix94SiteMenuPanel{
+
+    width:min(520px,92vw)!important;
+
+    max-height:
+        calc(100dvh - 40px)!important;
+
+    overflow-y:auto!important;
+
+    padding:28px!important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.14)!important;
+
+    border-radius:24px!important;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.025)
+        )!important;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.65)!important;
+}
+
+/* ---------- MENU BRAND LOCK ---------- */
+
+#vix94SiteMenuTitle{
+    font-family:var(--vix-font)!important;
+}
+
+.vix94-style4-explore{
+    color:rgba(255,255,255,.55)!important;
+    font-family:var(--vix-font)!important;
+}
+
+.vix94-style4-logo{
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(255,255,255,.08)
+        )!important;
+}
+
+.vix94-style4-frequency{
+    color:rgba(255,255,255,.35)!important;
+}
+
+.vix94-style4-frequency-word{
+    font-family:var(--vix-font)!important;
+}
+
+/* ---------- MENU LINKS ---------- */
+
+#vix94SiteMenuLinks{
+    gap:8px!important;
+}
+
+#vix94SiteMenuLinks a{
+
+    min-height:50px!important;
+
+    padding:0 16px!important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10)!important;
+
+    border-radius:10px!important;
+
+    background:
+        rgba(255,255,255,.025)!important;
+
+    color:
+        rgba(255,255,255,.72)!important;
+
+    font-family:var(--vix-font)!important;
+    font-size:10px!important;
+    font-weight:700!important;
+
+    letter-spacing:.13em!important;
+
+    text-transform:uppercase!important;
+}
+
+#vix94SiteMenuLinks a:hover{
+    color:#fff!important;
+    background:rgba(255,255,255,.07)!important;
+    border-color:rgba(255,255,255,.24)!important;
+    transform:translateY(-1px);
+}
+
+/* ---------- CLOSE MENU ---------- */
+
+#vix94SiteMenuClose{
+
+    min-height:44px!important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.14)!important;
+
+    border-radius:var(--vix-pill)!important;
+
+    background:transparent!important;
+
+    color:rgba(255,255,255,.50)!important;
+
+    font-family:var(--vix-font)!important;
+    font-size:9px!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+}
+
+#vix94SiteMenuClose:hover{
+    color:#fff!important;
+    border-color:rgba(255,255,255,.30)!important;
+}
+
+/* ---------- PARTY MODE ---------- */
+
+#partyPage{
+    background:var(--vix-bg)!important;
+    color:var(--vix-text)!important;
+    font-family:var(--vix-font)!important;
+}
+
+#partyHeroTitle{
+    font-family:var(--vix-font)!important;
+    font-weight:800!important;
+    letter-spacing:.04em!important;
+}
+
+.party-eyebrow,
+.party-now,
+.party-label,
+.party-room-label,
+#partyRole,
+#partySync{
+    font-family:var(--vix-font)!important;
+    letter-spacing:.18em!important;
+}
+
+#partyChatHeader strong{
+    font-family:var(--vix-font)!important;
+}
+
+#partyChatInput{
+    font-family:var(--vix-font)!important;
+}
+
+#partyCreatorChat{
+    background:rgba(255,255,255,.025)!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    color:#fff!important;
+}
+
+#partyExit{
+    background:rgba(255,255,255,.015)!important;
+    border:1px solid rgba(255,55,55,.72)!important;
+    color:var(--vix-red)!important;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:700px){
+
+    #vix94MenuButton{
+        left:12px!important;
+        bottom:max(10px,env(safe-area-inset-bottom))!important;
+        min-height:44px!important;
+        height:44px!important;
+        padding:0 16px!important;
+    }
+
+    #vix94SiteMenu{
+        padding:
+            max(12px,env(safe-area-inset-top))
+            12px
+            max(12px,env(safe-area-inset-bottom))
+            12px!important;
+    }
+
+    #vix94SiteMenuPanel{
+        width:100%!important;
+        max-width:520px!important;
+        max-height:calc(100dvh - 24px)!important;
+        padding:22px!important;
+        border-radius:20px!important;
+    }
+
+    #vix94SiteMenuLinks{
+        grid-template-columns:1fr!important;
+    }
+
+    #vix94SiteMenuLinks a{
+        min-height:48px!important;
+    }
+
+    #vix94SiteMenuClose{
+        min-height:46px!important;
+    }
+}
+
+/* ---------- SMALL PHONES ---------- */
+
+@media(max-width:380px){
+
+    #vix94SiteMenuPanel{
+        padding:18px!important;
+    }
+
+    #vix94SiteMenuLinks a{
+        min-height:46px!important;
+        padding:0 13px!important;
+        font-size:9px!important;
+    }
+
+    .vix94-style4-logo-crop{
+        width:150px!important;
+        height:49px!important;
+    }
+
+    .vix94-style4-logo{
+        width:150px!important;
+    }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.001ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.001ms!important;
+        scroll-behavior:auto!important;
+    }
+}
+
+</style>

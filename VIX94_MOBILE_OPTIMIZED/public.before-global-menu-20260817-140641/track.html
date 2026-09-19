@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIX 94&#x27; Track — Music Discovery</title>
+<meta name="description" content="Explore a track from the VIX 94&#x27; music library.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vix94.buzz/track.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VIX 94&#x27; Track — Music Discovery">
+<meta property="og:description" content="Explore a track from the VIX 94&#x27; music library.">
+<meta property="og:url" content="https://vix94.buzz/track.html">
+<meta property="og:image" content="https://vix94.buzz/vix94logobg.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VIX 94&#x27; Track — Music Discovery">
+<meta name="twitter:description" content="Explore a track from the VIX 94&#x27; music library.">
+<meta name="twitter:image" content="https://vix94.buzz/vix94logobg.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/vix94logobg.png">
+<link rel="stylesheet" href="vix94-site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "VIX 94' Track \u2014 Music Discovery",
+  "description": "Explore a track from the VIX 94' music library.",
+  "url": "https://vix94.buzz/track.html"
+}
+</script>
+    <link rel="stylesheet" href="/vix94-brand-system.css" id="vix94-global-brand-system">
+</head>
+<body>
+
+<div class="vix-site-bg"></div>
+<div class="vix-site-stars"></div>
+<header class="vix-nav">
+  <a href="index.html" aria-label="VIX 94' Home"><img src="vix94logo.png" alt="VIX 94'"></a>
+  <nav class="vix-nav-links" aria-label="Primary">
+      <a href="index.html">Radio</a>
+      <a href="about.html">About</a>
+      <a href="discover.html">Discover</a>
+      <a href="artists.html">Artists</a>
+      <a href="recently-played.html">Recently Played</a>
+      <a href="originals.html">Originals</a>
+      <a href="submit.html">Submit Music</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main class="vix-page">
+
+    <div class="vix-kicker">TRACK</div>
+    <h1 id="trackTitle" class="vix-title">Loading track…</h1>
+    <p id="trackArtist" class="vix-lead"></p>
+    <div class="vix-grid">
+      <a id="playTrack" class="vix-card" href="index.html"><h2>Play on VIX 94'</h2><p>Open the main radio player and listen to this track in the station rotation.</p><div class="vix-meta">OPEN RADIO →</div></a>
+      <a class="vix-card" href="discover.html"><h2>Discover More</h2><p>Browse the VIX 94' library and find another track.</p></a>
+      <a class="vix-card" href="artists.html"><h2>Explore Artists</h2><p>See artists represented in the current VIX 94' library.</p></a>
+    </div>
+    
+</main>
+
+<footer class="vix-footer">
+  <div class="vix-footer-inner">
+    <span>VIX 94' — ONLINE RADIO</span>
+    <span>Independent music. Handpicked sounds.</span>
+  </div>
+
+    <div class="vix-payment-wrap">
+      <a class="vix-payment-button" href="https://payments.cashfree.com/forms/frequencyalive" target="_top" rel="noopener" aria-label="Fuel the Frequency" onclick="window.top.location.href='https://payments.cashfree.com/forms/frequencyalive'; return false;">
+        <img src="https://cashfree-checkoutcartimages-prod.cashfree.com/vix94logoFarmk3ltcfug_prod.png" alt="VIX 94'" class="vix-payment-logo">
+        <span class="vix-payment-text">
+          <span class="vix-payment-title">FUEL THE FREQUENCY</span>
+          <span class="vix-payment-powered">Powered By Cashfree <img src="https://cashfreelogo.cashfree.com/cashfreepayments/logosvgs/Group_4355.svg" alt="Cashfree"></span>
+        </span>
+      </a>
+    </div>
+  </footer>
+
+
+<script>
+(()=>{
+  const params=new URLSearchParams(location.search);
+  const raw=params.get("track");
+  const title=document.getElementById("trackTitle"), artist=document.getElementById("trackArtist"), play=document.getElementById("playTrack");
+  if(!raw){title.textContent="Track not specified";return;}
+  const t=vix94ParseTrack(raw);
+  title.textContent=t.title;
+  artist.textContent=t.artist;
+  play.href="index.html?track="+encodeURIComponent(raw);
+  document.title=t.title+" — "+t.artist+" | VIX 94'";
+})();
+</script>
+
+</body>
+</html>

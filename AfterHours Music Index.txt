@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>VIX 94'</title>
+
+<script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #050505;
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+#app {
+
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #050505;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0,0,0,0.72),
+            rgba(0,0,0,0.72)
+        ),
+
+        url("DISCOBG.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   GRAIN
+===================================================== */
+
+.background::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -50%;
+
+    opacity: .10;
+
+    background-image:
+
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    position: absolute;
+
+    top: 25px;
+
+    left: 28px;
+
+    right: 28px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    z-index: 30;
+}
+
+
+/* =====================================================
+   TOP LEFT LOGO
+===================================================== */
+
+.corner-logo {
+
+    width: 190px;
+
+    opacity: 0;
+
+    transform:
+        translateY(-10px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.corner-logo.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =====================================================
+   TOP RIGHT
+===================================================== */
+
+.status {
+
+    text-align: right;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    line-height: 1.8;
+
+    opacity: .45;
+}
+
+
+/* =====================================================
+   LANDING
+===================================================== */
+
+.landing {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        opacity 1s ease;
+}
+
+
+.landing.hidden {
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HERO LOGO
+===================================================== */
+
+.hero-logo {
+
+    width:
+        min(460px, 72vw);
+
+    max-height: 45vh;
+
+    object-fit: contain;
+
+    animation:
+        breathing 6s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes breathing {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   ENTER
+===================================================== */
+
+.enter {
+
+    margin-top: 50px;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    letter-spacing: 4px;
+
+    opacity: .70;
+
+    transition:
+        opacity .3s ease,
+        letter-spacing .3s ease;
+}
+
+
+.enter:hover {
+
+    opacity: 1;
+
+    letter-spacing: 6px;
+}
+
+
+/* =====================================================
+   RADIO
+===================================================== */
+
+.radio {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.radio.active {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =====================================================
+   PLAYER
+===================================================== */
+
+.player {
+
+    width:
+        min(480px, 82vw);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   ARTWORK
+===================================================== */
+
+.artwork {
+
+    width:
+        min(350px, 65vw);
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    background: rgba(255,255,255,.03);
+
+    margin-bottom: 32px;
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.75);
+
+    transition:
+        transform 1s ease;
+}
+
+
+.artwork.playing {
+
+    transform:
+        scale(1.02);
+}
+
+
+/* =====================================================
+   ON AIR
+===================================================== */
+
+.on-air {
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    opacity: .4;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.song-title {
+
+    font-size: 19px;
+
+    margin-bottom: 8px;
+
+    max-width: 100%;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   ARTIST
+===================================================== */
+
+.song-artist {
+
+    font-size: 10px;
+
+    letter-spacing: 2.5px;
+
+    opacity: .5;
+
+    max-width: 100%;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =====================================================
+   CONTROLS
+===================================================== */
+
+.controls {
+
+    width: 100%;
+
+    margin-top: 35px;
+}
+
+
+/* =====================================================
+   TIME
+===================================================== */
+
+.time {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    opacity: .35;
+
+    margin-bottom: 9px;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress {
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.18);
+
+    cursor: pointer;
+
+    position: relative;
+
+    margin-bottom: 28px;
+}
+
+
+.progress-fill {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 0%;
+
+    height: 100%;
+
+    background: white;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.player-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 32px;
+
+    margin-top: 2px;
+}
+
+
+.player-button {
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    opacity: .55;
+
+    transition:
+        opacity .25s ease,
+        letter-spacing .25s ease;
+}
+
+
+.player-button:hover {
+
+    opacity: 1;
+
+    letter-spacing: 4px;
+}
+
+
+.player-button.main {
+
+    font-size: 14px;
+
+    opacity: .9;
+}
+
+
+.player-button.main:hover {
+
+    opacity: 1;
+}
+
+
+/* =====================================================
+   VOLUME
+===================================================== */
+
+.volume {
+
+    position: fixed;
+
+    right: 28px;
+
+    bottom: 27px;
+
+    z-index: 30;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    opacity: .55;
+}
+
+
+.volume span {
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+
+.volume input {
+
+    width: 75px;
+
+    accent-color: white;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   BOTTOM LEFT
+===================================================== */
+
+.bottom-left {
+
+    position: fixed;
+
+    left: 28px;
+
+    bottom: 27px;
+
+    z-index: 30;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    opacity: .3;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 70px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 50;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .3s ease;
+}
+
+
+.loading.show {
+
+    opacity: .5;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px) {
+
+    .header {
+
+        top: 18px;
+
+        left: 18px;
+
+        right: 18px;
+    }
+
+
+    .corner-logo {
+
+        width: 130px;
+    }
+
+
+    .hero-logo {
+
+        width: 78vw;
+    }
+
+
+    .enter {
+
+        margin-top: 38px;
+    }
+
+
+    .artwork {
+
+        width: 74vw;
+
+        margin-bottom: 26px;
+    }
+
+
+    .song-title {
+
+        font-size: 16px;
+    }
+
+
+    .controls {
+
+        margin-top: 27px;
+    }
+
+
+    .player-buttons {
+
+        gap: 22px;
+    }
+
+
+    .player-button {
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .volume {
+
+        right: 18px;
+
+        bottom: 18px;
+    }
+
+
+    .bottom-left {
+
+        left: 18px;
+
+        bottom: 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div id="app">
+
+
+    <!-- BACKGROUND -->
+
+    <div class="background"></div>
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+
+        <img
+            src="vix94logo.png"
+            class="corner-logo"
+            id="cornerLogo"
+            alt="VIX 94'"
+        >
+
+
+        <div class="status">
+
+            VIX 94'<br>
+
+            <span id="status">
+                OFF AIR
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================================
+         LANDING
+    ================================================== -->
+
+    <div
+        class="landing"
+        id="landing"
+    >
+
+
+        <img
+            src="vix94logo.png"
+            class="hero-logo"
+            alt="VIX 94'"
+        >
+
+
+        <button
+            class="enter"
+            id="enter"
+        >
+
+            <b>ENTER</b>
+
+        </button>
+
+
+    </div>
+
+
+    <!-- =================================================
+         RADIO
+    ================================================== -->
+
+    <div
+        class="radio"
+        id="radio"
+    >
+
+
+        <div class="player">
+
+
+            <img
+                src="vix94logo.png"
+                class="artwork"
+                id="artwork"
+                alt="VIX 94'"
+            >
+
+
+            <div class="on-air">
+
+                VIX 94' — ON AIR
+
+            </div>
+
+
+            <div
+                class="song-title"
+                id="songTitle"
+            >
+
+                VIX 94' RADIO
+
+            </div>
+
+
+            <div
+                class="song-artist"
+                id="songArtist"
+            >
+
+                SELECTING MUSIC
+
+            </div>
+
+
+            <div class="controls">
+
+
+                <div class="time">
+
+                    <span id="currentTime">
+                        0:00
+                    </span>
+
+                    <span id="duration">
+                        0:00
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="progress"
+                    id="progress"
+                >
+
+                    <div
+                        class="progress-fill"
+                        id="progressFill"
+                    ></div>
+
+                </div>
+
+
+                <div class="player-buttons">
+
+
+                    <button
+                        class="player-button"
+                        id="previousButton"
+                    >
+                        PREVIOUS
+                    </button>
+
+
+                    <button
+                        class="player-button main"
+                        id="playButton"
+                    >
+                        PLAY
+                    </button>
+
+
+                    <button
+                        class="player-button"
+                        id="nextButton"
+                    >
+                        NEXT
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- BOTTOM LEFT -->
+
+    <div class="bottom-left">
+
+        VIX 94'
+
+    </div>
+
+
+    <!-- VOLUME -->
+
+    <div class="volume">
+
+        <span>
+            VOL
+        </span>
+
+
+        <input
+            type="range"
+            id="volume"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.8"
+        >
+
+    </div>
+
+
+    <!-- LOADING -->
+
+    <div
+        class="loading"
+        id="loading"
+    >
+        LOADING
+    </div>
+
+
+    <!-- AUDIO -->
+
+    <audio
+        id="audio"
+        preload="metadata"
+        crossorigin="anonymous"
+    ></audio>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   VIX 94' ONLINE RADIO
+===================================================== */
+
+
+/*
+   =====================================================
+   YOUR CLOUDFLARE R2 MUSIC LIBRARY
+   =====================================================
+*/
+
+const MUSIC_BASE =
+    "https://pub-feb120eabdf4471980ef8f1331d8baab.r2.dev/afterhoursmusicmix/";
+
+
+const LIBRARY_URL =
+    MUSIC_BASE + "library.json";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const landing =
+    document.getElementById("landing");
+
+const enter =
+    document.getElementById("enter");
+
+const radio =
+    document.getElementById("radio");
+
+const cornerLogo =
+    document.getElementById("cornerLogo");
+
+const audio =
+    document.getElementById("audio");
+
+const artwork =
+    document.getElementById("artwork");
+
+const songTitle =
+    document.getElementById("songTitle");
+
+const songArtist =
+    document.getElementById("songArtist");
+
+const playButton =
+    document.getElementById("playButton");
+
+const previousButton =
+    document.getElementById("previousButton");
+
+const nextButton =
+    document.getElementById("nextButton");
+
+const progress =
+    document.getElementById("progress");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const currentTime =
+    document.getElementById("currentTime");
+
+const duration =
+    document.getElementById("duration");
+
+const volume =
+    document.getElementById("volume");
+
+const status =
+    document.getElementById("status");
+
+const loading =
+    document.getElementById("loading");
+
+
+/* =====================================================
+   MUSIC VARIABLES
+===================================================== */
+
+let musicFiles = [];
+
+let currentIndex = -1;
+
+let history = [];
+
+let libraryLoaded = false;
+
+
+/* =====================================================
+   ENTER
+===================================================== */
+
+enter.addEventListener(
+    "click",
+    async function() {
+
+
+        landing.classList.add(
+            "hidden"
+        );
+
+
+        cornerLogo.classList.add(
+            "visible"
+        );
+
+
+        radio.classList.add(
+            "active"
+        );
+
+
+        status.innerText =
+            "CONNECTING";
+
+
+        loading.classList.add(
+            "show"
+        );
+
+
+        try {
+
+            await loadLibrary();
+
+            status.innerText =
+                "LIVE";
+
+            loading.classList.remove(
+                "show"
+            );
+
+            playRandomSong();
+
+        }
+
+        catch(error) {
+
+            console.error(error);
+
+            status.innerText =
+                "ERROR";
+
+            loading.innerText =
+                "MUSIC LIBRARY ERROR";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOAD LIBRARY
+===================================================== */
+
+async function loadLibrary() {
+
+
+    if (
+        libraryLoaded
+    ) {
+
+        return;
+
+    }
+
+
+    const response =
+        await fetch(
+            LIBRARY_URL,
+            {
+                cache: "no-store"
+            }
+        );
+
+
+    if (
+        !response.ok
+    ) {
+
+        throw new Error(
+            "Could not load library.json"
+        );
+
+    }
+
+
+    const files =
+        await response.json();
+
+
+    if (
+        !Array.isArray(files)
+    ) {
+
+        throw new Error(
+            "library.json is not an array"
+        );
+
+    }
+
+
+    musicFiles =
+        files.filter(
+            function(file) {
+
+                return (
+                    typeof file ===
+                    "string"
+                );
+
+            }
+        );
+
+
+    if (
+        musicFiles.length === 0
+    ) {
+
+        throw new Error(
+            "No music files found"
+        );
+
+    }
+
+
+    libraryLoaded = true;
+
+}
+
+
+/* =====================================================
+   RANDOM SONG
+===================================================== */
+
+function playRandomSong() {
+
+
+    if (
+        musicFiles.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    let nextIndex;
+
+
+    /*
+       Prevent immediate repeat.
+    */
+
+    do {
+
+        nextIndex =
+            Math.floor(
+                Math.random() *
+                musicFiles.length
+            );
+
+    }
+
+    while (
+        musicFiles.length > 1 &&
+        nextIndex === currentIndex
+    );
+
+
+    if (
+        currentIndex >= 0
+    ) {
+
+        history.push(
+            currentIndex
+        );
+
+    }
+
+
+    currentIndex =
+        nextIndex;
+
+
+    loadSong(
+        currentIndex
+    );
+
+}
+
+
+/* =====================================================
+   LOAD SONG
+===================================================== */
+
+function loadSong(index) {
+
+
+    const filename =
+        musicFiles[index];
+
+
+    if (!filename) {
+
+        return;
+
+    }
+
+
+    /*
+       Properly encode spaces,
+       apostrophes and special
+       characters in filenames.
+    */
+
+    const songURL =
+        MUSIC_BASE +
+        filename
+            .split("/")
+            .map(
+                function(part) {
+
+                    return encodeURIComponent(
+                        part
+                    );
+
+                }
+            )
+            .join("/");
+
+
+    /*
+       Reset artwork.
+    */
+
+    artwork.src =
+        "vix94logo.png";
+
+
+   
+
+    songTitle.innerText =
+        cleanFilename(
+            filename
+        );
+
+
+    songArtist.innerText =
+        "VIX 94'";
+
+
+    /*
+       Set audio source.
+    */
+
+    audio.src =
+        songURL;
+
+
+    audio.load();
+
+
+    /*
+       Read remote metadata.
+    */
+
+    readMetadata(
+        songURL
+    );
+
+
+    /*
+       Start radio.
+    */
+
+    audio.play()
+        .then(
+            function() {
+
+                playButton.innerText =
+                    "PAUSE";
+
+                artwork.classList.add(
+                    "playing"
+                );
+
+            }
+        )
+        .catch(
+            function(error) {
+
+                console.log(
+                    "Autoplay waiting:",
+                    error
+                );
+
+                playButton.innerText =
+                    "PLAY";
+
+                artwork.classList.remove(
+                    "playing"
+                );
+
+            }
+        );
+
+}
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+previousButton.addEventListener(
+    "click",
+    function() {
+
+
+        if (
+            history.length === 0
+        ) {
+
+
+            if (
+                audio.src
+            ) {
+
+                audio.currentTime =
+                    0;
+
+                audio.play();
+
+            }
+
+            return;
+
+        }
+
+
+        currentIndex =
+            history.pop();
+
+
+        loadSong(
+            currentIndex
+        );
+
+    }
+);
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+nextButton.addEventListener(
+    "click",
+    function() {
+
+
+        if (
+            musicFiles.length === 0
+        ) {
+
+            return;
+
+        }
+
+
+        playRandomSong();
+
+    }
+);
+
+
+/* =====================================================
+   PLAY / PAUSE
+===================================================== */
+
+playButton.addEventListener(
+    "click",
+    function() {
+
+
+        if (
+            !audio.src
+        ) {
+
+            if (
+                musicFiles.length
+            ) {
+
+                playRandomSong();
+
+            }
+
+            return;
+
+        }
+
+
+        if (
+            audio.paused
+        ) {
+
+
+            audio.play()
+                .then(
+                    function() {
+
+                        playButton.innerText =
+                            "PAUSE";
+
+                        artwork.classList.add(
+                            "playing"
+                        );
+
+                    }
+                );
+
+
+        }
+
+        else {
+
+
+            audio.pause();
+
+
+            playButton.innerText =
+                "PLAY";
+
+
+            artwork.classList.remove(
+                "playing"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   AUTOMATIC NEXT SONG
+===================================================== */
+
+audio.addEventListener(
+    "ended",
+    function() {
+
+
+        artwork.classList.remove(
+            "playing"
+        );
+
+
+        playRandomSong();
+
+    }
+);
+
+
+/* =====================================================
+   METADATA
+===================================================== */
+
+function readMetadata(
+    songURL
+) {
+
+
+    if (
+        typeof jsmediatags ===
+        "undefined"
+    ) {
+
+        return;
+
+    }
+
+
+    jsmediatags.read(
+        songURL,
+        {
+
+
+            onSuccess:
+            function(result) {
+
+
+                const tags =
+                    result.tags;
+
+
+                /*
+                   TITLE
+                */
+
+                if (
+                    tags.title
+                ) {
+
+                    songTitle.innerText =
+                        tags.title;
+
+                }
+
+
+                /*
+                   ARTIST
+                */
+
+                if (
+                    tags.artist
+                ) {
+
+                    songArtist.innerText =
+                        tags.artist;
+
+                }
+
+
+                /*
+                   ALBUM ART
+                */
+
+                if (
+                    tags.picture
+                ) {
+
+
+                    const picture =
+                        tags.picture;
+
+
+                    let binary =
+                        "";
+
+
+                    for (
+                        let i = 0;
+                        i < picture.data.length;
+                        i++
+                    ) {
+
+
+                        binary +=
+                            String.fromCharCode(
+                                picture.data[i]
+                            );
+
+                    }
+
+
+                    const image =
+                        "data:" +
+                        picture.format +
+                        ";base64," +
+                        window.btoa(
+                            binary
+                        );
+
+
+                    artwork.src =
+                        image;
+
+                }
+
+            },
+
+
+            onError:
+            function(error) {
+
+                console.log(
+                    "Metadata unavailable:",
+                    error
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CLEAN FILENAME
+===================================================== */
+
+function cleanFilename(
+    filename
+) {
+
+
+    const name =
+        filename
+            .split("/")
+            .pop();
+
+
+    return name
+
+        .replace(
+            /\.[^/.]+$/,
+            ""
+        )
+
+        .replace(
+            /[_-]/g,
+            " "
+        );
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+progress.addEventListener(
+    "click",
+    function(event) {
+
+
+        if (
+            !audio.duration
+        ) {
+
+            return;
+
+        }
+
+
+        const rect =
+            progress.getBoundingClientRect();
+
+
+        const percentage =
+            (
+                event.clientX -
+                rect.left
+            ) /
+            rect.width;
+
+
+        audio.currentTime =
+            percentage *
+            audio.duration;
+
+    }
+);
+
+
+/* =====================================================
+   TIME
+===================================================== */
+
+audio.addEventListener(
+    "loadedmetadata",
+    function() {
+
+
+        duration.innerText =
+            formatTime(
+                audio.duration
+            );
+
+    }
+);
+
+
+audio.addEventListener(
+    "timeupdate",
+    function() {
+
+
+        currentTime.innerText =
+            formatTime(
+                audio.currentTime
+            );
+
+
+        if (
+            audio.duration
+        ) {
+
+
+            const percentage =
+                (
+                    audio.currentTime /
+                    audio.duration
+                ) * 100;
+
+
+            progressFill.style.width =
+                percentage + "%";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   VOLUME
+===================================================== */
+
+audio.volume =
+    0.8;
+
+
+volume.value =
+    0.8;
+
+
+volume.addEventListener(
+    "input",
+    function() {
+
+
+        audio.volume =
+            Number(
+                this.value
+            );
+
+    }
+);
+
+
+/* =====================================================
+   TIME FORMAT
+===================================================== */
+
+function formatTime(
+    seconds
+) {
+
+
+    if (
+        !seconds ||
+        isNaN(seconds)
+    ) {
+
+        return "0:00";
+
+    }
+
+
+    const minutes =
+        Math.floor(
+            seconds / 60
+        );
+
+
+    const secondsPart =
+        Math.floor(
+            seconds % 60
+        )
+        .toString()
+        .padStart(
+            2,
+            "0"
+        );
+
+
+    return (
+        minutes +
+        ":" +
+        secondsPart
+    );
+
+}
+
+
+/* =====================================================
+   AUDIO EVENTS
+===================================================== */
+
+audio.addEventListener(
+    "play",
+    function() {
+
+        playButton.innerText =
+            "PAUSE";
+
+        artwork.classList.add(
+            "playing"
+        );
+
+    }
+);
+
+
+audio.addEventListener(
+    "pause",
+    function() {
+
+        playButton.innerText =
+            "PLAY";
+
+        artwork.classList.remove(
+            "playing"
+        );
+
+    }
+);
+
+
+audio.addEventListener(
+    "error",
+    function() {
+
+        status.innerText =
+            "SONG ERROR";
+
+        console.log(
+            "Could not play:",
+            audio.src
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

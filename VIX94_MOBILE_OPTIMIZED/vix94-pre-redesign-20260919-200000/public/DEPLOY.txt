@@ -1,0 +1,6 @@
+VIX 94' CLEAN SUPPORT-PAGES RESTORE
+
+Use index.html as the main radio page.
+Upload all .html files plus vix94-site.css and vix94-site.js to the same website root.
+Keep your existing style.css, DISCOBG.jpg, vix94logo.png and vix94logobg.png.
+No VIX 94' TV page or TV menu link is included in this package.

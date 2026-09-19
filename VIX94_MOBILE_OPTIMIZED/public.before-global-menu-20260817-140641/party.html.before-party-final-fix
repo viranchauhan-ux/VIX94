@@ -1,0 +1,5329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<title>VIX 94' — Party Mode</title>
+<link rel="preload" as="image" href="/DISCOBG.jpg">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+/* ==========================================================
+   VIX 94' PARTY MODE — STANDALONE PAGE
+   Uses the production style.css for typography/base language.
+   It deliberately does NOT load index.html or its app scripts.
+========================================================== */
+
+html,body{
+    width:100%;
+    min-height:100%;
+    height:auto;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    background:#050505!important;
+    color:#fff!important;
+    font-family:Arial,Helvetica,sans-serif!important;
+}
+
+body{
+    min-height:100svh;
+    -webkit-text-size-adjust:100%;
+    -webkit-tap-highlight-color:transparent;
+}
+
+button,input{
+    font:inherit;
+}
+
+#partyPage{
+    position:relative;
+    width:100%;
+    min-height:100svh;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 16% 12%,rgba(255,255,255,.045),transparent 24%),
+        radial-gradient(circle at 84% 18%,rgba(255,255,255,.035),transparent 28%),
+        linear-gradient(180deg,rgba(255,255,255,.018),transparent 42%),
+        #050505;
+}
+
+#partyPage::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.055;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index:0;
+}
+
+#partyHeader{
+    position:relative;
+    z-index:20;
+    width:min(1180px,92vw);
+    margin:0 auto;
+    padding:max(24px,env(safe-area-inset-top)) 0 14px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:24px;
+}
+
+#partyBrand{
+    display:block;
+    color:#fff;
+    text-decoration:none;
+}
+
+#partyBrand img{
+    display:block;
+    width:clamp(105px,11vw,155px);
+    height:auto;
+}
+
+#partyBrand small{
+    display:block;
+    margin-top:8px;
+    color:rgba(255,255,255,.28);
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+}
+
+#partyConnection{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding-top:3px;
+    color:rgba(255,255,255,.30);
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+}
+
+#partyConnectionDot{
+    width:6px;
+    height:6px;
+    min-width:6px;
+    border-radius:50%;
+    background:#444;
+}
+
+#partyConnectionDot.connected{
+    background:#32d66b;
+    box-shadow:0 0 9px rgba(50,214,107,.9);
+    animation:partyDotPulse 1.3s ease-in-out infinite;
+}
+
+@keyframes partyDotPulse{
+    0%,100%{opacity:1}
+    50%{opacity:.35}
+}
+
+/* ---------- MAIN PAGE ---------- */
+
+#partyMain{
+    position:relative;
+    z-index:5;
+    width:min(1180px,92vw);
+    min-height:calc(100svh - 90px);
+    margin:0 auto;
+    padding:clamp(22px,5vw,62px) 0 72px;
+    display:grid;
+    grid-template-columns:minmax(0,1.02fr) minmax(330px,.98fr);
+    gap:clamp(40px,7vw,86px);
+    align-items:center;
+}
+
+#partyHero{
+    min-width:0;
+}
+
+.party-eyebrow{
+    color:rgba(255,255,255,.30);
+    font-size:8px;
+    font-weight:700;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+}
+
+#partyHeroTitle{
+    margin:14px 0 13px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:clamp(45px,7vw,92px);
+    line-height:.88;
+    font-weight:800;
+    letter-spacing:.10em;
+}
+
+#partyHeroCopy{
+    max-width:570px;
+    color:rgba(255,255,255,.42);
+    font-size:10px;
+    line-height:1.7;
+    letter-spacing:.06em;
+}
+
+#partyRule{
+    width:125px;
+    height:1px;
+    margin:26px 0 30px;
+    background:linear-gradient(90deg,rgba(255,255,255,.58),transparent);
+}
+
+/* ---------- ENTRY ---------- */
+
+#partyEntry{
+    width:min(470px,100%);
+}
+
+.party-label{
+    display:block;
+    margin-bottom:8px;
+    color:rgba(255,255,255,.30);
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.20em;
+    text-transform:uppercase;
+}
+
+.party-input{
+    width:100%;
+    height:48px;
+    padding:0 14px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:8px;
+    outline:none;
+    background:rgba(255,255,255,.025);
+    color:#fff;
+    font-size:9px;
+    letter-spacing:.05em;
+    transition:border-color .18s ease,background .18s ease,box-shadow .18s ease;
+}
+
+.party-input::placeholder{
+    color:rgba(255,255,255,.20);
+}
+
+.party-input:focus{
+    border-color:rgba(255,255,255,.38);
+    background:rgba(255,255,255,.045);
+    box-shadow:0 0 0 3px rgba(255,255,255,.025);
+}
+
+.party-entry-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    margin-top:10px;
+}
+
+.party-btn{
+    min-height:44px;
+    padding:0 15px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:8px;
+    background:rgba(255,255,255,.035);
+    color:rgba(255,255,255,.76);
+    cursor:pointer;
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    transition:transform .16s ease,border-color .16s ease,background .16s ease,color .16s ease;
+}
+
+.party-btn:hover{
+    transform:translateY(-1px);
+    border-color:rgba(255,255,255,.32);
+    background:rgba(255,255,255,.07);
+    color:#fff;
+}
+
+.party-btn.primary{
+    border-color:rgba(255,255,255,.45);
+    background:rgba(255,255,255,.085);
+    color:#fff;
+}
+
+.party-btn:active{
+    transform:translateY(1px);
+}
+
+.party-btn:disabled{
+    opacity:.25;
+    cursor:not-allowed;
+    transform:none;
+}
+
+#partyJoinForm{
+    display:none;
+    margin-top:12px;
+}
+
+#partyJoinForm.open{
+    display:block;
+}
+
+#partyError{
+    min-height:16px;
+    margin-top:9px;
+    color:#ffb9b9;
+    font-size:7px;
+    line-height:1.45;
+}
+
+#partyRole{
+    min-height:14px;
+    margin-top:4px;
+    color:rgba(255,255,255,.25);
+    font-size:7px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+/* ---------- LIVE WORKSPACE ---------- */
+
+#partyLive{
+    display:none;
+}
+
+#partyLive.active{
+    display:block;
+}
+
+#partyPlayer{
+    min-width:0;
+}
+
+.party-now{
+    color:rgba(255,255,255,.27);
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.20em;
+    text-transform:uppercase;
+}
+
+.party-track{
+    display:grid;
+    grid-template-columns:74px minmax(0,1fr);
+    gap:17px;
+    align-items:center;
+    margin-top:13px;
+}
+
+#partyArtwork{
+    width:74px;
+    height:74px;
+    display:block;
+    border-radius:50%;
+    object-fit:cover;
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 9px 30px rgba(0,0,0,.55),0 0 0 5px rgba(255,255,255,.025);
+    animation:partyDiscSpin 8s linear infinite;
+    animation-play-state:paused;
+}
+
+#partyArtwork.playing{
+    animation-play-state:running;
+}
+
+@keyframes partyDiscSpin{
+    to{transform:rotate(360deg)}
+}
+
+#partyTrackTitle{
+    min-width:0;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    font-size:clamp(18px,2.6vw,28px);
+    line-height:1.05;
+    font-weight:700;
+}
+
+#partyTrackArtist{
+    min-width:0;
+    margin-top:7px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    color:rgba(255,255,255,.38);
+    font-size:8px;
+    letter-spacing:.12em;
+}
+
+#partySync{
+    margin-top:9px;
+    color:rgba(255,255,255,.30);
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+#partyProgress{
+    width:100%;
+    height:5px;
+    margin-top:24px;
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    overflow:hidden;
+    cursor:pointer;
+}
+
+#partyProgressFill{
+    width:0%;
+    height:100%;
+    border-radius:inherit;
+    background:#fff;
+}
+
+#partyTimes{
+    display:flex;
+    justify-content:space-between;
+    margin-top:7px;
+    color:rgba(255,255,255,.24);
+    font-size:7px;
+    letter-spacing:.08em;
+}
+
+#partyHostControls{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:8px;
+    margin-top:18px;
+}
+
+#partyHostControls .party-btn{
+    min-height:40px;
+}
+
+#partyRoomTools{
+    margin-top:26px;
+    padding-top:18px;
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+.party-room-meta{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.party-room-label{
+    color:rgba(255,255,255,.25);
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+#partyRoomCode{
+    margin-top:7px;
+    font-size:clamp(25px,4vw,38px);
+    line-height:1;
+    font-weight:800;
+    letter-spacing:.18em;
+}
+
+.party-listeners{
+    text-align:right;
+}
+
+#partyListeners{
+    font-size:26px;
+    font-weight:700;
+    line-height:1;
+}
+
+.party-listeners span{
+    display:block;
+    margin-top:5px;
+    color:rgba(255,255,255,.24);
+    font-size:6px;
+    letter-spacing:.16em;
+}
+
+.party-tool-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-top:14px;
+}
+
+#partyLive.active .party-exit{
+    display:block!important;
+}
+
+.party-exit{
+    width:100%;
+    min-height:40px;
+    margin-top:9px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:8px;
+    background:transparent;
+    color:rgba(255,255,255,.38);
+    cursor:pointer;
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.party-exit:hover{
+    color:#fff;
+    border-color:rgba(255,255,255,.28);
+}
+
+/* ---------- CHAT ---------- */
+
+#partyChat{
+    min-width:0;
+    width:100%;
+    align-self:stretch;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-left:26px;
+    border-left:1px solid rgba(255,255,255,.07);
+}
+
+#partyChatHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:15px;
+    padding-bottom:14px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+#partyChatHeader strong{
+    display:block;
+    margin-top:6px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.06em;
+}
+
+#partyChatLive{
+    color:rgba(255,255,255,.25);
+    font-size:6px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+#partyMessages{
+    width:100%;
+    height:360px;
+    padding:15px 4px 12px 0;
+    overflow-y:auto;
+    overflow-x:hidden;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+}
+
+.party-empty{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    color:rgba(255,255,255,.20);
+    font-size:8px;
+    text-align:center;
+}
+
+.party-empty small{
+    margin-top:6px;
+    color:rgba(255,255,255,.12);
+    font-size:6px;
+}
+
+.party-message{
+    width:100%;
+    max-width:100%;
+    margin-bottom:12px;
+    color:rgba(255,255,255,.66);
+    font-size:8px;
+    line-height:1.55;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+}
+
+.party-message strong{
+    color:#fff;
+}
+
+#partyCompose{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:7px;
+    width:100%;
+}
+
+#partyChatInput{
+    min-width:0;
+}
+
+#partySend{
+    min-width:68px;
+}
+
+/* ---------- AUTOPLAY FALLBACK ---------- */
+
+#partyAudioPrompt{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:6000;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+#partyAudioPrompt.open{
+    display:flex;
+}
+
+#partyAudioCard{
+    width:min(360px,90vw);
+    padding:25px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:18px;
+    background:rgba(12,12,12,.94);
+    text-align:center;
+    box-shadow:0 25px 80px rgba(0,0,0,.65);
+}
+
+#partyAudioCard h2{
+    margin:0;
+    font-size:15px;
+    letter-spacing:.10em;
+}
+
+#partyAudioCard p{
+    margin:10px 0 18px;
+    color:rgba(255,255,255,.38);
+    font-size:8px;
+    line-height:1.55;
+}
+
+/* ---------- MENU ---------- */
+
+#vix94MenuButton{
+    position:fixed!important;
+    left:12px!important;
+    bottom:12px!important;
+    top:auto!important;
+    right:auto!important;
+    z-index:5000!important;
+    min-width:62px!important;
+    min-height:50px!important;
+    padding:11px 16px!important;
+    border:1px solid rgba(255,255,255,.18)!important;
+    border-radius:999px!important;
+    background:rgba(10,10,10,.72)!important;
+    color:rgba(255,255,255,.62)!important;
+    cursor:pointer!important;
+    font-size:8px!important;
+    font-weight:700!important;
+    letter-spacing:.18em!important;
+    box-shadow:0 8px 26px rgba(0,0,0,.28)!important;
+    transition:transform .18s ease,border-color .18s ease,color .18s ease!important;
+}
+
+#vix94MenuButton:hover{
+    color:#fff!important;
+    border-color:rgba(255,255,255,.36)!important;
+    transform:translateY(-1px)!important;
+}
+
+#vix94SiteMenu{
+    position:fixed!important;
+    inset:0!important;
+    z-index:4999!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:24px!important;
+    background:
+        radial-gradient(circle at 50% 42%,rgba(255,255,255,.07),transparent 28%),
+        rgba(0,0,0,.86)!important;
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    transition:opacity .2s ease,visibility .2s ease;
+}
+
+#vix94SiteMenu.open{
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+}
+
+#vix94SiteMenuPanel{
+    width:min(520px,92vw);
+    max-height:calc(100svh - 48px);
+    overflow:auto;
+    padding:28px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:24px;
+    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+    box-shadow:0 28px 90px rgba(0,0,0,.6);
+}
+
+#vix94SiteMenuEyebrow{
+    margin-bottom:8px;
+    color:rgba(255,255,255,.38);
+    font-size:9px;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+}
+
+#vix94SiteMenuTitle{
+    margin-bottom:20px;
+    color:#fff;
+    font-size:28px;
+    line-height:1.05;
+    letter-spacing:-.03em;
+}
+
+.vix94-style4-explore{
+    margin-bottom:-6px;
+    color:rgba(255,255,255,.34);
+    font-size:7px;
+    letter-spacing:.25em;
+}
+
+.vix94-style4-logo-link{
+    display:block;
+    width:max-content;
+    color:inherit;
+    text-decoration:none;
+    line-height:0;
+}
+
+.vix94-style4-logo-crop{
+    width:190px;
+    height:61px;
+    overflow:hidden;
+}
+
+.vix94-style4-logo{
+    display:block;
+    width:190px;
+    height:auto;
+}
+
+.vix94-style4-frequency{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-top:-9px;
+    color:rgba(255,255,255,.30);
+}
+
+.vix94-style4-frequency-word{
+    font-size:7px;
+    letter-spacing:.24em;
+}
+
+.vix94-wave{
+    width:38px;
+    height:10px;
+}
+
+.vix94-wave svg{
+    width:100%;
+    height:100%;
+    fill:none;
+    stroke:rgba(255,255,255,.38);
+    stroke-width:1.2;
+}
+
+#vix94SiteMenuLinks{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+#vix94SiteMenuLinks a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    min-height:52px;
+    padding:0 15px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;
+    background:rgba(255,255,255,.025);
+    color:rgba(255,255,255,.78);
+    text-decoration:none;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease;
+}
+
+#vix94SiteMenuLinks a:hover{
+    background:rgba(255,255,255,.07);
+    border-color:rgba(255,255,255,.24);
+    color:#fff;
+    transform:translateY(-1px);
+}
+
+#vix94SiteMenuClose{
+    width:100%;
+    margin-top:12px;
+    min-height:46px;
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;
+    background:transparent;
+    color:rgba(255,255,255,.5);
+    cursor:pointer;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+#vix94SiteMenuClose:hover{
+    color:#fff;
+    border-color:rgba(255,255,255,.28);
+}
+
+@media(max-width:900px){
+    #partyMain{
+        grid-template-columns:1fr;
+        min-height:auto;
+        padding-top:28px;
+        gap:44px;
+    }
+
+    #partyChat{
+        padding-left:0;
+        padding-top:26px;
+        border-left:0;
+        border-top:1px solid rgba(255,255,255,.07);
+    }
+
+    #partyMessages{
+        height:300px;
+    }
+}
+
+@media(max-width:600px){
+    #partyHeader{
+        width:92vw;
+        padding-top:max(18px,env(safe-area-inset-top));
+    }
+
+    #partyMain{
+        width:92vw;
+        padding:24px 0 72px;
+        gap:34px;
+    }
+
+    #partyHeroTitle{
+        font-size:clamp(38px,12vw,58px);
+    }
+
+    #partyEntryButtons{
+        grid-template-columns:1fr;
+    }
+
+    .party-track{
+        grid-template-columns:60px minmax(0,1fr);
+        gap:14px;
+    }
+
+    #partyArtwork{
+        width:60px;
+        height:60px;
+    }
+
+    #partyHostControls{
+        gap:6px;
+    }
+
+    #partyHostControls .party-btn{
+        padding:0 7px;
+        font-size:6.5px;
+    }
+
+    #partyRoomCode{
+        font-size:27px;
+    }
+
+    #partyMessages{
+        height:270px;
+    }
+
+    #vix94SiteMenu{
+        padding:14px!important;
+    }
+
+    #vix94SiteMenuPanel{
+        padding:22px;
+        border-radius:20px;
+    }
+
+    #vix94SiteMenuLinks{
+        grid-template-columns:1fr;
+    }
+
+    #vix94SiteMenuLinks a{
+        min-height:48px;
+    }
+
+    .vix94-style4-logo-crop{
+        width:150px;
+        height:49px;
+    }
+
+    .vix94-style4-logo{
+        width:150px;
+    }
+}
+</style>
+
+<style id="vix94-party-ux-final">
+/* ==========================================================
+   PARTY MODE UX FINAL
+   Host = full control/data view.
+   Participant = now playing + chat + exit only.
+========================================================== */
+
+#partyMain{
+    grid-template-columns:minmax(0,1fr) minmax(360px,.92fr)!important;
+    gap:0!important;
+    align-items:stretch!important;
+}
+
+#partyHero{
+    padding-right:clamp(24px,4vw,64px)!important;
+}
+
+#partyChat{
+    min-width:0!important;
+    width:100%!important;
+    min-height:420px!important;
+    padding-left:clamp(24px,4vw,58px)!important;
+    margin-left:0!important;
+    border-left:1px solid rgba(255,255,255,.12)!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:center!important;
+    overflow:hidden!important;
+}
+
+#partyMessages{
+    min-width:0!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain!important;
+    scrollbar-width:thin!important;
+}
+
+.party-message{
+    min-width:0!important;
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+    word-break:break-word!important;
+    white-space:normal!important;
+}
+
+#partyCompose{
+    min-width:0!important;
+    width:100%!important;
+}
+
+#partyChatInput{
+    min-width:0!important;
+    width:100%!important;
+}
+
+#partyLive.active{
+    display:block!important;
+}
+
+/* Participant: only now playing, chat, and exit remain.
+   Room code, share/copy, progress and playback controls are host-only. */
+.party-participant #partyProgress,
+.party-participant #partyTimes,
+.party-participant #partyHostControls,
+.party-participant #partyRoomTools{
+    display:none!important;
+}
+
+.party-participant #partyPlayer{
+    padding-bottom:0!important;
+}
+
+.party-participant #partyChat{
+    border-left-color:rgba(255,255,255,.12)!important;
+}
+
+/* A dedicated participant marker is applied by the script below. */
+body.party-is-participant #partyProgress,
+body.party-is-participant #partyTimes,
+body.party-is-participant #partyHostControls,
+body.party-is-participant #partyRoomTools{
+    display:none!important;
+}
+
+body.party-is-participant #partyExit{
+    display:block!important;
+}
+
+body.party-is-participant #partyHero{
+    padding-right:clamp(24px,4vw,64px)!important;
+}
+
+body.party-is-participant #partyLive{
+    display:block!important;
+}
+
+/* Host keeps the complete control panel. */
+body.party-is-host #partyHostControls,
+body.party-is-host #partyRoomTools{
+    display:grid!important;
+}
+
+body.party-is-host #partyProgress,
+body.party-is-host #partyTimes{
+    display:block!important;
+}
+
+/* Mobile: keep chat fully usable and create a clean horizontal divider. */
+@media(max-width:900px){
+    #partyMain{
+        display:block!important;
+        width:92vw!important;
+        padding-bottom:100px!important;
+    }
+
+    #partyHero{
+        padding-right:0!important;
+    }
+
+    #partyChat{
+        width:100%!important;
+        min-height:360px!important;
+        margin-top:34px!important;
+        padding:28px 0 0!important;
+        border-left:0!important;
+        border-top:1px solid rgba(255,255,255,.12)!important;
+        justify-content:flex-start!important;
+    }
+
+    #partyMessages{
+        height:260px!important;
+        min-height:220px!important;
+        max-height:42svh!important;
+    }
+
+    #partyCompose{
+        padding-bottom:max(8px,env(safe-area-inset-bottom))!important;
+    }
+}
+
+@media(max-width:600px){
+    #partyHeader{
+        width:92vw!important;
+    }
+
+    #partyMain{
+        width:92vw!important;
+        padding-top:18px!important;
+    }
+
+    #partyHeroTitle{
+        font-size:clamp(36px,12vw,58px)!important;
+    }
+
+    #partyTrackTitle{
+        font-size:18px!important;
+    }
+
+    #partyMessages{
+        height:250px!important;
+        max-height:45svh!important;
+    }
+
+    #partyCompose{
+        grid-template-columns:minmax(0,1fr) 72px!important;
+    }
+
+    #partySend{
+        min-width:0!important;
+    }
+}
+</style>
+
+<style id="vix94-party-radio-background">
+/* Same cinematic background as the VIX 94' radio player. */
+html,body{background:#050505!important}
+#partyPage{
+    isolation:isolate!important;
+    background:#050505!important;
+}
+#partyPage::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.58)),
+        url("/DISCOBG.jpg");
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    filter:grayscale(100%) contrast(1.04) brightness(.58);
+    transform:scale(1.025);
+}
+#partyPage::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+    background:
+        radial-gradient(ellipse at 50% 46%,rgba(255,255,255,.055),transparent 64%),
+        linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.06) 46%,rgba(0,0,0,.26));
+    opacity:.95;
+}
+#partyPage .party-bg-light{
+    position:fixed;
+    top:-10%;
+    bottom:-10%;
+    width:28vw;
+    max-width:330px;
+    min-width:100px;
+    z-index:-1;
+    pointer-events:none;
+    filter:blur(18px);
+    mix-blend-mode:screen;
+    opacity:.13;
+    will-change:transform,opacity;
+}
+#partyPage .party-bg-light.left{
+    left:-18vw;
+    background:radial-gradient(ellipse at 0% 50%,rgba(255,255,255,.92),rgba(255,255,255,.42) 20%,rgba(255,255,255,.10) 44%,transparent 76%);
+    animation:vixPartyBgLeft 7s ease-in-out infinite alternate;
+}
+#partyPage .party-bg-light.right{
+    right:-18vw;
+    background:radial-gradient(ellipse at 100% 50%,rgba(255,255,255,.92),rgba(255,255,255,.42) 20%,rgba(255,255,255,.10) 44%,transparent 76%);
+    animation:vixPartyBgRight 8s ease-in-out infinite alternate;
+}
+@keyframes vixPartyBgLeft{
+    from{transform:translateX(-2vw) skewX(-4deg);opacity:.07}
+    to{transform:translateX(3vw) skewX(-7deg);opacity:.18}
+}
+@keyframes vixPartyBgRight{
+    from{transform:translateX(2vw) skewX(4deg);opacity:.07}
+    to{transform:translateX(-3vw) skewX(7deg);opacity:.18}
+}
+@media(max-width:600px){
+    #partyPage::after{
+        background-position:center center;
+        filter:grayscale(100%) contrast(1.02) brightness(.52);
+    }
+    #partyPage .party-bg-light{
+        width:38vw;
+        filter:blur(14px);
+        opacity:.09;
+    }
+}
+</style>
+
+<style id="vix94-party-final-role-layout">
+/* Final Party Mode role separation */
+body.party-is-host #partyHostControls,
+body.party-is-host #partyRoomTools{
+    display:grid!important;
+}
+
+body.party-is-host #partyExit{
+    display:block!important;
+}
+
+body.party-is-participant #partyHostControls,
+body.party-is-participant #partyRoomTools,
+body.party-is-participant #partyProgress,
+body.party-is-participant #partyTimes{
+    display:none!important;
+}
+
+body.party-is-participant #partyExit{
+    display:block!important;
+}
+
+body.party-is-participant #partyLive .party-track{
+    margin-bottom:8px!important;
+}
+
+body.party-is-participant #partyLive{
+    padding-bottom:8px!important;
+}
+
+/* Keep chat independent of the player column and prevent overflow. */
+#partyChat,
+#partyMessages,
+#partyCompose,
+#partyChatInput{
+    min-width:0!important;
+    max-width:100%!important;
+    box-sizing:border-box!important;
+}
+
+#partyMessages{
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+}
+
+.party-message{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+    word-break:break-word!important;
+}
+
+/* Strong desktop divider. */
+@media(min-width:901px){
+    #partyChat{
+        border-left:1px solid rgba(255,255,255,.16)!important;
+    }
+}
+
+/* Mobile divider becomes horizontal. */
+@media(max-width:900px){
+    #partyChat{
+        border-left:0!important;
+        border-top:1px solid rgba(255,255,255,.16)!important;
+    }
+}
+</style>
+
+<style id="vix94-party-sync-mobile-final">
+/* Smooth mobile Party Mode: no horizontal overflow, stable touch targets,
+   chat and now-playing remain usable without shrinking the player. */
+html,body,#partyPage{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:hidden!important;
+}
+
+#partyMain{
+    width:min(1180px,92vw)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+}
+
+#partyTrackTitle,#partyTrackArtist,#partySync{
+    min-width:0!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+}
+
+#partyMessages{
+    overscroll-behavior:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+}
+
+#partyChatInput{
+    font-size:11px!important;
+}
+
+#partySend,
+#partyExit,
+#partyHostControls .party-btn,
+#partyToolRow .party-btn,
+#partyRoomTools .party-btn{
+    min-height:44px!important;
+}
+
+@media(max-width:900px){
+    #partyMain{
+        width:92vw!important;
+        display:block!important;
+        padding-top:20px!important;
+    }
+
+    #partyChat{
+        width:100%!important;
+        margin-top:30px!important;
+        padding:26px 0 max(18px,env(safe-area-inset-bottom))!important;
+        border-left:0!important;
+        border-top:1px solid rgba(255,255,255,.14)!important;
+    }
+
+    #partyMessages{
+        width:100%!important;
+        height:clamp(220px,38svh,320px)!important;
+        max-height:none!important;
+    }
+
+    #partyCompose{
+        grid-template-columns:minmax(0,1fr) 78px!important;
+        align-items:stretch!important;
+    }
+
+    #partyChatInput{
+        height:46px!important;
+        min-height:46px!important;
+    }
+
+    #partySend{
+        min-height:46px!important;
+        height:46px!important;
+    }
+}
+
+@media(max-width:600px){
+    #partyHeader{
+        width:92vw!important;
+    }
+
+    #partyMain{
+        width:92vw!important;
+        padding-bottom:105px!important;
+    }
+
+    #partyHeroTitle{
+        font-size:clamp(36px,12vw,56px)!important;
+        letter-spacing:.07em!important;
+    }
+
+    #partyHeroCopy{
+        font-size:9px!important;
+    }
+
+    #partyEntryButtons{
+        grid-template-columns:1fr!important;
+    }
+
+    .party-entry-buttons{
+        grid-template-columns:1fr!important;
+    }
+
+    #partyTrack{
+        grid-template-columns:58px minmax(0,1fr)!important;
+    }
+
+    #partyArtwork{
+        width:58px!important;
+        height:58px!important;
+    }
+
+    #partyTrackTitle{
+        font-size:17px!important;
+    }
+
+    #partyTrackArtist{
+        font-size:7px!important;
+    }
+
+    #partyRoomCode{
+        font-size:25px!important;
+    }
+
+    #partyHostControls{
+        grid-template-columns:1fr 1.12fr 1fr!important;
+        gap:6px!important;
+    }
+
+    #partyHostControls .party-btn{
+        padding-left:4px!important;
+        padding-right:4px!important;
+        font-size:6.5px!important;
+        letter-spacing:.08em!important;
+    }
+
+    #partyMessages{
+        height:260px!important;
+    }
+
+    #partyCompose{
+        grid-template-columns:minmax(0,1fr) 74px!important;
+    }
+
+    #partyAudioCard{
+        width:min(330px,88vw)!important;
+    }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+
+<style id="vix94-party-final-responsive-layout">
+
+/* ==========================================================
+   VIX 94' PARTY MODE — FINAL RESPONSIVE LAYOUT
+   Visual/UI layer only.
+   Existing audio + synchronization logic remains untouched.
+   ========================================================== */
+
+/* ---------- PAGE ---------- */
+
+#partyPage{
+    width:100% !important;
+    min-height:100dvh !important;
+    overflow:hidden !important;
+}
+
+#partyMain{
+    width:min(92vw,1400px) !important;
+    min-height:calc(100dvh - 100px) !important;
+    margin:0 auto !important;
+    padding:26px 0 82px !important;
+
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+    gap:0 !important;
+
+    box-sizing:border-box !important;
+}
+
+/* ---------- LEFT / PARTY CONTROLS ---------- */
+
+#partyHero{
+    min-width:0 !important;
+    padding-right:clamp(28px,4vw,70px) !important;
+    box-sizing:border-box !important;
+}
+
+/* ---------- RIGHT / CHAT ---------- */
+
+#partyChat{
+    min-width:0 !important;
+    width:100% !important;
+    height:100% !important;
+
+    padding-left:clamp(28px,4vw,70px) !important;
+    border-left:1px solid rgba(255,255,255,.14) !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+
+    box-sizing:border-box !important;
+}
+
+/* ---------- COMPACT NOW PLAYING ---------- */
+
+.party-track{
+    grid-template-columns:50px minmax(0,1fr) !important;
+    gap:12px !important;
+    margin-top:9px !important;
+}
+
+#partyArtwork{
+    width:50px !important;
+    height:50px !important;
+}
+
+#partyTrackTitle{
+    font-size:clamp(15px,1.8vw,21px) !important;
+}
+
+#partyTrackArtist{
+    margin-top:4px !important;
+    font-size:7px !important;
+}
+
+#partySync{
+    margin-top:5px !important;
+    font-size:6px !important;
+}
+
+/* Make the playback area visually compact. */
+
+#partyProgress{
+    margin-top:12px !important;
+    height:4px !important;
+}
+
+#partyTimes{
+    margin-top:5px !important;
+}
+
+/* ---------- CREATOR ---------- */
+
+body.party-is-host #partyHostControls,
+body.party-is-host #partyRoomTools{
+    display:block !important;
+}
+
+body.party-is-host #partyHostControls{
+    display:grid !important;
+}
+
+body.party-is-host #partyRoomTools{
+    display:block !important;
+}
+
+body.party-is-host #partyCreatorChat{
+    display:block !important;
+    width:100% !important;
+    margin-top:10px !important;
+}
+
+/* Creator chat is hidden until requested. */
+
+body.party-is-host #partyChat{
+    display:none !important;
+}
+
+body.party-is-host.party-chat-open #partyChat{
+    display:flex !important;
+
+    position:fixed !important;
+    top:0 !important;
+    right:0 !important;
+    width:min(50vw,700px) !important;
+    height:100dvh !important;
+
+    z-index:4000 !important;
+
+    padding:90px 32px 32px !important;
+
+    background:rgba(5,5,5,.98) !important;
+    border-left:1px solid rgba(255,255,255,.16) !important;
+
+    box-shadow:-30px 0 90px rgba(0,0,0,.65) !important;
+}
+
+/* ---------- PARTICIPANT ---------- */
+
+body.party-is-participant #partyHostControls,
+body.party-is-participant #partyRoomTools,
+body.party-is-participant #partyProgress,
+body.party-is-participant #partyTimes{
+    display:none !important;
+}
+
+body.party-is-participant #partyChat{
+    display:flex !important;
+}
+
+/* Participant does not need creator chat button. */
+
+body.party-is-participant #partyCreatorChat{
+    display:none !important;
+}
+
+/* ---------- LISTENER STATUS ---------- */
+
+#partyConnection{
+    position:absolute !important;
+    top:20px !important;
+    right:clamp(18px,3vw,42px) !important;
+    z-index:100 !important;
+}
+
+/* ---------- CHAT ---------- */
+
+#partyMessages{
+    width:100% !important;
+    height:min(52vh,520px) !important;
+    min-height:160px !important;
+}
+
+#partyCompose{
+    width:100% !important;
+}
+
+/* ---------- MENU ---------- */
+
+#vix94MenuButton{
+    position:fixed !important;
+
+    left:12px !important;
+    bottom:12px !important;
+    top:auto !important;
+    right:auto !important;
+
+    min-width:72px !important;
+    min-height:42px !important;
+
+    padding:9px 19px !important;
+
+    border-radius:999px !important;
+
+    z-index:5000 !important;
+}
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media(max-width:900px){
+
+    #partyPage{
+        height:100svh !important;
+        min-height:100svh !important;
+        overflow:hidden !important;
+    }
+
+    #partyMain{
+        width:92vw !important;
+        min-height:calc(100svh - 100px) !important;
+
+        display:block !important;
+
+        padding:20px 0 88px !important;
+    }
+
+    #partyHero{
+        padding-right:0 !important;
+    }
+
+    /* Participant chat is always visible below player. */
+
+    body.party-is-participant #partyChat{
+        position:relative !important;
+
+        width:100% !important;
+        height:auto !important;
+
+        margin-top:22px !important;
+        padding:20px 0 0 !important;
+
+        border-left:0 !important;
+        border-top:1px solid rgba(255,255,255,.14) !important;
+    }
+
+    /* Creator chat becomes full-screen when opened. */
+
+    body.party-is-host.party-chat-open #partyChat{
+        position:fixed !important;
+        inset:0 !important;
+
+        width:100% !important;
+        height:100svh !important;
+
+        padding:
+            max(76px,env(safe-area-inset-top) + 58px)
+            20px
+            max(82px,env(safe-area-inset-bottom) + 30px)
+            20px !important;
+
+        background:rgba(5,5,5,.98) !important;
+        border:0 !important;
+
+        z-index:4000 !important;
+    }
+
+    #partyMessages{
+        height:calc(100svh - 300px) !important;
+        min-height:180px !important;
+    }
+
+    #partyCompose{
+        grid-template-columns:minmax(0,1fr) 76px !important;
+        gap:7px !important;
+    }
+
+    #partyChatInput{
+        height:46px !important;
+        min-height:46px !important;
+        font-size:11px !important;
+    }
+
+    #partySend{
+        height:46px !important;
+        min-height:46px !important;
+    }
+
+    /* Compact mobile player. */
+
+    .party-track{
+        grid-template-columns:44px minmax(0,1fr) !important;
+        gap:10px !important;
+        margin-top:8px !important;
+    }
+
+    #partyArtwork{
+        width:44px !important;
+        height:44px !important;
+    }
+
+    #partyTrackTitle{
+        font-size:15px !important;
+    }
+
+    #partyTrackArtist{
+        font-size:6.5px !important;
+        margin-top:3px !important;
+    }
+
+    #partySync{
+        font-size:6px !important;
+    }
+
+    #partyHostControls{
+        margin-top:12px !important;
+        gap:6px !important;
+    }
+
+    #partyHostControls .party-btn{
+        min-height:40px !important;
+    }
+
+    #partyRoomTools{
+        margin-top:15px !important;
+        padding-top:13px !important;
+    }
+
+    #partyConnection{
+        top:max(16px,env(safe-area-inset-top)) !important;
+        right:16px !important;
+    }
+
+    #vix94MenuButton{
+        left:14px !important;
+        bottom:max(14px,env(safe-area-inset-bottom) + 8px) !important;
+    }
+}
+
+/* ---------- SHORT MOBILE ---------- */
+
+@media(max-width:600px) and (max-height:700px){
+
+    #partyMain{
+        padding-top:14px !important;
+    }
+
+    #partyHeroTitle{
+        font-size:clamp(32px,10vw,46px) !important;
+    }
+
+    .party-track{
+        grid-template-columns:40px minmax(0,1fr) !important;
+    }
+
+    #partyArtwork{
+        width:40px !important;
+        height:40px !important;
+    }
+
+    #partyHostControls .party-btn{
+        min-height:36px !important;
+    }
+
+    #partyMessages{
+        height:calc(100svh - 270px) !important;
+    }
+}
+
+</style>
+
+
+
+
+
+<style id="vix94-party-chat-final-fit">
+
+/* ==========================================================
+   VIX 94' PARTY MODE — FINAL CHAT / FIT FIX
+   ========================================================== */
+
+/* Keep the live workspace inside the viewport. */
+#partyPage{
+    width:100%!important;
+    min-height:100dvh!important;
+    overflow:hidden!important;
+}
+
+#partyMain{
+    width:min(92vw,1400px)!important;
+    min-height:calc(100dvh - 100px)!important;
+    max-height:calc(100dvh - 100px)!important;
+    margin:0 auto!important;
+    box-sizing:border-box!important;
+}
+
+/* ----------------------------------------------------------
+   CREATOR CONTROLS
+   ---------------------------------------------------------- */
+
+body.party-is-host #partyCreatorChat{
+    display:block!important;
+    width:100%!important;
+    margin-top:9px!important;
+}
+
+body.party-is-host #partyExit{
+    display:block!important;
+    width:100%!important;
+    margin-top:9px!important;
+}
+
+/* OPEN CHAT must sit ABOVE EXIT PARTY MODE. */
+body.party-is-host #partyCreatorChat + #partyExit{
+    margin-top:9px!important;
+}
+
+/* ----------------------------------------------------------
+   CHAT
+   ---------------------------------------------------------- */
+
+#partyChat{
+    min-width:0!important;
+    width:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    box-sizing:border-box!important;
+}
+
+#partyChatHeader strong{
+    font-size:14px!important;
+    line-height:1.2!important;
+}
+
+#partyChatLive{
+    font-size:8px!important;
+}
+
+#partyMessages{
+    min-height:0!important;
+    max-height:none!important;
+    height:clamp(260px,42vh,520px)!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    padding:18px 8px 16px 0!important;
+    box-sizing:border-box!important;
+}
+
+.party-message{
+    font-size:11px!important;
+    line-height:1.6!important;
+    margin-bottom:15px!important;
+}
+
+.party-message strong{
+    font-size:11px!important;
+}
+
+#partyChatInput{
+    height:48px!important;
+    min-height:48px!important;
+    font-size:12px!important;
+}
+
+#partySend{
+    min-height:48px!important;
+    height:48px!important;
+}
+
+/* ----------------------------------------------------------
+   DESKTOP / MAC
+   ---------------------------------------------------------- */
+
+@media(min-width:901px){
+
+    #partyMain{
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+        gap:0!important;
+        padding-top:20px!important;
+        padding-bottom:70px!important;
+    }
+
+    #partyHero{
+        min-height:0!important;
+        max-height:100%!important;
+        overflow-y:auto!important;
+        overflow-x:hidden!important;
+        padding-right:clamp(28px,4vw,60px)!important;
+        box-sizing:border-box!important;
+        scrollbar-width:thin;
+    }
+
+    #partyChat{
+        min-height:0!important;
+        max-height:100%!important;
+        padding-left:clamp(28px,4vw,60px)!important;
+        border-left:1px solid rgba(255,255,255,.14)!important;
+        justify-content:flex-start!important;
+        padding-top:70px!important;
+    }
+
+    #partyChat #partyMessages{
+        flex:1 1 auto!important;
+    }
+}
+
+/* ----------------------------------------------------------
+   TABLET / MOBILE
+   ---------------------------------------------------------- */
+
+@media(max-width:900px){
+
+    #partyPage{
+        overflow-y:auto!important;
+        overflow-x:hidden!important;
+    }
+
+    #partyMain{
+        width:92vw!important;
+        min-height:auto!important;
+        max-height:none!important;
+        display:block!important;
+        padding-top:20px!important;
+        padding-bottom:105px!important;
+    }
+
+    #partyHero{
+        width:100%!important;
+        max-height:none!important;
+        overflow:visible!important;
+        padding-right:0!important;
+    }
+
+    #partyChat{
+        width:100%!important;
+        min-height:420px!important;
+        max-height:none!important;
+        margin-top:34px!important;
+        padding:28px 0 max(24px,env(safe-area-inset-bottom))!important;
+        border-left:0!important;
+        border-top:1px solid rgba(255,255,255,.14)!important;
+        justify-content:flex-start!important;
+    }
+
+    #partyMessages{
+        height:clamp(260px,42svh,420px)!important;
+        max-height:420px!important;
+    }
+}
+
+/* ----------------------------------------------------------
+   SMALL MOBILE
+   ---------------------------------------------------------- */
+
+@media(max-width:600px){
+
+    #partyMain{
+        width:92vw!important;
+    }
+
+    #partyChatHeader strong{
+        font-size:13px!important;
+    }
+
+    #partyMessages{
+        height:300px!important;
+    }
+
+    .party-message{
+        font-size:11px!important;
+        line-height:1.55!important;
+    }
+
+    #partyChatInput{
+        font-size:12px!important;
+    }
+
+    #partySend{
+        min-width:72px!important;
+    }
+}
+
+</style>
+
+
+<style id="vix94-party-reference-style">
+
+/* ==========================================================
+   VIX 94' PARTY MODE — REFERENCE VISUAL SYSTEM
+   UI ONLY — AUDIO / SYNC LOGIC UNTOUCHED
+   ========================================================== */
+
+/* ---------- GLOBAL ---------- */
+
+#partyPage{
+    background:#050505!important;
+    color:#f5f5f5!important;
+    font-family:Arial,Helvetica,sans-serif!important;
+}
+
+#partyMain{
+    background:transparent!important;
+}
+
+/* ---------- LEFT / RIGHT DIVISION ---------- */
+
+@media(min-width:901px){
+
+    #partyHero{
+        border-right:0!important;
+    }
+
+    #partyChat{
+        border-left:1px solid rgba(255,255,255,.14)!important;
+        background:rgba(0,0,0,.18)!important;
+    }
+}
+
+/* ---------- HEADINGS ---------- */
+
+#partyHeroTitle{
+    color:#fff!important;
+    font-weight:800!important;
+    letter-spacing:.055em!important;
+}
+
+#partyHeroCopy{
+    color:rgba(255,255,255,.66)!important;
+    font-size:13px!important;
+    letter-spacing:.01em!important;
+}
+
+.party-eyebrow{
+    color:rgba(255,255,255,.42)!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+}
+
+/* ---------- NOW PLAYING ---------- */
+
+.party-now{
+    color:rgba(255,255,255,.48)!important;
+    font-size:10px!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+}
+
+#partyTrackTitle{
+    color:#fff!important;
+    font-size:23px!important;
+    font-weight:700!important;
+}
+
+#partyTrackArtist{
+    color:rgba(255,255,255,.52)!important;
+    font-size:10px!important;
+    letter-spacing:.10em!important;
+}
+
+#partySync{
+    color:rgba(255,255,255,.38)!important;
+    font-size:9px!important;
+    letter-spacing:.12em!important;
+}
+
+/* ---------- PROGRESS ---------- */
+
+#partyProgress{
+    height:5px!important;
+    margin-top:17px!important;
+    background:rgba(255,255,255,.16)!important;
+    border-radius:999px!important;
+}
+
+#partyProgressFill{
+    background:#fff!important;
+}
+
+/* ---------- PLAYER BUTTONS ---------- */
+
+#partyHostControls{
+    gap:10px!important;
+    margin-top:17px!important;
+}
+
+#partyHostControls .party-btn{
+    min-height:58px!important;
+}
+
+/* ---------- ALL PARTY BUTTONS ---------- */
+
+.party-btn{
+    min-height:50px!important;
+    border:1px solid rgba(255,255,255,.22)!important;
+    border-radius:11px!important;
+    background:rgba(255,255,255,.025)!important;
+    color:#fff!important;
+
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:10px!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+    text-transform:uppercase!important;
+
+    box-shadow:none!important;
+    transition:
+        background .18s ease,
+        border-color .18s ease,
+        color .18s ease,
+        transform .18s ease!important;
+}
+
+.party-btn:hover{
+    background:rgba(255,255,255,.08)!important;
+    border-color:rgba(255,255,255,.42)!important;
+    color:#fff!important;
+}
+
+.party-btn:active{
+    transform:scale(.985)!important;
+}
+
+/* Primary / PLAY */
+
+.party-btn.primary{
+    background:rgba(255,255,255,.18)!important;
+    border-color:rgba(255,255,255,.30)!important;
+    color:#fff!important;
+}
+
+.party-btn.primary:hover{
+    background:rgba(255,255,255,.25)!important;
+}
+
+/* ---------- PARTY CODE ---------- */
+
+.party-room-label{
+    color:rgba(255,255,255,.42)!important;
+    font-size:10px!important;
+    letter-spacing:.16em!important;
+}
+
+#partyRoomCode{
+    color:#fff!important;
+    font-size:35px!important;
+    font-weight:800!important;
+    letter-spacing:.17em!important;
+}
+
+#partyListeners{
+    color:#fff!important;
+    font-size:28px!important;
+    font-weight:700!important;
+}
+
+.party-listeners span{
+    color:rgba(255,255,255,.40)!important;
+    font-size:8px!important;
+    letter-spacing:.14em!important;
+}
+
+/* ---------- OPEN CHAT ---------- */
+
+body.party-is-host #partyCreatorChat{
+    display:block!important;
+    width:100%!important;
+    min-height:58px!important;
+
+    margin-top:9px!important;
+
+    border:1px solid #159cff!important;
+    border-radius:11px!important;
+
+    background:rgba(0,120,255,.025)!important;
+    color:#fff!important;
+
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:11px!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+
+    box-shadow:
+        0 0 0 1px rgba(21,156,255,.04),
+        0 0 24px rgba(21,156,255,.05)!important;
+}
+
+body.party-is-host #partyCreatorChat:hover{
+    background:rgba(21,156,255,.10)!important;
+    border-color:#36adff!important;
+    color:#fff!important;
+}
+
+/* ---------- EXIT ---------- */
+
+body.party-is-host #partyExit{
+    display:block!important;
+    width:100%!important;
+    min-height:58px!important;
+
+    margin-top:10px!important;
+
+    border:1px solid #e01818!important;
+    border-radius:11px!important;
+
+    background:rgba(180,0,0,.025)!important;
+    color:#ff2424!important;
+
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:11px!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+}
+
+body.party-is-host #partyExit:hover{
+    background:rgba(220,0,0,.10)!important;
+    border-color:#ff3030!important;
+    color:#ff3030!important;
+}
+
+/* ---------- CHAT ---------- */
+
+#partyChat{
+    background:rgba(0,0,0,.20)!important;
+}
+
+#partyChatHeader{
+    border-bottom:1px solid rgba(255,255,255,.13)!important;
+    padding-bottom:17px!important;
+}
+
+#partyChatHeader .party-eyebrow{
+    color:rgba(255,255,255,.43)!important;
+    font-size:10px!important;
+}
+
+#partyChatHeader strong{
+    color:#fff!important;
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:22px!important;
+    font-weight:800!important;
+    letter-spacing:.01em!important;
+}
+
+#partyChatLive{
+    color:#19e875!important;
+    font-size:10px!important;
+    font-weight:700!important;
+    letter-spacing:.12em!important;
+}
+
+/* ---------- CHAT MESSAGES ---------- */
+
+#partyMessages{
+    background:transparent!important;
+    scrollbar-width:thin!important;
+}
+
+.party-message{
+    color:rgba(255,255,255,.92)!important;
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:19px!important;
+    line-height:1.45!important;
+    letter-spacing:0!important;
+
+    padding:3px 0 18px!important;
+    margin-bottom:13px!important;
+
+    border-bottom:1px solid rgba(255,255,255,.10)!important;
+}
+
+.party-message strong{
+    color:#fff!important;
+    font-size:19px!important;
+    font-weight:800!important;
+}
+
+/* Username / YOU accent */
+.party-message strong:first-child{
+    color:#2196ff!important;
+}
+
+/* ---------- CHAT INPUT ---------- */
+
+#partyCompose{
+    margin-top:12px!important;
+}
+
+#partyChatInput{
+    height:58px!important;
+    min-height:58px!important;
+
+    padding:0 20px!important;
+
+    border:1px solid rgba(255,255,255,.18)!important;
+    border-radius:11px!important;
+
+    background:rgba(8,8,8,.88)!important;
+    color:#fff!important;
+
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:16px!important;
+    font-weight:500!important;
+    letter-spacing:.01em!important;
+
+    outline:none!important;
+}
+
+#partyChatInput::placeholder{
+    color:rgba(255,255,255,.38)!important;
+}
+
+#partyChatInput:focus{
+    border-color:rgba(255,255,255,.42)!important;
+    background:#090909!important;
+}
+
+/* SEND */
+
+#partySend{
+    min-width:94px!important;
+    height:58px!important;
+    min-height:58px!important;
+
+    border:1px solid rgba(255,255,255,.18)!important;
+    border-radius:11px!important;
+
+    background:rgba(255,255,255,.025)!important;
+    color:#fff!important;
+
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:10px!important;
+    font-weight:700!important;
+    letter-spacing:.15em!important;
+}
+
+#partySend:hover{
+    background:rgba(255,255,255,.08)!important;
+    border-color:rgba(255,255,255,.38)!important;
+}
+
+/* ---------- CHAT EMPTY STATE ---------- */
+
+.party-empty{
+    color:rgba(255,255,255,.32)!important;
+    font-size:11px!important;
+}
+
+.party-empty small{
+    color:rgba(255,255,255,.20)!important;
+    font-size:9px!important;
+}
+
+/* ---------- CONNECTION ---------- */
+
+#partyConnection{
+    color:rgba(255,255,255,.48)!important;
+    font-size:9px!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+}
+
+#partyConnectionDot.connected{
+    background:#19e875!important;
+    box-shadow:0 0 10px rgba(25,232,117,.55)!important;
+}
+
+/* ---------- MENU ---------- */
+
+#vix94MenuButton{
+    min-width:145px!important;
+    min-height:50px!important;
+
+    padding:0 22px!important;
+
+    border:1px solid rgba(255,255,255,.20)!important;
+    border-radius:999px!important;
+
+    background:rgba(5,5,5,.72)!important;
+    color:#fff!important;
+
+    font-family:Arial,Helvetica,sans-serif!important;
+    font-size:10px!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+
+    backdrop-filter:blur(12px)!important;
+    -webkit-backdrop-filter:blur(12px)!important;
+}
+
+#vix94MenuButton:hover{
+    background:rgba(255,255,255,.08)!important;
+    border-color:rgba(255,255,255,.36)!important;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:900px){
+
+    #partyMain{
+        width:92vw!important;
+    }
+
+    #partyChat{
+        border-top:1px solid rgba(255,255,255,.14)!important;
+    }
+
+    #partyChatHeader strong{
+        font-size:18px!important;
+    }
+
+    .party-message{
+        font-size:16px!important;
+        line-height:1.5!important;
+    }
+
+    .party-message strong{
+        font-size:16px!important;
+    }
+
+    #partyChatInput{
+        font-size:14px!important;
+    }
+}
+
+@media(max-width:600px){
+
+    #partyHeroTitle{
+        font-size:clamp(38px,12vw,58px)!important;
+    }
+
+    #partyTrackTitle{
+        font-size:20px!important;
+    }
+
+    #partyRoomCode{
+        font-size:29px!important;
+    }
+
+    #partyChatHeader strong{
+        font-size:17px!important;
+    }
+
+    .party-message{
+        font-size:15px!important;
+    }
+
+    .party-message strong{
+        font-size:15px!important;
+    }
+
+    #partyChatInput{
+        height:52px!important;
+        min-height:52px!important;
+        font-size:14px!important;
+    }
+
+    #partySend{
+        height:52px!important;
+        min-height:52px!important;
+        min-width:76px!important;
+    }
+
+    #vix94MenuButton{
+        min-width:118px!important;
+        min-height:48px!important;
+    }
+}
+
+</style>
+
+
+<style id="vix94-party-exit-chat-final-fix">
+
+/* ==========================================================
+   VIX 94' PARTY MODE — EXIT + CHAT FINAL FIX
+   ========================================================== */
+
+/* Keep the complete creator workspace inside the viewport. */
+@media(min-width:901px){
+
+    #partyMain{
+        height:calc(100dvh - 70px)!important;
+        min-height:0!important;
+        max-height:calc(100dvh - 70px)!important;
+        overflow:hidden!important;
+        padding-top:20px!important;
+        padding-bottom:76px!important;
+    }
+
+    /* Left creator column can scroll internally only if a very
+       small viewport makes it absolutely necessary. */
+    body.party-is-host #partyHero{
+        height:100%!important;
+        max-height:100%!important;
+        overflow-y:auto!important;
+        overflow-x:hidden!important;
+        padding-right:clamp(24px,3vw,52px)!important;
+        padding-bottom:18px!important;
+        scrollbar-width:thin;
+    }
+
+    /* Tighten vertical rhythm so controls fit naturally. */
+    body.party-is-host #partyHeroTitle{
+        margin-bottom:8px!important;
+    }
+
+    body.party-is-host #partyHeroCopy{
+        margin-bottom:12px!important;
+    }
+
+    body.party-is-host #partyLive{
+        margin-top:12px!important;
+    }
+
+    body.party-is-host .party-track{
+        margin-top:9px!important;
+    }
+
+    body.party-is-host #partyProgress{
+        margin-top:14px!important;
+    }
+
+    body.party-is-host #partyHostControls{
+        margin-top:12px!important;
+    }
+
+    body.party-is-host #partyRoomTools{
+        margin-top:16px!important;
+        padding-top:12px!important;
+    }
+
+    /* OPEN CHAT must sit directly above EXIT. */
+    body.party-is-host #partyCreatorChat{
+        display:flex!important;
+        order:20!important;
+        width:100%!important;
+        min-height:44px!important;
+        margin-top:9px!important;
+        margin-bottom:0!important;
+    }
+
+    body.party-is-host #partyExit{
+        display:block!important;
+        order:21!important;
+        width:100%!important;
+        min-height:44px!important;
+        margin-top:9px!important;
+        margin-bottom:4px!important;
+    }
+}
+
+/* Slightly smaller desktop/Mac spacing. */
+@media(min-width:901px) and (max-height:850px){
+
+    #partyMain{
+        padding-top:12px!important;
+    }
+
+    body.party-is-host #partyHeroTitle{
+        font-size:clamp(48px,5vw,76px)!important;
+        line-height:.92!important;
+    }
+
+    body.party-is-host .party-track{
+        margin-top:6px!important;
+    }
+
+    body.party-is-host #partyArtwork{
+        width:54px!important;
+        height:54px!important;
+    }
+
+    body.party-is-host #partyProgress{
+        margin-top:10px!important;
+    }
+
+    body.party-is-host #partyHostControls{
+        margin-top:9px!important;
+    }
+
+    body.party-is-host #partyRoomTools{
+        margin-top:11px!important;
+        padding-top:9px!important;
+    }
+
+    body.party-is-host #partyCreatorChat,
+    body.party-is-host #partyExit{
+        min-height:40px!important;
+    }
+}
+
+/* Mobile: allow the entire left workspace to breathe while keeping
+   OPEN CHAT and EXIT accessible. */
+@media(max-width:900px){
+
+    #partyPage{
+        overflow-x:hidden!important;
+        overflow-y:auto!important;
+    }
+
+    #partyMain{
+        height:auto!important;
+        min-height:100dvh!important;
+        max-height:none!important;
+        overflow:visible!important;
+        padding-bottom:110px!important;
+    }
+
+    body.party-is-host #partyHero{
+        height:auto!important;
+        max-height:none!important;
+        overflow:visible!important;
+        padding-right:0!important;
+        padding-bottom:12px!important;
+    }
+
+    body.party-is-host #partyCreatorChat{
+        display:flex!important;
+        width:100%!important;
+        min-height:46px!important;
+        margin-top:9px!important;
+    }
+
+    body.party-is-host #partyExit{
+        display:block!important;
+        width:100%!important;
+        min-height:46px!important;
+        margin-top:9px!important;
+    }
+}
+
+/* Make chat typography closer to the reference and more readable. */
+#partyChatHeader strong{
+    font-size:16px!important;
+    letter-spacing:.02em!important;
+}
+
+#partyChatLive{
+    font-size:8px!important;
+    color:rgba(80,255,120,.82)!important;
+}
+
+#partyMessages{
+    font-size:14px!important;
+}
+
+.party-message{
+    font-size:14px!important;
+    line-height:1.55!important;
+    padding:12px 0!important;
+    margin-bottom:0!important;
+    border-bottom:1px solid rgba(255,255,255,.10)!important;
+}
+
+.party-message strong{
+    color:#199cff!important;
+    font-weight:700!important;
+}
+
+#partyChatInput{
+    font-size:15px!important;
+    min-height:48px!important;
+}
+
+#partyChatInput::placeholder{
+    color:rgba(255,255,255,.42)!important;
+    font-size:14px!important;
+}
+
+#partySend{
+    min-height:48px!important;
+}
+
+/* Reference-style creator buttons. */
+#partyHostControls .party-btn,
+#partyRoomTools .party-btn,
+#partyCreatorChat,
+#partyExit{
+    border-radius:10px!important;
+    font-weight:700!important;
+    letter-spacing:.16em!important;
+    transition:
+        background .18s ease,
+        border-color .18s ease,
+        color .18s ease,
+        transform .18s ease!important;
+}
+
+#partyHostControls .party-btn:hover,
+#partyRoomTools .party-btn:hover,
+#partyCreatorChat:hover{
+    background:rgba(255,255,255,.07)!important;
+    border-color:rgba(255,255,255,.34)!important;
+    color:#fff!important;
+}
+
+#partyCreatorChat{
+    border:1px solid #169cff!important;
+    background:rgba(0,0,0,.28)!important;
+    color:#fff!important;
+}
+
+#partyCreatorChat:hover{
+    background:rgba(22,156,255,.08)!important;
+}
+
+#partyExit{
+    border:1px solid rgba(255,40,40,.82)!important;
+    background:rgba(0,0,0,.25)!important;
+    color:#ff3333!important;
+}
+
+#partyExit:hover{
+    background:rgba(255,30,30,.08)!important;
+    border-color:#ff3333!important;
+    color:#ff5555!important;
+}
+
+</style>
+
+
+<style id="vix94-party-left-panel-final-position">
+
+/* Move the complete creator control column upward.
+   Chat/right side remains completely unchanged. */
+@media (min-width:901px){
+
+    body.party-is-host #partyHero{
+        transform:translateY(-72px)!important;
+    }
+
+    /* Keep enough separation from the fixed MENU pill. */
+    body.party-is-host #partyExit{
+        margin-bottom:18px!important;
+    }
+}
+
+/* Smaller Mac/browser windows need a little more compression. */
+@media (min-width:901px) and (max-height:760px){
+
+    body.party-is-host #partyHero{
+        transform:translateY(-92px)!important;
+    }
+
+    body.party-is-host #partyHeroTitle{
+        font-size:clamp(44px,5vw,68px)!important;
+    }
+
+    body.party-is-host #partyHeroCopy{
+        margin-bottom:8px!important;
+    }
+
+    body.party-is-host #partyLive{
+        margin-top:8px!important;
+    }
+
+    body.party-is-host #partyHostControls{
+        margin-top:8px!important;
+    }
+
+    body.party-is-host #partyRoomTools{
+        margin-top:10px!important;
+        padding-top:9px!important;
+    }
+}
+
+/* Mobile: don't use a fixed upward transform because mobile
+   pages may need natural scrolling. Instead reserve space
+   above the fixed MENU pill. */
+@media (max-width:900px){
+
+    body.party-is-host #partyHero{
+        transform:none!important;
+        padding-bottom:125px!important;
+    }
+
+    body.party-is-host #partyExit{
+        margin-bottom:18px!important;
+    }
+}
+
+</style>
+
+
+<style id="vix94-party-layout-final-fix">
+
+/* ==========================================================
+   VIX 94' PARTY MODE — FINAL WINDOW / MOBILE FIX
+   ========================================================== */
+
+/* Remove the previous transform that was cutting PARTY MODE. */
+body.party-is-host #partyHero{
+    transform:none!important;
+}
+
+/* ----------------------------------------------------------
+   DESKTOP / MAC
+   Keep the entire left control column inside the viewport.
+   ---------------------------------------------------------- */
+
+@media (min-width:901px){
+
+    #partyMain{
+        min-height:100dvh!important;
+        height:100dvh!important;
+        padding-top:18px!important;
+        padding-bottom:92px!important;
+        box-sizing:border-box!important;
+        overflow:hidden!important;
+    }
+
+    #partyHero{
+        min-height:0!important;
+        height:100%!important;
+        padding-top:0!important;
+        padding-right:clamp(24px,3.5vw,60px)!important;
+        display:flex!important;
+        flex-direction:column!important;
+        justify-content:flex-start!important;
+        box-sizing:border-box!important;
+        overflow:visible!important;
+    }
+
+    #partyHeroTitle{
+        margin-top:4px!important;
+        margin-bottom:4px!important;
+    }
+
+    #partyHeroCopy{
+        margin-bottom:6px!important;
+    }
+
+    #partyRule{
+        margin-top:8px!important;
+        margin-bottom:10px!important;
+    }
+
+    #partyLive{
+        margin-top:0!important;
+    }
+
+    .party-track{
+        margin-top:8px!important;
+    }
+
+    #partyProgress{
+        margin-top:12px!important;
+    }
+
+    #partyHostControls{
+        margin-top:10px!important;
+    }
+
+    #partyRoomTools{
+        margin-top:12px!important;
+        padding-top:10px!important;
+    }
+
+    .party-tool-row{
+        margin-top:9px!important;
+    }
+
+    #partyExit{
+        margin-top:8px!important;
+        margin-bottom:0!important;
+        flex-shrink:0!important;
+    }
+
+    /* Reserve a safe area above the fixed MENU pill. */
+    body.party-is-host #partyHero{
+        padding-bottom:76px!important;
+    }
+
+    /* MENU stays completely independent of the content. */
+    #vix94MenuButton{
+        z-index:10000!important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   SHORT MAC / SMALL DESKTOP WINDOWS
+   ---------------------------------------------------------- */
+
+@media (min-width:901px) and (max-height:820px){
+
+    #partyMain{
+        padding-top:10px!important;
+        padding-bottom:88px!important;
+    }
+
+    #partyHeroTitle{
+        font-size:clamp(48px,5.2vw,72px)!important;
+        line-height:.92!important;
+    }
+
+    #partyHeroCopy{
+        font-size:8px!important;
+        margin-top:4px!important;
+        margin-bottom:4px!important;
+    }
+
+    #partyRule{
+        margin-top:5px!important;
+        margin-bottom:6px!important;
+    }
+
+    .party-now{
+        font-size:6.5px!important;
+    }
+
+    .party-track{
+        margin-top:6px!important;
+        grid-template-columns:50px minmax(0,1fr)!important;
+        gap:11px!important;
+    }
+
+    #partyArtwork{
+        width:50px!important;
+        height:50px!important;
+    }
+
+    #partyTrackTitle{
+        font-size:16px!important;
+    }
+
+    #partyTrackArtist{
+        margin-top:4px!important;
+        font-size:7px!important;
+    }
+
+    #partySync{
+        margin-top:3px!important;
+        font-size:6px!important;
+    }
+
+    #partyProgress{
+        margin-top:8px!important;
+    }
+
+    #partyTimes{
+        margin-top:4px!important;
+    }
+
+    #partyHostControls{
+        margin-top:7px!important;
+    }
+
+    #partyHostControls .party-btn{
+        min-height:38px!important;
+    }
+
+    #partyRoomTools{
+        margin-top:8px!important;
+        padding-top:7px!important;
+    }
+
+    #partyRoomCode{
+        font-size:25px!important;
+    }
+
+    .party-tool-row{
+        margin-top:6px!important;
+    }
+
+    #partyExit{
+        min-height:38px!important;
+        margin-top:6px!important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   VERY SHORT DESKTOP / MAC WINDOW
+   ---------------------------------------------------------- */
+
+@media (min-width:901px) and (max-height:680px){
+
+    #partyMain{
+        padding-top:5px!important;
+        padding-bottom:84px!important;
+    }
+
+    #partyHeroTitle{
+        font-size:clamp(42px,4.7vw,62px)!important;
+    }
+
+    #partyHeroCopy{
+        display:none!important;
+    }
+
+    #partyRule{
+        margin-top:4px!important;
+        margin-bottom:5px!important;
+    }
+
+    #partyHostControls .party-btn{
+        min-height:34px!important;
+    }
+
+    #partyRoomCode{
+        font-size:22px!important;
+    }
+
+    #partyExit{
+        min-height:34px!important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE
+   ---------------------------------------------------------- */
+
+@media (max-width:900px){
+
+    #partyPage{
+        min-height:100dvh!important;
+        overflow-x:hidden!important;
+        overflow-y:auto!important;
+    }
+
+    #partyMain{
+        min-height:auto!important;
+        height:auto!important;
+        overflow:visible!important;
+        padding-top:18px!important;
+        padding-bottom:140px!important;
+    }
+
+    #partyHero{
+        transform:none!important;
+        height:auto!important;
+        min-height:0!important;
+        overflow:visible!important;
+        padding-bottom:0!important;
+    }
+
+    #partyHeroTitle{
+        margin-top:5px!important;
+        line-height:.94!important;
+    }
+
+    #partyLive{
+        height:auto!important;
+        overflow:visible!important;
+    }
+
+    #partyExit{
+        display:block!important;
+        position:relative!important;
+        z-index:20!important;
+        margin-bottom:32px!important;
+    }
+
+    /*
+       When chat is open on smaller screens, the CLOSE CHAT
+       button remains visible above EXIT PARTY MODE.
+    */
+    body.party-is-host.party-chat-open #partyChat{
+        display:flex!important;
+    }
+
+    body.party-is-host.party-chat-open #partyChatCreatorClose,
+    body.party-is-host.party-chat-open #partyCreatorChat{
+        display:block!important;
+        visibility:visible!important;
+        opacity:1!important;
+    }
+
+    /* Keep fixed MENU away from the actual controls. */
+    #vix94MenuButton{
+        bottom:max(12px,env(safe-area-inset-bottom))!important;
+        z-index:10000!important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   FORCE CREATOR CHAT CLOSE CONTROL ABOVE EXIT
+   ---------------------------------------------------------- */
+
+#partyCreatorChat,
+#partyChatCreatorClose{
+    position:relative!important;
+    z-index:50!important;
+}
+
+body.party-is-host #partyCreatorChat{
+    margin-top:8px!important;
+    margin-bottom:8px!important;
+}
+
+
+/* ----------------------------------------------------------
+   MENU LOGO
+   Force the VIX 94' logo to be visible in the menu.
+   ---------------------------------------------------------- */
+
+#vix94SiteMenuPanel .vix94-style4-logo-link{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:190px!important;
+    height:auto!important;
+    margin-top:4px!important;
+    margin-bottom:4px!important;
+}
+
+#vix94SiteMenuPanel .vix94-style4-logo-crop{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:190px!important;
+    height:61px!important;
+    overflow:hidden!important;
+}
+
+#vix94SiteMenuPanel .vix94-style4-logo{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    width:190px!important;
+    height:auto!important;
+}
+
+@media(max-width:600px){
+
+    #vix94SiteMenuPanel .vix94-style4-logo-link{
+        width:150px!important;
+    }
+
+    #vix94SiteMenuPanel .vix94-style4-logo-crop{
+        width:150px!important;
+        height:49px!important;
+    }
+
+    #vix94SiteMenuPanel .vix94-style4-logo{
+        width:150px!important;
+    }
+}
+
+
+/* ----------------------------------------------------------
+   MENU NEVER COVERS PARTY BUTTONS
+   ---------------------------------------------------------- */
+
+#vix94MenuButton{
+    pointer-events:auto!important;
+}
+
+body.party-is-host #partyLive{
+    position:relative!important;
+    z-index:2!important;
+}
+
+body.party-is-host #partyExit{
+    position:relative!important;
+    z-index:3!important;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script id="vix94-party-role-ux-final">
+(function(){
+    function setRole(isCreator){
+        document.body.classList.toggle("party-is-host",!!isCreator);
+        document.body.classList.toggle("party-is-participant",!isCreator);
+
+        const host=document.getElementById("partyHostControls");
+        const tools=document.getElementById("partyRoomTools");
+        const progress=document.getElementById("partyProgress");
+        const times=document.getElementById("partyTimes");
+
+        if(isCreator){
+            if(host)host.style.display="grid";
+            if(tools)tools.style.display="";
+            if(progress)progress.style.display="";
+            if(times)times.style.display="";
+        }else{
+            if(host)host.style.display="none";
+            if(tools)tools.style.display="none";
+            if(progress)progress.style.display="none";
+            if(times)times.style.display="none";
+        }
+    }
+
+    /* Entry state: participant controls are hidden until the room identifies
+       the socket as the creator. The actual connection handler sets the final role. */
+    setRole(false);
+    window.vix94PartySetRole=setRole;
+})();
+</script>
+
+<div id="partyPage">
+<div class="party-bg-light left" aria-hidden="true"></div>
+<div class="party-bg-light right" aria-hidden="true"></div>
+
+<header id="partyHeader">
+    <a id="partyBrand" href="/" aria-label="VIX 94' Home">
+        <img src="/vix94logo.png" alt="VIX 94'">
+        <small>THE FREQUENCY · PARTY MODE</small>
+    </a>
+    <div id="partyConnection">
+        <span id="partyConnectionDot"></span>
+        <span id="partyConnectionText">READY</span>
+    </div>
+</header>
+
+<main id="partyMain">
+
+<section id="partyHero">
+    <div class="party-eyebrow">VIX 94' · LISTEN TOGETHER</div>
+    <h1 id="partyHeroTitle">PARTY MODE</h1>
+    <p id="partyHeroCopy">Same frequency. Same song. Together.</p>
+    <div id="partyRule"></div>
+
+    <section id="partyEntry">
+        <label class="party-label" for="partyUsername">YOUR NAME</label>
+        <input id="partyUsername" class="party-input" maxlength="24" autocomplete="nickname" placeholder="ENTER YOUR NAME">
+
+        <div class="party-entry-buttons">
+            <button id="partyCreate" class="party-btn primary" type="button">CREATE PARTY</button>
+            <button id="partyJoinToggle" class="party-btn" type="button">JOIN A PARTY</button>
+        </div>
+
+        <div id="partyJoinForm">
+            <label class="party-label" for="partyCodeInput">PARTY CODE</label>
+            <input id="partyCodeInput" class="party-input" maxlength="6" inputmode="text" autocapitalize="characters" autocomplete="off" placeholder="6-CHARACTER CODE">
+            <button id="partyJoin" class="party-btn primary" type="button" style="width:100%;margin-top:9px">JOIN PARTY</button>
+        </div>
+
+        <div id="partyError" aria-live="polite"></div>
+        <div id="partyRole">NOT CONNECTED</div>
+    </section>
+
+    <section id="partyLive">
+        <div id="partyPlayer">
+            <div class="party-now">NOW PLAYING TOGETHER</div>
+
+            <div class="party-track">
+                <img id="partyArtwork" src="/vix94logobg.png" alt="Current track artwork">
+                <div>
+                    <div id="partyTrackTitle">VIX 94' RADIO</div>
+                    <div id="partyTrackArtist">WAITING FOR THE PARTY</div>
+                    <div id="partySync">READY</div>
+                </div>
+            </div>
+
+            <div id="partyProgress" aria-label="Playback progress" role="slider" tabindex="0">
+                <div id="partyProgressFill"></div>
+            </div>
+
+            <div id="partyTimes">
+                <span id="partyCurrentTime">0:00</span>
+                <span id="partyDuration">0:00</span>
+            </div>
+
+            <div id="partyHostControls">
+                <button id="partyPrev" class="party-btn" type="button">PREVIOUS</button>
+                <button id="partyPlay" class="party-btn primary" type="button">PLAY</button>
+                <button id="partyNext" class="party-btn" type="button">NEXT</button>
+            </div>
+
+            <div id="partyRoomTools">
+                <div class="party-room-meta">
+                    <div>
+                        <div class="party-room-label">PARTY CODE</div>
+                        <div id="partyRoomCode">------</div>
+                    </div>
+                    <div class="party-listeners">
+                        <strong id="partyListeners">1</strong>
+                        <span>LISTENERS</span>
+                    </div>
+                </div>
+
+                <div class="party-tool-row">
+                    <button id="partyCopyCode" class="party-btn" type="button">COPY CODE</button>
+                    <button id="partyShare" class="party-btn" type="button">SHARE PARTY</button>
+                </div>
+
+            </div>
+            <button id="partyCreatorChat" class="party-exit" type="button">OPEN CHAT</button>
+            <button id="partyExit" class="party-exit" type="button">EXIT PARTY MODE</button>
+        </div>
+    </section>
+</section>
+
+<section id="partyChat">
+    <div id="partyChatHeader">
+        <div>
+            <div class="party-eyebrow">PARTY CHAT</div>
+            <strong>LIVE CONVERSATION</strong>
+        </div>
+        <span id="partyChatLive">1 LIVE</span>
+    </div>
+
+    <div id="partyMessages">
+        <div id="partyEmpty" class="party-empty">
+            <span>Join a party to chat</span>
+            <small>Your username will appear with every message.</small>
+        </div>
+    </div>
+
+    <div id="partyCompose">
+        <input id="partyChatInput" class="party-input" maxlength="180" autocomplete="off" placeholder="MESSAGE THE PARTY…" disabled>
+        <button id="partySend" class="party-btn" type="button" disabled>SEND</button>
+    </div>
+</section>
+
+</main>
+</div>
+
+<button id="vix94MenuButton" type="button" aria-label="Open VIX 94' menu" aria-controls="vix94SiteMenu" aria-expanded="false">MENU</button>
+
+<div id="vix94SiteMenu" aria-hidden="true">
+    <div id="vix94SiteMenuPanel" role="dialog" aria-modal="true" aria-label="VIX 94' navigation">
+        <div id="vix94SiteMenuEyebrow">VIX 94' — FREQUENCY</div>
+
+        <div id="vix94SiteMenuTitle">
+            <div class="vix94-style4-explore">EXPLORE THE</div>
+            <a class="vix94-style4-logo-link" href="/" aria-label="VIX 94' Home">
+                <div class="vix94-style4-logo-crop">
+                    <img class="vix94-style4-logo" src="/vix94logo.png" alt="VIX 94'">
+                </div>
+            </a>
+            <div class="vix94-style4-frequency">
+                <span class="vix94-wave" aria-hidden="true"><svg viewBox="0 0 90 24"><path d="M1 12h12l4-6 6 12 6-15 7 18 7-12 6 7h40"></path></svg></span>
+                <span class="vix94-style4-frequency-word">FREQUENCY</span>
+                <span class="vix94-wave vix94-wave-right" aria-hidden="true"><svg viewBox="0 0 90 24"><path d="M49 12h-12l-4-6-6 12-6-15-7 18-7-12-6 7H1"></path></svg></span>
+            </div>
+        </div>
+
+        <nav id="vix94SiteMenuLinks" aria-label="VIX 94' site pages">
+            <a href="/?player=1"><span>The Frequency</span><span>→</span></a>
+            <a href="/about.html"><span>ABOUT</span><span>→</span></a>
+            <a href="/discover.html"><span>DISCOVER</span><span>→</span></a>
+            <a href="/artists.html"><span>ARTISTS</span><span>→</span></a>
+            <a href="/recently-played.html"><span>RECENTLY PLAYED</span><span>→</span></a>
+            <a href="/originals.html"><span>ORIGINALS</span><span>→</span></a>
+            <a href="/submit.html"><span>SUBMIT MUSIC</span><span>→</span></a>
+            <a href="/contact.html"><span>CONTACT</span><span>→</span></a>
+        </nav>
+
+        <button id="vix94SiteMenuClose" type="button">CLOSE</button>
+    </div>
+</div>
+
+<div id="partyAudioPrompt" aria-hidden="true">
+    <div id="partyAudioCard">
+        <h2>READY TO LISTEN</h2>
+        <p>Your browser blocked automatic audio playback. Tap once to start the shared track.</p>
+        <button id="partyAudioStart" class="party-btn primary" type="button">START LISTENING</button>
+    </div>
+</div>
+
+<audio id="partyAudio" preload="auto" crossorigin="anonymous" playsinline webkit-playsinline></audio>
+
+<script>
+"use strict";
+
+(function(){
+    const MUSIC_BASE="https://pub-feb120eabdf4471980ef8f1331d8baab.r2.dev/afterhoursmusicmix/";
+    const LIBRARY_URL=MUSIC_BASE+"library.json";
+    const WS_BASE="wss://party.vix94.buzz/listen/";
+
+    const $=id=>document.getElementById(id);
+    const audio=$("partyAudio");
+
+    let files=[];
+    let queue=[];
+    let queuePos=-1;
+    let socket=null;
+    let room="";
+    let username="";
+    let creator=false;
+    let connected=false;
+    let serverOffset=0;
+    let syncTimer=null;
+    let correctionTimer=null;
+    let lastState=null;
+    let title="VIX 94' RADIO";
+    let artist="WAITING FOR THE PARTY";
+    let artwork="/vix94logobg.png";
+    let seenChat=new Set();
+
+/* Track metadata cache.
+   The metadata reader below expects these to exist before the first
+   CREATE/JOIN action. */
+const tagCache=new Map();
+const META_TIMEOUT=5000;
+    let connectionTimer=null;
+    let roomStateReceived=false;
+    let socketGeneration=0;
+    let participantReconnectAttempts=0;
+    let intentionalDisconnect=false;
+
+    /* Participant sync tuning. Deliberately conservative to avoid audible
+       stutter on mobile while still correcting meaningful clock drift. */
+    const HARD_SYNC_SECONDS=0.45;
+    const SOFT_SYNC_SECONDS=0.07;
+    let lastHardSync=0;
+    let rateCorrectionUntil=0;
+    let pendingSyncTarget=null;
+    let lastSyncStateAt=0;
+    let participantPlayAttemptAt=0;
+
+    function setConnection(text,on){
+        $("partyConnectionText").textContent=text;
+        $("partyConnectionDot").classList.toggle("connected",!!on);
+    }
+
+    function setError(text){
+        $("partyError").textContent=text||"";
+    }
+
+    function setConnectedUI(on){
+        $("partyChatInput").disabled=!on;
+        $("partySend").disabled=!on;
+    }
+
+    function updateCount(n){
+        const count=Math.max(1,Number(n)||1);
+        $("partyListeners").textContent=count;
+        $("partyChatLive").textContent=count+" LIVE";
+    }
+
+    function serverNow(){
+        return Date.now()+serverOffset;
+    }
+
+    function send(type,data){
+        if(!socket||socket.readyState!==WebSocket.OPEN)return false;
+        try{
+            socket.send(JSON.stringify(Object.assign({type,room},data||{})));
+            return true;
+        }catch(_){return false}
+    }
+
+    function fileUrl(file){
+        return MUSIC_BASE+file.split("/").map(encodeURIComponent).join("/");
+    }
+
+    function buildQueue(){
+        queue=files.map((_,i)=>i);
+        for(let i=queue.length-1;i>0;i--){
+            const j=Math.floor(Math.random()*(i+1));
+            [queue[i],queue[j]]=[queue[j],queue[i]];
+        }
+        queuePos=0;
+    }
+
+    function nextFile(){
+        if(!files.length)return null;
+        if(!queue.length||queuePos>=queue.length-1)buildQueue();
+        else queuePos++;
+        return files[queue[queuePos]];
+    }
+
+    function prevFile(){
+        if(!files.length)return null;
+        if(!queue.length)buildQueue();
+        if(queuePos>0)queuePos--;
+        return files[queue[queuePos]];
+    }
+
+    async function loadLibrary(){
+        const r=await fetch(LIBRARY_URL,{cache:"no-store"});
+        if(!r.ok)throw new Error("Music library unavailable.");
+        const data=await r.json();
+        if(!Array.isArray(data))throw new Error("Invalid music library.");
+        files=data.filter(x=>typeof x==="string"&&x.trim());
+        if(!files.length)throw new Error("No music files found.");
+        buildQueue();
+    }
+
+    function updateTrackUI(){
+        $("partyTrackTitle").textContent=title||"VIX 94' RADIO";
+        $("partyTrackArtist").textContent=artist||"VIX 94'";
+        $("partyArtwork").src=artwork||"/vix94logobg.png";
+    }
+
+    async function readTags(src){
+        if(!src)return null;
+        if(tagCache.has(src))return tagCache.get(src);
+
+        const promise=new Promise(resolve=>{
+            if(typeof jsmediatags==="undefined"){
+                resolve(null);
+                return;
+            }
+
+            let finished=false;
+
+            const finish=value=>{
+                if(finished)return;
+                finished=true;
+                resolve(value||null);
+            };
+
+            const timer=setTimeout(()=>{
+                finish(null);
+            },META_TIMEOUT);
+
+            try{
+                /*
+                 * Use the same jsmediatags URL-reading method as the
+                 * working VIX 94' main player.
+                 */
+                jsmediatags.read(src,{
+
+                    onSuccess(result){
+                        clearTimeout(timer);
+
+                        const tags=result.tags||{};
+
+                        const meta={
+                            title:String(tags.title||"").trim(),
+                            artist:String(tags.artist||"").trim(),
+                            album:String(tags.album||"").trim(),
+                            artwork:""
+                        };
+
+                        /*
+                         * Use embedded artwork exactly like the main player.
+                         */
+                        if(tags.picture){
+
+                            const picture=tags.picture;
+
+                            let binary="";
+
+                            for(
+                                let i=0;
+                                i<picture.data.length;
+                                i++
+                            ){
+                                binary+=String.fromCharCode(
+                                    picture.data[i]
+                                );
+                            }
+
+                            try{
+                                meta.artwork=
+                                    "data:"+
+                                    picture.format+
+                                    ";base64,"+
+                                    window.btoa(binary);
+                            }catch(_){}
+                        }
+
+                        finish(meta);
+                    },
+
+                    onError(){
+                        clearTimeout(timer);
+                        finish(null);
+                    }
+
+                });
+
+            }catch(_){
+                clearTimeout(timer);
+                finish(null);
+            }
+        });
+
+        tagCache.set(src,promise);
+        return promise;
+    }
+
+    function cleanFileTitle(file){
+        return String(file||"")
+            .split("/")
+            .pop()
+            .replace(/\.[^/.]+$/,"")
+            .replace(/[._-]+/g," ")
+            .replace(/\s+/g," ")
+            .trim();
+    }
+
+    async function getTrackMetadata(src,file){
+        const meta=await readTags(src);
+
+        /*
+         * Never replace valid room metadata with the filename.
+         */
+        if(meta){
+
+            if(meta.title){
+                title=meta.title;
+            }
+
+            if(meta.artist){
+                artist=meta.artist;
+            }
+
+            if(meta.artwork){
+                artwork=meta.artwork;
+            }
+        }
+
+        /*
+         * Only use the cleaned filename if the MP3 contains no
+         * readable title metadata.
+         */
+        if(
+            !title ||
+            title==="LOADING…" ||
+            title==="VIX 94' RADIO"
+        ){
+            title=cleanFileTitle(file);
+        }
+
+        if(!artist){
+            artist="VIX 94'";
+        }
+
+        updateTrackUI();
+
+        return {
+            title,
+            artist,
+            artwork
+        };
+    }
+
+    async function loadTrack(file,shouldPlay,position){
+        if(!file)return;
+        title="LOADING…";
+        artist="";
+        artwork="/vix94logobg.png";
+        updateTrackUI();
+
+        audio.pause();
+        audio.src=fileUrl(file);
+        audio.load();
+
+        /*
+         * IMPORTANT:
+         * For the creator, call play() immediately while the CREATE/NEXT/PREV
+         * click is still an active browser user gesture. The previous version
+         * waited for loadedmetadata first; that loses the user-activation
+         * window in Safari/Chrome and caused the "READY TO LISTEN" modal to
+         * remain open after creating a room.
+         */
+        let creatorPlayPromise=null;
+        if(shouldPlay && creator){
+            try{
+                creatorPlayPromise=audio.play();
+                if(creatorPlayPromise && creatorPlayPromise.catch){
+                    creatorPlayPromise.catch(()=>{
+                        $("partyRole").textContent="CREATOR · READY — PRESS PLAY TO START";
+                        closeAudioPrompt();
+                    });
+                }
+            }catch(_){
+                $("partyRole").textContent="CREATOR · READY — PRESS PLAY TO START";
+                closeAudioPrompt();
+            }
+        }
+
+        await new Promise(resolve=>{
+            let done=false;
+            const finish=()=>{
+                if(done)return;
+                done=true;
+                audio.removeEventListener("loadedmetadata",finish);
+                resolve();
+            };
+            audio.addEventListener("loadedmetadata",finish);
+            setTimeout(finish,1800);
+        });
+
+        try{
+            await getTrackMetadata(audio.src,file);
+        }catch(_){
+            /* Metadata is optional; playback/room creation must continue. */
+            title=cleanFileTitle(file);
+            artist=artist||"VIX 94'";
+            updateTrackUI();
+        }
+
+        if(Number.isFinite(position)){
+            try{
+                if(Number.isFinite(audio.duration)&&audio.duration>0){
+                    audio.currentTime=Math.max(0,Math.min(audio.duration-.05,position));
+                }
+            }catch(_){}
+        }
+
+        if(shouldPlay && !creator){
+            const p=audio.play();
+            if(p&&p.catch){
+                p.catch(()=>openAudioPrompt());
+            }
+        }else if(shouldPlay && creator){
+            /*
+             * The initial play() was intentionally made before the async wait.
+             * Do not show an autoplay modal for the creator. If the browser
+             * still rejected it, the visible PLAY control is the fallback.
+             */
+            closeAudioPrompt();
+        }
+    }
+
+    function normalizedMediaUrl(src){
+        if(!src)return "";
+        try{
+            return new URL(src,location.href).href;
+        }catch(_){
+            return String(src);
+        }
+    }
+
+    function sameMediaSource(a,b){
+        return normalizedMediaUrl(a) === normalizedMediaUrl(b);
+    }
+
+    function projectedPosition(state){
+        if(!state)return NaN;
+
+        const base=Number(state.position);
+
+        if(!Number.isFinite(base))return NaN;
+
+        /*
+         * The Worker stamps the state with serverAt when it broadcasts it.
+         * serverOffset estimates the difference between the Cloudflare
+         * server clock and this device's clock.
+         */
+        const serverStamp=Number(
+            state.serverAt ?? state.sentAt
+        );
+
+        if(
+            state.playing &&
+            Number.isFinite(serverStamp)
+        ){
+            const elapsed=
+                (Date.now()+serverOffset-serverStamp)/1000;
+
+            return Math.max(
+                0,
+                base+Math.max(0,elapsed)
+            );
+        }
+
+        return Math.max(0,base);
+    }
+
+    function setParticipantPosition(position){
+        if(!Number.isFinite(position))return;
+        if(!Number.isFinite(audio.duration) || audio.duration<=0)return;
+
+        const safe=Math.max(
+            0,
+            Math.min(audio.duration-0.05,position)
+        );
+
+        try{
+            audio.currentTime=safe;
+        }catch(_){}
+    }
+
+    async function applyRemoteState(state){
+        if(!state)return;
+
+        lastState=Object.assign({},state);
+        lastSyncStateAt=performance.now();
+
+        /*
+         * Room state already contains the host's metadata when available.
+         * Display it immediately. Metadata extraction from R2 happens
+         * separately and must never block synchronized playback.
+         */
+        if(state.title && state.title!=="LOADING…"){
+            title=state.title;
+        }
+
+        if(state.artist){
+            artist=state.artist;
+        }
+
+        updateTrackUI();
+
+        const targetSrc=state.src||"";
+        const currentSrc=audio.src||audio.currentSrc||"";
+        const needsTrack=!!targetSrc && !sameMediaSource(currentSrc,targetSrc);
+
+        if(needsTrack){
+
+            /*
+             * Stop the old track exactly once.
+             * Do not call loadTrack(), because that function contains
+             * creator-specific autoplay/metadata behavior.
+             */
+            try{
+                audio.pause();
+                audio.playbackRate=1;
+            }catch(_){}
+
+            audio.preload="auto";
+            audio.src=targetSrc;
+            audio.load();
+
+            /*
+             * Metadata is completely independent from synchronization.
+             * It is allowed to finish whenever it finishes.
+             */
+            const file=decodeURIComponent(
+                targetSrc.split("/").pop()||""
+            );
+
+            getTrackMetadata(targetSrc,file).catch(()=>{
+                if(!title || title==="LOADING…"){
+                    title=cleanFileTitle(file);
+                }
+                if(!artist){
+                    artist="VIX 94'";
+                }
+                updateTrackUI();
+            });
+
+            /*
+             * Synchronization does not wait for ID3 metadata.
+             * It only waits until the browser knows the media duration.
+             */
+            await new Promise(resolve=>{
+                if(
+                    Number.isFinite(audio.duration) &&
+                    audio.duration>0
+                ){
+                    resolve();
+                    return;
+                }
+
+                let finished=false;
+
+                const finish=()=>{
+                    if(finished)return;
+                    finished=true;
+                    audio.removeEventListener(
+                        "loadedmetadata",
+                        finish
+                    );
+                    audio.removeEventListener(
+                        "durationchange",
+                        finish
+                    );
+                    resolve();
+                };
+
+                audio.addEventListener(
+                    "loadedmetadata",
+                    finish,
+                    {once:true}
+                );
+
+                audio.addEventListener(
+                    "durationchange",
+                    finish,
+                    {once:true}
+                );
+
+                setTimeout(finish,2500);
+            });
+
+            /*
+             * Place the participant at the host's projected position once.
+             */
+            const target=projectedPosition(state);
+
+            if(
+                Number.isFinite(target) &&
+                Number.isFinite(audio.duration) &&
+                audio.duration>0
+            ){
+                setParticipantPosition(target);
+                lastHardSync=performance.now();
+            }
+        }
+
+        /*
+         * If this is the same track, NEVER reload it.
+         * Only calculate the current clock difference.
+         */
+        const target=projectedPosition(state);
+
+        if(
+            Number.isFinite(target) &&
+            Number.isFinite(audio.duration) &&
+            audio.duration>0
+        ){
+
+            const delta=target-audio.currentTime;
+
+            /*
+             * A new track or a very large drift gets one controlled seek.
+             * This is deliberately much less aggressive than the previous
+             * implementation.
+             */
+            if(
+                !needsTrack &&
+                Math.abs(delta)>=1.25 &&
+                performance.now()-lastHardSync>4000 &&
+                !audio.seeking &&
+                audio.readyState>=2
+            ){
+                setParticipantPosition(target);
+                audio.playbackRate=1;
+                lastHardSync=performance.now();
+                rateCorrectionUntil=0;
+            }
+        }
+
+        /*
+         * Host playback state is authoritative.
+         */
+        if(state.playing){
+
+            /*
+             * Only try to start/resume when the browser has actually paused.
+             * Do not repeatedly call play() while already playing.
+             */
+            if(
+                audio.paused &&
+                !audio.seeking &&
+                audio.readyState>=2
+            ){
+                tryResumeParticipant();
+            }
+
+        }else{
+
+            /*
+             * A host pause is an explicit pause. Reset all correction state.
+             */
+            if(!audio.paused){
+                try{
+                    audio.pause();
+                }catch(_){}
+            }
+
+            audio.playbackRate=1;
+            rateCorrectionUntil=0;
+        }
+    }
+
+    function tryResumeParticipant(){
+        if(
+            creator ||
+            !lastState ||
+            !lastState.playing ||
+            !connected
+        )return;
+
+        if(!audio.paused)return;
+
+        const now=performance.now();
+
+        /*
+         * Prevent repeated play() calls during mobile buffering.
+         */
+        if(now-participantPlayAttemptAt<1500)return;
+
+        participantPlayAttemptAt=now;
+
+        const promise=audio.play();
+
+        if(promise&&promise.catch){
+            promise.catch(()=>{
+                /*
+                 * Mobile browsers may require one user gesture before
+                 * allowing remote audio. Only show the prompt when play()
+                 * is genuinely rejected.
+                 */
+                if(!creator){
+                    openAudioPrompt();
+                }
+            });
+        }
+    }
+
+    function syncParticipant(){
+        if(
+            creator ||
+            !lastState ||
+            !lastState.playing ||
+            !connected
+        )return;
+
+        if(
+            !Number.isFinite(audio.duration) ||
+            audio.duration<=0
+        )return;
+
+        if(audio.seeking)return;
+
+        if(audio.paused){
+            tryResumeParticipant();
+            return;
+        }
+
+        /*
+         * Participant playback stays completely natural.
+         * Do not continuously change playbackRate on mobile.
+         */
+        audio.playbackRate=1;
+        rateCorrectionUntil=0;
+
+        const target=projectedPosition(lastState);
+
+        if(!Number.isFinite(target))return;
+
+        const delta=target-audio.currentTime;
+        const absDelta=Math.abs(delta);
+        const now=performance.now();
+
+        /*
+         * Ignore normal drift. This prevents mobile audio from
+         * repeatedly speeding up/slowing down and glitching.
+         */
+        if(absDelta<2.0){
+            return;
+        }
+
+        /*
+         * Only repair a genuinely large drift.
+         * A single seek is much less disruptive than continuous
+         * playback-rate corrections.
+         */
+        if(
+            absDelta>=2.0 &&
+            audio.readyState>=3 &&
+            now-lastHardSync>=8000 &&
+            !audio.seeking
+        ){
+            const safeTarget=Math.max(
+                0,
+                Math.min(
+                    audio.duration-0.05,
+                    target
+                )
+            );
+
+            try{
+                audio.currentTime=safeTarget;
+                audio.playbackRate=1;
+                lastHardSync=now;
+            }catch(_){}
+        }
+    }
+
+    function showLive(){
+        $("partyEntry").style.display="none";
+        $("partyLive").classList.add("active");
+    }
+
+    function renderMessage(name,text,id){
+        const safeName=String(name||"Guest");
+        const safeText=String(text||"");
+        const chatKey=(safeName+"\\u0000"+safeText).toLowerCase();
+
+        /*
+         * De-duplicate both:
+         * 1. messages carrying the same chatId
+         * 2. echoed messages where the Worker does not preserve chatId
+         *
+         * This prevents the creator/sender from seeing their own message twice.
+         */
+        if(id){
+            if(seenChat.has(id))return;
+            seenChat.add(id);
+        }
+
+        const messages=$("partyMessages");
+
+        if(!id){
+            for(const existing of messages.children){
+                if(existing.dataset && existing.dataset.chatKey===chatKey){
+                    return;
+                }
+            }
+        }else{
+            for(const existing of messages.children){
+                if(existing.dataset && existing.dataset.chatId===String(id)){
+                    return;
+                }
+            }
+        }
+
+        const empty=$("partyEmpty");
+        if(empty)empty.style.display="none";
+
+        const row=document.createElement("div");
+        row.className="party-message";
+        row.dataset.chatKey=chatKey;
+        if(id)row.dataset.chatId=String(id);
+
+        const who=document.createElement("strong");
+        who.textContent=safeName+": ";
+
+        const body=document.createElement("span");
+        body.textContent=safeText;
+
+        row.append(who,body);
+        messages.appendChild(row);
+
+        while(messages.children.length>100){
+            messages.removeChild(messages.firstElementChild);
+        }
+
+        messages.scrollTop=messages.scrollHeight;
+    }
+
+    function openAudioPrompt(){
+        $("partyAudioPrompt").classList.add("open");
+        $("partyAudioPrompt").setAttribute("aria-hidden","false");
+    }
+
+    function closeAudioPrompt(){
+        $("partyAudioPrompt").classList.remove("open");
+        $("partyAudioPrompt").setAttribute("aria-hidden","true");
+    }
+
+    function makeCode(){
+        const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+        let result="";
+        for(let i=0;i<6;i++)result+=chars[Math.floor(Math.random()*chars.length)];
+        return result;
+    }
+
+    function currentState(){
+        const position =
+            Number.isFinite(audio.currentTime)
+                ? Math.max(0,audio.currentTime)
+                : 0;
+
+        return {
+            src: audio.currentSrc || audio.src || "",
+            position: position,
+            playing: !audio.paused && !audio.ended,
+            title: title || "VIX 94' RADIO",
+            artist: artist || "VIX 94'",
+            artwork: artwork || "/vix94logobg.png",
+            sentAt: Date.now()
+        };
+    }
+
+    function connect(code,isCreator,name){
+        room=String(code||"").trim().toUpperCase();
+        creator=!!isCreator;
+        username=String(name||"").trim();
+
+        const myGeneration=++socketGeneration;
+        intentionalDisconnect=false;
+        roomStateReceived=false;
+
+        if(socket){
+            try{ socket.close(1000,"reconnect"); }catch(_){}
+            socket=null;
+        }
+
+        clearTimeout(connectionTimer);
+        clearInterval(syncTimer);
+
+        setError("");
+        setConnection("CONNECTING",false);
+        setConnectedUI(false);
+
+        if(!room || !/^[A-Z0-9]{6}$/.test(room)){
+            setError("Invalid Party Code.");
+            setConnection("ERROR",false);
+            return;
+        }
+
+        let ws;
+        try{
+            ws=new WebSocket(WS_BASE+encodeURIComponent(room));
+            socket=ws;
+        }catch(error){
+            if(myGeneration!==socketGeneration)return;
+            setConnection("CONNECTION ERROR",false);
+            setError("Unable to connect to Party Mode.");
+            return;
+        }
+
+        /*
+         * A WebSocket can emit error before close, and browsers sometimes
+         * expose a transient error even though the connection subsequently
+         * opens. Do not treat `error` alone as a failed join.
+         */
+        ws.onopen=function(){
+            if(myGeneration!==socketGeneration)return;
+
+            connected=true;
+            participantReconnectAttempts=0;
+            roomStateReceived=false;
+
+            setConnection("CONNECTED",true);
+            setConnectedUI(true);
+            showLive();
+            setError("");
+
+            if(creator) closeAudioPrompt();
+
+            const ok=send("join",{
+                creator:creator,
+                username:username,
+                state:creator?currentState():null
+            });
+
+            if(!ok){
+                setError("Connected, but could not send the room request.");
+                return;
+            }
+
+            /*
+             * The WebSocket itself is the connection confirmation. The
+             * room-state message is used for synchronization/role data,
+             * not as a prerequisite for showing the room UI.
+             */
+            $("partyRole").textContent=creator
+                ?"CREATOR · CONNECTED"
+                :"PARTICIPANT · CONNECTED";
+
+            clearInterval(syncTimer);
+            syncTimer=setInterval(function(){
+                if(myGeneration!==socketGeneration)return;
+
+                if(creator){
+                    if(connected) send("clock",{state:currentState()});
+                }else{
+                    syncParticipant();
+                }
+            },1000);
+
+            /*
+             * If a room-state response is not received, report a useful
+             * diagnostic instead of pretending the WebSocket failed.
+             */
+            clearTimeout(connectionTimer);
+            connectionTimer=setTimeout(function(){
+                if(myGeneration!==socketGeneration)return;
+                if(connected && !roomStateReceived){
+                    $("partySync").textContent=creator
+                        ?"HOST · WAITING FOR ROOM"
+                        :"CONNECTED · WAITING FOR HOST";
+                    setError("");
+                }
+            },5000);
+        };
+
+        ws.onmessage=async function(event){
+            if(myGeneration!==socketGeneration)return;
+
+            let msg;
+            try{
+                msg=JSON.parse(event.data);
+            }catch(_){
+                return;
+            }
+
+            if(typeof msg.serverNow==="number"){
+                serverOffset=msg.serverNow-Date.now();
+            }
+
+            if(msg.type==="room-state"){
+                roomStateReceived=true;
+                clearTimeout(connectionTimer);
+
+                updateCount(msg.count);
+
+                /*
+                 * Role comes from the Durable Object. Never let a participant
+                 * claim creator status simply because the local button said
+                 * "join".
+                 */
+                const serverIsCreator=(
+                    msg.hostId &&
+                    msg.clientId &&
+                    msg.hostId===msg.clientId
+                );
+
+                if(serverIsCreator){
+                    creator=true;
+                    document.body.classList.add("party-is-host");
+                    document.body.classList.remove("party-is-participant");
+                    $("partyRole").textContent="CREATOR · YOU CONTROL THE MUSIC";
+                    $("partyHostControls").style.display="grid";
+                    $("partyRoomTools").style.display="";
+                    $("partyProgress").style.display="";
+                    $("partyTimes").style.display="";
+                }else{
+                    creator=false;
+                    document.body.classList.add("party-is-participant");
+                    document.body.classList.remove("party-is-host");
+                    $("partyRole").textContent="PARTICIPANT · LISTENING ONLY";
+                    $("partyHostControls").style.display="none";
+                    $("partyRoomTools").style.display="none";
+                    $("partyProgress").style.display="none";
+                    $("partyTimes").style.display="none";
+                }
+
+                $("partyRoomCode").textContent=room;
+
+                if(msg.state && !creator){
+                    $("partySync").textContent="SYNCING…";
+                    try{
+                        await applyRemoteState(msg.state);
+                        if(msg.state.playing){
+                            $("partySync").textContent="SYNCED";
+                        }else{
+                            $("partySync").textContent="PAUSED";
+                        }
+                    }catch(_){
+                        $("partySync").textContent="CONNECTED · WAITING FOR AUDIO";
+                    }
+                }else if(!msg.state && !creator){
+                    $("partySync").textContent="CONNECTED · WAITING FOR HOST";
+                }
+
+                return;
+            }
+
+            if(msg.type==="presence"){
+                updateCount(msg.count);
+                return;
+            }
+
+            if(msg.type==="clock"){
+                if(msg.state){
+                    lastState=Object.assign({},msg.state);
+                    if(!creator){
+                        syncParticipant();
+                    }
+                }
+                return;
+            }
+
+            if(msg.type==="command"){
+                lastState=msg.state||lastState;
+
+                if(!creator){
+                    try{
+                        await applyRemoteState(msg.state);
+
+                        /*
+                         * Final track-change correction:
+                         * applyRemoteState waits for the new audio metadata.
+                         * Once that is complete, immediately place the
+                         * participant at the host's projected position.
+                         */
+                        if(
+                            msg.state &&
+                            msg.state.playing &&
+                            Number.isFinite(audio.duration) &&
+                            audio.duration>0
+                        ){
+                            const target=projectedPosition(msg.state);
+
+                            if(Number.isFinite(target)){
+                                const safeTarget=Math.max(
+                                    0,
+                                    Math.min(
+                                        audio.duration-0.05,
+                                        target
+                                    )
+                                );
+
+                                audio.currentTime=safeTarget;
+                                audio.playbackRate=1;
+                                lastHardSync=performance.now();
+                                rateCorrectionUntil=0;
+                            }
+                        }
+                    }catch(_){}
+                }
+
+                return;
+            }
+
+            if(msg.type==="chat"){
+                renderMessage(msg.username,msg.text,msg.chatId);
+            }
+        };
+
+        ws.onerror=function(){
+            if(myGeneration!==socketGeneration)return;
+
+            /*
+             * Do not show a fatal "connection failed" message here.
+             * Browsers can emit error immediately before close.
+             */
+            setConnection("RECONNECTING",false);
+        };
+
+        ws.onclose=function(event){
+            if(myGeneration!==socketGeneration)return;
+
+            connected=false;
+            setConnectedUI(false);
+            clearInterval(syncTimer);
+            clearTimeout(connectionTimer);
+
+            if(intentionalDisconnect)return;
+
+            if(!creator && participantReconnectAttempts<3){
+                participantReconnectAttempts++;
+
+                const delay=500*participantReconnectAttempts;
+
+                setConnection("RECONNECTING",false);
+                setError("Reconnecting to Party Mode…");
+
+                setTimeout(function(){
+                    if(myGeneration!==socketGeneration)return;
+                    connect(room,false,username);
+                },delay);
+
+                return;
+            }
+
+            setConnection("DISCONNECTED",false);
+
+            /*
+             * Give a meaningful error only after the socket actually closed
+             * and the participant retry window has been exhausted.
+             */
+            if(!roomStateReceived){
+                setError(
+                    "Unable to connect to this party. Check the 6-character code and try again."
+                );
+            }else{
+                setError("Party Mode disconnected. Please reconnect.");
+            }
+        };
+    }
+
+    $("partyCreate").addEventListener("click",async function(){
+        setError("");
+        const name=$("partyUsername").value.trim();
+
+        if(!name){
+            setError("Enter your name first.");
+            $("partyUsername").focus();
+            return;
+        }
+
+        try{
+            /*
+             * Mark the browser as being in the creator flow BEFORE loading
+             * the first track. loadTrack() can then attempt audio.play()
+             * while this CREATE PARTY click is still the active user gesture.
+             */
+            creator=true;
+            document.body.classList.add("party-is-host");
+            document.body.classList.remove("party-is-participant");
+
+            await loadLibrary();
+            const first=files[queue[queuePos]];
+            const code=makeCode();
+
+            $("partyRoomCode").textContent=code;
+            $("partyRole").textContent="CREATOR · CONNECTING";
+            $("partyHostControls").style.display="grid";
+
+            await loadTrack(first,true);
+
+            connect(code,true,name);
+        }catch(error){
+            setError(error.message||"Unable to create party.");
+        }
+    });
+
+    $("partyJoinToggle").addEventListener("click",function(){
+        $("partyJoinForm").classList.toggle("open");
+        if($("partyJoinForm").classList.contains("open"))$("partyCodeInput").focus();
+    });
+
+    $("partyJoin").addEventListener("click",function(){
+        setError("");
+
+        const name=$("partyUsername").value.trim();
+        const code=$("partyCodeInput").value.trim().toUpperCase();
+
+        if(!name){
+            setError("Enter your name first.");
+            $("partyUsername").focus();
+            return;
+        }
+
+        if(!/^[A-Z0-9]{6}$/.test(code)){
+            setError("Enter a valid 6-character Party Code.");
+            $("partyCodeInput").focus();
+            return;
+        }
+
+        creator=false;
+        document.body.classList.add("party-is-participant");
+        document.body.classList.remove("party-is-host");
+
+        $("partyRoomCode").textContent=code;
+        $("partyRole").textContent="PARTICIPANT · CONNECTING";
+        $("partyHostControls").style.display="none";
+        $("partyRoomTools").style.display="none";
+        $("partyProgress").style.display="none";
+        $("partyTimes").style.display="none";
+
+        connect(code,false,name);
+    });
+
+    $("partyPlay").addEventListener("click",function(){
+        if(!creator||!connected)return;
+
+        const shouldPlay=audio.paused;
+
+        if(shouldPlay){
+            const p=audio.play();
+            if(p&&p.catch)p.catch(()=>openAudioPrompt());
+        }else{
+            audio.pause();
+        }
+
+        send("command",{
+            command:shouldPlay?"play":"pause",
+            state:currentState()
+        });
+    });
+
+    $("partyNext").addEventListener("click",async function(){
+        if(!creator||!connected)return;
+        const file=nextFile();
+        await loadTrack(file,true);
+        send("command",{command:"next",state:currentState()});
+    });
+
+    $("partyPrev").addEventListener("click",async function(){
+        if(!creator||!connected)return;
+        const file=prevFile();
+        await loadTrack(file,true);
+        send("command",{command:"previous",state:currentState()});
+    });
+
+    audio.addEventListener("play",function(){
+        $("partyPlay").textContent="PAUSE";
+        $("partyArtwork").classList.add("playing");
+    });
+
+    audio.addEventListener("pause",function(){
+        $("partyPlay").textContent="PLAY";
+        $("partyArtwork").classList.remove("playing");
+    });
+
+    /* Mobile networks can briefly enter a waiting/stalled state. Do not
+       treat that as a room pause; recover when media is available again. */
+    audio.addEventListener("canplay",function(){
+        /*
+         * canplay only means enough media is available.
+         * Do not call play() here; the main sync loop handles recovery.
+         */
+        if(!creator && lastState && lastState.playing){
+            $("partySync").textContent="BUFFER READY";
+        }
+    });
+
+    audio.addEventListener("playing",function(){
+        /*
+         * The browser has actually started rendering audio.
+         * For a newly loaded track, perform one final position correction
+         * now that playback has begun. This removes startup drift caused
+         * by buffering/play() latency.
+         */
+        if(!creator && lastState && lastState.playing){
+
+            const target=projectedPosition(lastState);
+
+            if(
+                Number.isFinite(target) &&
+                Number.isFinite(audio.duration) &&
+                audio.duration>0
+            ){
+
+                const delta=target-audio.currentTime;
+
+                if(Math.abs(delta)>=0.10){
+
+                    const safeTarget=Math.max(
+                        0,
+                        Math.min(
+                            audio.duration-0.05,
+                            target
+                        )
+                    );
+
+                    try{
+                        audio.currentTime=safeTarget;
+                        audio.playbackRate=1;
+                        lastHardSync=performance.now();
+                        rateCorrectionUntil=0;
+                    }catch(_){}
+                }
+            }
+
+            $("partySync").textContent="SYNCED · PLAYING";
+        }
+    });
+
+    audio.addEventListener("waiting",function(){
+        if(!creator && lastState && lastState.playing){
+            $("partySync").textContent="BUFFERING · RECONNECTING";
+        }
+    });
+
+    audio.addEventListener("stalled",function(){
+        if(!creator && lastState && lastState.playing){
+            $("partySync").textContent="RECONNECTING";
+            tryResumeParticipant();
+        }
+    });
+
+    audio.addEventListener("progress",function(){
+        if(!creator && lastState && lastState.playing && !audio.paused){
+            $("partySync").textContent="SYNCED";
+        }
+    });
+
+    audio.addEventListener("timeupdate",function(){
+        if(!Number.isFinite(audio.duration)||audio.duration<=0)return;
+
+        $("partyProgressFill").style.width=(audio.currentTime/audio.duration*100)+"%";
+        $("partyCurrentTime").textContent=formatTime(audio.currentTime);
+        $("partyDuration").textContent=formatTime(audio.duration);
+    });
+
+    audio.addEventListener("ended",async function(){
+        if(!creator||!connected)return;
+        const file=nextFile();
+        await loadTrack(file,true);
+        send("command",{command:"next",state:currentState()});
+    });
+
+    function formatTime(seconds){
+        if(!Number.isFinite(seconds)||seconds<0)return"0:00";
+        const m=Math.floor(seconds/60);
+        const s=Math.floor(seconds%60).toString().padStart(2,"0");
+        return m+":"+s;
+    }
+
+    $("partyProgress").addEventListener("click",function(event){
+        if(!creator||!Number.isFinite(audio.duration)||audio.duration<=0)return;
+        const r=this.getBoundingClientRect();
+        const ratio=Math.max(0,Math.min(1,(event.clientX-r.left)/r.width));
+        audio.currentTime=ratio*audio.duration;
+        send("command",{command:"state",state:currentState()});
+    });
+
+    $("partySend").addEventListener("click",function(){
+        const text=$("partyChatInput").value.trim();
+
+        if(!text){
+            $("partyChatInput").focus();
+            return;
+        }
+
+        if(!connected||!socket||socket.readyState!==WebSocket.OPEN){
+            setError("Chat is not connected yet.");
+            return;
+        }
+
+        const chatId=(crypto.randomUUID?crypto.randomUUID():String(Date.now())+"-"+Math.random());
+
+        /*
+         * Render immediately for the sender. The Worker echoes the same
+         * chatId back to every client, and renderMessage() de-duplicates it.
+         * This removes the apparent "chat does nothing" delay.
+         */
+        renderMessage(username||"Guest",text.slice(0,180),chatId);
+
+        if(!send("chat",{chatId:chatId,text:text.slice(0,180)})){
+            setError("Message could not be sent.");
+            return;
+        }
+
+        $("partyChatInput").value="";
+        $("partyChatInput").focus();
+    });
+
+    $("partyChatInput").addEventListener("keydown",function(event){
+        if(event.key==="Enter"&&!event.shiftKey){
+            event.preventDefault();
+            $("partySend").click();
+        }
+    });
+
+    $("partyCopyCode").addEventListener("click",async function(){
+        if(!room)return;
+        try{
+            await navigator.clipboard.writeText(room);
+            this.textContent="COPIED";
+            setTimeout(()=>this.textContent="COPY CODE",1000);
+        }catch(_){}
+    });
+
+    $("partyShare").addEventListener("click",async function(){
+        if(!room)return;
+
+        const url=new URL("https://vix94.buzz/");
+        url.searchParams.set("party",room);
+        url.hash="party";
+
+        try{
+            if(navigator.share){
+                await navigator.share({
+                    title:"VIX 94' — Party Mode",
+                    text:"Join my VIX 94' Party Mode room.",
+                    url:url.toString()
+                });
+            }else{
+                await navigator.clipboard.writeText(url.toString());
+                this.textContent="LINK COPIED";
+                setTimeout(()=>this.textContent="SHARE PARTY",1200);
+            }
+        }catch(_){}
+    });
+
+    $("partyExit").addEventListener("click",function(){
+        intentionalDisconnect=true;
+        socketGeneration++;
+        clearTimeout(connectionTimer);
+        clearInterval(syncTimer);
+        try{if(socket)socket.close(1000,"exit")}catch(_){}
+        try{audio.pause()}catch(_){}
+        location.href="/";
+    });
+
+    $("partyAudioStart").addEventListener("click",function(){
+        closeAudioPrompt();
+        const p=audio.play();
+        if(p&&p.catch)p.catch(()=>openAudioPrompt());
+    });
+
+    $("partyCodeInput").addEventListener("input",function(){
+        this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,6);
+        setError("");
+    });
+
+    $("partyUsername").addEventListener("input",function(){
+        setError("");
+        const value=this.value.trim();
+        if(value){
+            try{localStorage.setItem("vix94PartyUsername",value)}catch(_){}
+        }
+    });
+
+    /* Restore the last username for a smoother shared-link join. */
+    try{
+        const savedName=localStorage.getItem("vix94PartyUsername");
+        if(savedName && !$("partyUsername").value){
+            $("partyUsername").value=savedName;
+        }
+    }catch(_){}
+
+    /*
+     * Shared links use https://vix94.buzz/?party=AB12CD#party.
+     * index.html redirects that URL to /party.html?party=AB12CD#party.
+     * If a username is already known, join automatically; otherwise the
+     * room code is ready and the user only needs to enter a name.
+     */
+    const qs=new URLSearchParams(location.search);
+    const sharedCode=qs.get("party");
+    const validSharedCode=sharedCode&&/^[A-Z0-9]{6}$/.test(sharedCode.toUpperCase());
+
+    if(validSharedCode){
+        $("partyCodeInput").value=sharedCode.toUpperCase();
+        $("partyJoinForm").classList.add("open");
+
+        const savedName=$("partyUsername").value.trim();
+        if(savedName){
+            setTimeout(function(){
+                $("partyJoin").click();
+            },120);
+        }else{
+            $("partyUsername").focus();
+        }
+    }
+
+    /* Native VIX menu. */
+    const menu=$("vix94SiteMenu");
+    const menuButton=$("vix94MenuButton");
+    const menuClose=$("vix94SiteMenuClose");
+
+    function closeMenu(){
+        menu.classList.remove("open");
+        menu.setAttribute("aria-hidden","true");
+        menuButton.setAttribute("aria-expanded","false");
+        document.body.style.overflow="";
+    }
+
+    function openMenu(){
+        menu.classList.add("open");
+        menu.setAttribute("aria-hidden","false");
+        menuButton.setAttribute("aria-expanded","true");
+        document.body.style.overflow="hidden";
+    }
+
+    menuButton.addEventListener("click",function(){
+        menu.classList.contains("open")?closeMenu():openMenu();
+    });
+
+    menuClose.addEventListener("click",closeMenu);
+
+    menu.addEventListener("click",function(event){
+        if(event.target===menu)closeMenu();
+    });
+
+    document.addEventListener("keydown",function(event){
+        if(event.key==="Escape"&&menu.classList.contains("open"))closeMenu();
+    });
+
+    /* Allow a participant to start audio from any direct tap after joining. */
+    document.addEventListener("pointerdown",function(){
+        if(!creator&&connected&&!audio.paused){
+            closeAudioPrompt();
+        }
+    },{passive:true});
+
+    loadLibrary().catch(function(error){
+        console.warn("VIX 94' Party library:",error);
+    });
+})();
+</script>
+
+<script id="vix94-party-creator-chat-toggle">
+(function(){
+    const button = document.getElementById("partyCreatorChat");
+    const chat = document.getElementById("partyChat");
+
+    if(!button || !chat) return;
+
+    button.addEventListener("click", function(){
+        const open = document.body.classList.toggle("party-chat-open");
+
+        button.setAttribute("aria-expanded", open ? "true" : "false");
+        button.textContent = open ? "CLOSE CHAT" : "OPEN CHAT";
+    });
+})();
+</script>
+
+
+<style id="vix94-party-scroll-and-chat-final">
+
+/* ==========================================================
+   PARTY MODE — FINAL SCROLL / SMALL WINDOW FIX
+   ========================================================== */
+
+/* Never clip Party Mode vertically. */
+html,
+body,
+#partyPage{
+    width:100%!important;
+    max-width:100%!important;
+    min-height:100%!important;
+    overflow-x:hidden!important;
+}
+
+/* The page itself is allowed to scroll. */
+#partyPage{
+    min-height:100dvh!important;
+    height:auto!important;
+    overflow-y:auto!important;
+    -webkit-overflow-scrolling:touch!important;
+}
+
+/* Main content must never be locked to viewport height. */
+#partyMain{
+    height:auto!important;
+    min-height:0!important;
+    overflow:visible!important;
+}
+
+
+/* ==========================================================
+   DESKTOP / MAC
+   ========================================================== */
+
+@media(min-width:901px){
+
+    #partyMain{
+        min-height:100dvh!important;
+        height:auto!important;
+        padding-top:20px!important;
+        padding-bottom:150px!important;
+        box-sizing:border-box!important;
+    }
+
+    #partyHero{
+        height:auto!important;
+        min-height:0!important;
+        overflow:visible!important;
+        transform:none!important;
+    }
+
+    #partyLive{
+        height:auto!important;
+        min-height:0!important;
+        overflow:visible!important;
+    }
+
+    #partyExit{
+        position:relative!important;
+        z-index:20!important;
+        margin-bottom:20px!important;
+    }
+}
+
+
+/* ==========================================================
+   NARROW / MOBILE / SHRUNK CHROME WINDOW
+   ========================================================== */
+
+@media(max-width:900px){
+
+    #partyPage{
+        height:auto!important;
+        min-height:100dvh!important;
+        overflow-x:hidden!important;
+        overflow-y:auto!important;
+    }
+
+    #partyMain{
+        display:block!important;
+        width:92vw!important;
+        height:auto!important;
+        min-height:0!important;
+        overflow:visible!important;
+        padding-top:20px!important;
+        padding-bottom:180px!important;
+        box-sizing:border-box!important;
+    }
+
+    #partyHero{
+        width:100%!important;
+        height:auto!important;
+        min-height:0!important;
+        overflow:visible!important;
+        transform:none!important;
+        padding-bottom:20px!important;
+    }
+
+    #partyHeroTitle{
+        position:relative!important;
+        z-index:2!important;
+        overflow:visible!important;
+        clip-path:none!important;
+        margin-top:8px!important;
+    }
+
+    #partyLive{
+        height:auto!important;
+        min-height:0!important;
+        overflow:visible!important;
+    }
+
+    /* Give the entire left control stack enough room. */
+    #partyPlayer{
+        height:auto!important;
+        min-height:0!important;
+        overflow:visible!important;
+        padding-bottom:20px!important;
+    }
+
+    #partyHostControls{
+        margin-top:10px!important;
+    }
+
+    #partyRoomTools{
+        margin-top:14px!important;
+        padding-top:12px!important;
+    }
+
+    #partyExit{
+        display:block!important;
+        position:relative!important;
+        z-index:100!important;
+        width:100%!important;
+        min-height:44px!important;
+        margin-top:10px!important;
+        margin-bottom:30px!important;
+    }
+
+    /* Chat is naturally below the player when closed. */
+    #partyChat{
+        position:relative!important;
+        width:100%!important;
+        height:auto!important;
+        min-height:420px!important;
+        margin-top:20px!important;
+        padding-top:26px!important;
+        padding-bottom:30px!important;
+        overflow:visible!important;
+        box-sizing:border-box!important;
+    }
+
+    #partyMessages{
+        height:300px!important;
+        max-height:none!important;
+        overflow-y:auto!important;
+        -webkit-overflow-scrolling:touch!important;
+    }
+
+
+    /* ------------------------------------------------------
+       CREATOR CHAT OPEN
+       Keep chat usable without losing the close control.
+       ------------------------------------------------------ */
+
+    body.party-is-host.party-chat-open #partyChat{
+        position:relative!important;
+        display:flex!important;
+        width:100%!important;
+        min-height:520px!important;
+        margin-top:10px!important;
+    }
+
+    /*
+       The creator's OPEN/CLOSE CHAT button becomes fixed
+       while chat is open, so it can never disappear below
+       the viewport.
+    */
+    body.party-is-host.party-chat-open #partyCreatorChat{
+        position:fixed!important;
+        left:4vw!important;
+        right:4vw!important;
+        bottom:78px!important;
+        width:92vw!important;
+        max-width:none!important;
+        z-index:9998!important;
+        margin:0!important;
+    }
+
+    /*
+       Make the creator close control visually obvious.
+       Existing JavaScript continues to handle the click.
+    */
+    body.party-is-host.party-chat-open #partyCreatorChat{
+        min-height:46px!important;
+    }
+
+
+    /* ------------------------------------------------------
+       MENU
+       Keep MENU below the chat toggle and away from controls.
+       ------------------------------------------------------ */
+
+    #vix94MenuButton{
+        position:fixed!important;
+        left:12px!important;
+        bottom:max(12px,env(safe-area-inset-bottom))!important;
+        z-index:10000!important;
+    }
+}
+
+
+/* ==========================================================
+   VERY SMALL HEIGHT
+   ========================================================== */
+
+@media(max-width:900px) and (max-height:700px){
+
+    #partyMain{
+        padding-bottom:200px!important;
+    }
+
+    #partyHeroTitle{
+        font-size:clamp(42px,12vw,56px)!important;
+        line-height:.92!important;
+        margin-bottom:8px!important;
+    }
+
+    #partyHeroCopy{
+        margin-bottom:8px!important;
+    }
+
+    .party-track{
+        margin-top:8px!important;
+    }
+
+    #partyArtwork{
+        width:54px!important;
+        height:54px!important;
+    }
+
+    #partyTrackTitle{
+        font-size:16px!important;
+    }
+
+    #partyProgress{
+        margin-top:10px!important;
+    }
+
+    #partyHostControls .party-btn{
+        min-height:40px!important;
+    }
+
+    #partyRoomTools{
+        margin-top:10px!important;
+        padding-top:9px!important;
+    }
+
+    #partyExit{
+        min-height:42px!important;
+        margin-bottom:35px!important;
+    }
+
+    #partyChat{
+        min-height:460px!important;
+    }
+}
+
+
+/* ==========================================================
+   PARTICIPANT
+   Participant chat is always available.
+   ========================================================== */
+
+body.party-is-participant #partyChat{
+    display:flex!important;
+    position:relative!important;
+    height:auto!important;
+    min-height:420px!important;
+    overflow:visible!important;
+}
+
+body.party-is-participant #partyMessages{
+    overflow-y:auto!important;
+}
+
+
+/* ==========================================================
+   SAFETY — DO NOT CLIP THE PARTY TITLE OR EXIT BUTTON
+   ========================================================== */
+
+#partyHero,
+#partyLive,
+#partyPlayer,
+#partyRoomTools,
+#partyExit{
+    overflow:visible!important;
+}
+
+</style>
+
+
+<style id="vix94-party-left-panel-final-position">
+
+/* ==========================================================
+   FINAL PARTY MODE POSITIONING
+   Move the complete left control stack upward so the
+   fixed MENU pill never overlaps EXIT PARTY MODE.
+   ========================================================== */
+
+@media(min-width:901px){
+
+    #partyHero{
+        transform:translateY(-18px)!important;
+    }
+
+    #partyExit{
+        transform:translateY(-42px)!important;
+    }
+}
+
+@media(max-width:900px){
+
+    #partyHero{
+        transform:translateY(-18px)!important;
+    }
+
+    #partyExit{
+        transform:translateY(-58px)!important;
+        margin-bottom:-58px!important;
+    }
+
+    #vix94MenuButton{
+        left:12px!important;
+        bottom:max(12px,env(safe-area-inset-bottom))!important;
+        z-index:10000!important;
+    }
+}
+
+/* Very short browser window: move the entire left stack
+   further upward while preserving the menu position. */
+@media(max-width:900px) and (max-height:700px){
+
+    #partyHero{
+        transform:translateY(-42px)!important;
+    }
+
+    #partyExit{
+        transform:translateY(-72px)!important;
+        margin-bottom:-72px!important;
+    }
+}
+
+</style>
+
+
+<style id="vix94-party-left-scroll-final">
+
+/* ==========================================================
+   PARTY MODE — LEFT PANEL INDEPENDENT SCROLLER
+   Do not reposition the existing controls.
+   Simply give the left panel its own vertical scroll area.
+   ========================================================== */
+
+@media(min-width:901px){
+
+    #partyMain{
+        height:100dvh!important;
+        min-height:0!important;
+        overflow:hidden!important;
+        box-sizing:border-box!important;
+    }
+
+    #partyHero{
+        height:100%!important;
+        min-height:0!important;
+        overflow-y:auto!important;
+        overflow-x:hidden!important;
+        padding-top:20px!important;
+        padding-right:clamp(28px,4vw,70px)!important;
+        padding-bottom:120px!important;
+        box-sizing:border-box!important;
+
+        /* Reset previous positioning experiments */
+        transform:none!important;
+
+        scrollbar-width:thin;
+        scrollbar-color:rgba(255,255,255,.25) transparent;
+    }
+
+    #partyHero::-webkit-scrollbar{
+        width:6px;
+    }
+
+    #partyHero::-webkit-scrollbar-track{
+        background:transparent;
+    }
+
+    #partyHero::-webkit-scrollbar-thumb{
+        background:rgba(255,255,255,.25);
+        border-radius:999px;
+    }
+
+    #partyExit{
+        transform:none!important;
+        margin-bottom:20px!important;
+    }
+}
+
+
+/* ==========================================================
+   SMALL / SHRUNK BROWSER
+   ========================================================== */
+
+@media(max-width:900px){
+
+    #partyPage{
+        height:100dvh!important;
+        min-height:0!important;
+        overflow:hidden!important;
+    }
+
+    #partyMain{
+        height:100dvh!important;
+        min-height:0!important;
+        overflow:hidden!important;
+        padding-bottom:0!important;
+    }
+
+    #partyHero{
+        height:auto!important;
+        max-height:calc(100dvh - 20px)!important;
+        min-height:0!important;
+
+        overflow-y:auto!important;
+        overflow-x:hidden!important;
+
+        padding-top:10px!important;
+        padding-bottom:130px!important;
+
+        box-sizing:border-box!important;
+
+        /* Remove all previous movement */
+        transform:none!important;
+
+        scrollbar-width:thin;
+        scrollbar-color:rgba(255,255,255,.32) transparent;
+    }
+
+    #partyHero::-webkit-scrollbar{
+        width:6px;
+    }
+
+    #partyHero::-webkit-scrollbar-track{
+        background:transparent;
+    }
+
+    #partyHero::-webkit-scrollbar-thumb{
+        background:rgba(255,255,255,.32);
+        border-radius:999px;
+    }
+
+    #partyPlayer,
+    #partyRoomTools,
+    #partyExit{
+        overflow:visible!important;
+    }
+
+    #partyExit{
+        transform:none!important;
+        margin-bottom:30px!important;
+    }
+
+    /* MENU stays outside the scrolling panel. */
+    #vix94MenuButton{
+        position:fixed!important;
+        left:12px!important;
+        bottom:max(12px,env(safe-area-inset-bottom))!important;
+        z-index:10000!important;
+    }
+}
+
+
+/* ==========================================================
+   VERY SHORT WINDOW
+   ========================================================== */
+
+@media(max-width:900px) and (max-height:700px){
+
+    #partyHero{
+        max-height:100dvh!important;
+        padding-top:5px!important;
+        padding-bottom:140px!important;
+    }
+
+    #partyExit{
+        margin-bottom:35px!important;
+    }
+}
+
+</style>
+
+</body>
+</html>

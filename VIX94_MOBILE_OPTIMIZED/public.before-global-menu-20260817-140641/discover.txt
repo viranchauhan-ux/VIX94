@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discover Music on VIX 94&#x27; — Music Discovery</title>
+<meta name="description" content="Discover music from the VIX 94&#x27; library by artist, track and genre.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vix94.buzz/discover.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Discover Music on VIX 94&#x27; — Music Discovery">
+<meta property="og:description" content="Discover music from the VIX 94&#x27; library by artist, track and genre.">
+<meta property="og:url" content="https://vix94.buzz/discover.html">
+<meta property="og:image" content="https://vix94.buzz/vix94logobg.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Discover Music on VIX 94&#x27; — Music Discovery">
+<meta name="twitter:description" content="Discover music from the VIX 94&#x27; library by artist, track and genre.">
+<meta name="twitter:image" content="https://vix94.buzz/vix94logobg.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/vix94logobg.png">
+<link rel="stylesheet" href="vix94-site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Discover Music on VIX 94' \u2014 Music Discovery",
+  "description": "Discover music from the VIX 94' library by artist, track and genre.",
+  "url": "https://vix94.buzz/discover.html"
+}
+</script>
+</head>
+<body>
+
+<div class="vix-site-bg"></div>
+<div class="vix-site-stars"></div>
+<header class="vix-nav">
+  <a href="index.html" aria-label="VIX 94' Home"><img src="vix94logo.png" alt="VIX 94'"></a>
+  <nav class="vix-nav-links" aria-label="Primary"></nav>
+</header>
+
+<main class="vix-page">
+
+    <div class="vix-kicker">DISCOVER</div>
+    <h1 class="vix-title">Find your<br>next track.</h1>
+    <p class="vix-lead">Search the VIX 94' library and explore tracks selected for the station.</p>
+    <div class="vix-toolbar">
+      <input id="discoverSearch" class="vix-input" placeholder="Search artist or track..." aria-label="Search music">
+      <a class="vix-btn" href="index.html">OPEN RADIO</a>
+    </div>
+    <div id="discoverGrid" class="vix-grid"></div>
+    
+</main>
+
+<footer class="vix-footer">
+  <div class="vix-footer-inner">
+    <span>VIX 94' — ONLINE RADIO</span>
+    <span>Independent music. Handpicked sounds.</span>
+  </div>
+</footer>
+
+<script src="vix94-site.js"></script>
+
+<script>
+(async()=>{
+  const grid=document.getElementById("discoverGrid"), input=document.getElementById("discoverSearch");
+  let tracks=[];
+  try{tracks=await vix94FetchLibrary()}catch(e){grid.innerHTML='<div class="vix-empty">Music library unavailable.</div>';return}
+  const render=()=>{
+    const q=(input.value||"").toLowerCase().trim();
+    const filtered=tracks.map(vix94ParseTrack).filter(t=>(t.title+" "+t.artist).toLowerCase().includes(q)).slice(0,60);
+    grid.innerHTML=filtered.length?filtered.map(t=>`<a class="vix-card" href="${vix94TrackUrl(t.filename)}"><h2>${vix94Escape(t.title)}</h2><p>${vix94Escape(t.artist)}</p><div class="vix-meta">VIEW TRACK →</div></a>`).join(""):'<div class="vix-empty">No matching tracks found.</div>';
+  };
+  input.addEventListener("input",render); render();
+})();
+</script>
+
+</body>
+</html>

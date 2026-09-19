@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIX 94&#x27; Recently Played — Track History</title>
+<meta name="description" content="See recently played music from your VIX 94&#x27; listening session.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vix94.buzz/recently-played.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VIX 94&#x27; Recently Played — Track History">
+<meta property="og:description" content="See recently played music from your VIX 94&#x27; listening session.">
+<meta property="og:url" content="https://vix94.buzz/recently-played.html">
+<meta property="og:image" content="https://vix94.buzz/vix94logobg.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VIX 94&#x27; Recently Played — Track History">
+<meta name="twitter:description" content="See recently played music from your VIX 94&#x27; listening session.">
+<meta name="twitter:image" content="https://vix94.buzz/vix94logobg.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/vix94logobg.png">
+<link rel="stylesheet" href="vix94-site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "VIX 94' Recently Played \u2014 Track History",
+  "description": "See recently played music from your VIX 94' listening session.",
+  "url": "https://vix94.buzz/recently-played.html"
+}
+</script>
+</head>
+<body>
+
+<div class="vix-site-bg"></div>
+<div class="vix-site-stars"></div>
+<header class="vix-nav">
+  <a href="index.html" aria-label="VIX 94' Home"><img src="vix94logo.png" alt="VIX 94'"></a>
+  <nav class="vix-nav-links" aria-label="Primary"></nav>
+</header>
+
+<main class="vix-page">
+
+    <div class="vix-kicker">RECENTLY PLAYED</div>
+    <h1 class="vix-title">What just<br>hit the frequency.</h1>
+    <p class="vix-lead">Your recent VIX 94' listening history is stored locally in your browser.</p>
+    <div id="recentList" class="vix-list"></div>
+    
+</main>
+
+<footer class="vix-footer">
+  <div class="vix-footer-inner">
+    <span>VIX 94' — ONLINE RADIO</span>
+    <span>Independent music. Handpicked sounds.</span>
+  </div>
+</footer>
+
+<script src="vix94-site.js"></script>
+
+<script>
+(()=>{
+  const list=document.getElementById("recentList");
+  const recent=vix94GetRecent();
+  list.innerHTML=recent.length?recent.map(t=>`<div class="vix-row"><div><strong>${vix94Escape(t.title)}</strong><span>${vix94Escape(t.artist)}</span></div><a class="vix-btn" href="${vix94TrackUrl(t.filename)}">OPEN</a></div>`).join(""):'<div class="vix-empty">No recently played tracks yet. Start listening on VIX 94'.</div>';
+})();
+</script>
+
+</body>
+</html>

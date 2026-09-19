@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit Music to VIX 94&#x27; — Artist Submissions</title>
+<meta name="description" content="Submit music to VIX 94&#x27; for consideration in the independent online radio rotation.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vix94.buzz/submit.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Submit Music to VIX 94&#x27; — Artist Submissions">
+<meta property="og:description" content="Submit music to VIX 94&#x27; for consideration in the independent online radio rotation.">
+<meta property="og:url" content="https://vix94.buzz/submit.html">
+<meta property="og:image" content="https://vix94.buzz/vix94logobg.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Submit Music to VIX 94&#x27; — Artist Submissions">
+<meta name="twitter:description" content="Submit music to VIX 94&#x27; for consideration in the independent online radio rotation.">
+<meta name="twitter:image" content="https://vix94.buzz/vix94logobg.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/vix94logobg.png">
+<link rel="stylesheet" href="vix94-site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Submit Music to VIX 94' \u2014 Artist Submissions",
+  "description": "Submit music to VIX 94' for consideration in the independent online radio rotation.",
+  "url": "https://vix94.buzz/submit.html"
+}
+</script>
+</head>
+<body>
+
+<div class="vix-site-bg"></div>
+<div class="vix-site-stars"></div>
+<header class="vix-nav">
+  <a href="index.html" aria-label="VIX 94' Home"><img src="vix94logo.png" alt="VIX 94'"></a>
+  <nav class="vix-nav-links" aria-label="Primary"></nav>
+</header>
+
+<main class="vix-page">
+
+    <div class="vix-kicker">MUSIC SUBMISSION</div>
+    <h1 class="vix-title">Send your<br>frequency.</h1>
+    <p class="vix-lead">VIX 94' is built to discover distinctive music and emerging artists. Prepare your artist name, track title, genre and streaming links before submitting.</p>
+    <div class="vix-card" style="margin-top:32px">
+      <h2>Submission checklist</h2>
+      <p>Artist / project name<br>Track title<br>Genre<br>Country or city<br>Spotify / Apple Music / YouTube link<br>Instagram or social link<br>Short artist bio</p>
+      <div style="margin-top:20px"><a class="vix-btn" href="contact.html">CONTACT VIX 94'</a></div>
+    </div>
+    
+</main>
+
+<footer class="vix-footer">
+  <div class="vix-footer-inner">
+    <span>VIX 94' — ONLINE RADIO</span>
+    <span>Independent music. Handpicked sounds.</span>
+  </div>
+</footer>
+
+<script src="vix94-site.js"></script>
+
+</body>
+</html>

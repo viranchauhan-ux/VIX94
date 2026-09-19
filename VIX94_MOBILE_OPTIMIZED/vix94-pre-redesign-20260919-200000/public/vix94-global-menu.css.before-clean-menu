@@ -1,0 +1,694 @@
+/* ==========================================================
+   VIX 94' — GLOBAL NAVIGATION
+   ========================================================== */
+
+#vix94GlobalMenuButton{
+    position:fixed;
+    left:14px;
+    bottom:max(14px,env(safe-area-inset-bottom));
+    z-index:99999;
+
+    min-width:72px;
+    height:44px;
+    padding:0 17px;
+
+    border:1px solid rgba(255,255,255,.20);
+    border-radius:999px;
+
+    background:rgba(7,7,7,.88);
+    color:rgba(255,255,255,.76);
+
+    font-family:Inter,"Helvetica Neue",Arial,sans-serif;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.18em;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 32px rgba(0,0,0,.40);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    transition:
+        color .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+}
+
+#vix94GlobalMenuButton:hover{
+    color:#fff;
+    background:rgba(18,18,18,.95);
+    border-color:rgba(255,255,255,.38);
+    transform:translateY(-1px);
+}
+
+#vix94GlobalMenuButton:active{
+    transform:translateY(1px);
+}
+
+#vix94GlobalMenu{
+    position:fixed;
+    inset:0;
+    z-index:99998;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:
+        max(16px,env(safe-area-inset-top))
+        16px
+        max(16px,env(safe-area-inset-bottom))
+        16px;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(255,255,255,.075),
+            transparent 30%
+        ),
+        rgba(0,0,0,.91);
+
+    backdrop-filter:blur(26px);
+    -webkit-backdrop-filter:blur(26px);
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transition:
+        opacity .20s ease,
+        visibility .20s ease;
+}
+
+#vix94GlobalMenu.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+#vix94GlobalMenuPanel{
+    width:min(520px,92vw);
+    max-height:calc(100dvh - 32px);
+
+    overflow-y:auto;
+    overscroll-behavior:contain;
+
+    padding:28px;
+
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:0 30px 100px rgba(0,0,0,.65);
+
+    transform:translateY(8px) scale(.985);
+    transition:transform .20s ease;
+}
+
+#vix94GlobalMenu.open #vix94GlobalMenuPanel{
+    transform:translateY(0) scale(1);
+}
+
+#vix94GlobalMenuEyebrow{
+    margin-bottom:8px;
+
+    color:rgba(255,255,255,.38);
+
+    font-family:Inter,"Helvetica Neue",Arial,sans-serif;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+}
+
+#vix94GlobalMenuBrand{
+    display:block;
+    width:max-content;
+    margin:0 0 2px;
+
+    text-decoration:none;
+    line-height:0;
+}
+
+#vix94GlobalMenuBrand img{
+    display:block;
+    width:190px;
+    height:auto;
+
+    filter:drop-shadow(0 0 8px rgba(255,255,255,.08));
+}
+
+#vix94GlobalMenuFrequency{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    margin:1px 0 24px;
+
+    color:rgba(255,255,255,.32);
+
+    font-size:7px;
+    font-weight:700;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+}
+
+#vix94GlobalMenuFrequencyLine{
+    width:38px;
+    height:1px;
+    background:rgba(255,255,255,.22);
+}
+
+#vix94GlobalMenuLinks{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+}
+
+#vix94GlobalMenuLinks a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    min-height:50px;
+    padding:0 15px;
+
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:10px;
+
+    background:rgba(255,255,255,.025);
+
+    color:rgba(255,255,255,.72);
+
+    font-family:Inter,"Helvetica Neue",Arial,sans-serif;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.13em;
+    text-decoration:none;
+    text-transform:uppercase;
+
+    transition:
+        color .18s ease,
+        background .18s ease,
+        border-color .18s ease,
+        transform .18s ease;
+}
+
+#vix94GlobalMenuLinks a::after{
+    content:"↗";
+    color:rgba(255,255,255,.20);
+    font-size:10px;
+    transition:color .18s ease;
+}
+
+#vix94GlobalMenuLinks a:hover{
+    color:#fff;
+    background:rgba(255,255,255,.07);
+    border-color:rgba(255,255,255,.25);
+    transform:translateY(-1px);
+}
+
+#vix94GlobalMenuLinks a:hover::after{
+    color:rgba(255,255,255,.65);
+}
+
+#vix94GlobalMenuClose{
+    width:100%;
+    min-height:44px;
+    margin-top:10px;
+
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;
+
+    background:transparent;
+    color:rgba(255,255,255,.48);
+
+    font-family:Inter,"Helvetica Neue",Arial,sans-serif;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:
+        color .18s ease,
+        border-color .18s ease,
+        background .18s ease;
+}
+
+#vix94GlobalMenuClose:hover{
+    color:#fff;
+    border-color:rgba(255,255,255,.30);
+    background:rgba(255,255,255,.035);
+}
+
+/* Hide legacy desktop navigation while retaining its page content. */
+.vix94-legacy-navigation{
+    display:none!important;
+}
+
+/* Keep legal footer navigation untouched. */
+.legal-footer{
+    display:flex!important;
+}
+
+/* Small screens */
+@media(max-width:700px){
+
+    #vix94GlobalMenuButton{
+        left:12px;
+        bottom:max(10px,env(safe-area-inset-bottom));
+        height:42px;
+        min-width:68px;
+        padding:0 15px;
+    }
+
+    #vix94GlobalMenu{
+        padding:
+            max(12px,env(safe-area-inset-top))
+            12px
+            max(12px,env(safe-area-inset-bottom))
+            12px;
+    }
+
+    #vix94GlobalMenuPanel{
+        width:100%;
+        max-width:520px;
+        max-height:calc(100dvh - 24px);
+        padding:22px;
+        border-radius:20px;
+    }
+
+    #vix94GlobalMenuBrand img{
+        width:165px;
+    }
+
+    #vix94GlobalMenuFrequency{
+        margin-bottom:18px;
+    }
+
+    #vix94GlobalMenuLinks{
+        grid-template-columns:1fr;
+        gap:7px;
+    }
+
+    #vix94GlobalMenuLinks a{
+        min-height:48px;
+    }
+}
+
+/* Very small phones */
+@media(max-width:380px){
+
+    #vix94GlobalMenuPanel{
+        padding:18px;
+    }
+
+    #vix94GlobalMenuBrand img{
+        width:150px;
+    }
+
+    #vix94GlobalMenuLinks a{
+        min-height:45px;
+        font-size:9px;
+    }
+}
+
+/* FINAL VIX94 MENU BRANDING */
+#vix94GlobalMenuEyebrow{
+    margin-bottom:7px!important;
+    color:rgba(255,255,255,.42)!important;
+    font-size:8px!important;
+    font-weight:700!important;
+    letter-spacing:.25em!important;
+}
+
+#vix94GlobalMenuBrand{
+    margin-bottom:0!important;
+}
+
+#vix94GlobalMenuBrand img{
+    width:190px!important;
+    height:auto!important;
+}
+
+#vix94GlobalMenuFrequency{
+    margin-top:-2px!important;
+    margin-bottom:24px!important;
+    gap:8px!important;
+    color:rgba(255,255,255,.30)!important;
+}
+
+#vix94GlobalMenuFrequencyLine{
+    width:38px!important;
+    height:1px!important;
+    background:rgba(255,255,255,.25)!important;
+}
+
+/* FINAL MENU STACKING */
+#vix94GlobalMenu{
+    position:fixed!important;
+    inset:0!important;
+    z-index:2147483000!important;
+}
+
+#vix94GlobalMenuPanel{
+    position:relative!important;
+    z-index:2147483001!important;
+}
+
+#vix94GlobalMenuButton{
+    position:fixed!important;
+    z-index:2147483002!important;
+}
+
+/* FUEL THE FREQUENCY GLOW */
+.vix-payment-wrap{
+    position:relative!important;
+    isolation:isolate!important;
+}
+
+.vix-payment-wrap::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:230px;
+    height:76px;
+    transform:translate(-50%,-50%);
+    border-radius:999px;
+    background:radial-gradient(
+        ellipse,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.06) 38%,
+        transparent 72%
+    );
+    filter:blur(18px);
+    opacity:.42;
+    pointer-events:none;
+    z-index:-1;
+    animation:vixPaymentBreath 3.8s ease-in-out infinite;
+}
+
+.vix-payment-button{
+    position:relative!important;
+    z-index:2!important;
+    overflow:hidden!important;
+}
+
+.vix-payment-button::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    background:linear-gradient(
+        115deg,
+        transparent 25%,
+        rgba(255,255,255,.09) 50%,
+        transparent 75%
+    );
+    transform:translateX(-120%);
+    pointer-events:none;
+    animation:vixPaymentSweep 5.5s ease-in-out infinite;
+}
+
+@keyframes vixPaymentBreath{
+    0%,100%{
+        opacity:.25;
+        transform:translate(-50%,-50%) scale(.92);
+    }
+    50%{
+        opacity:.58;
+        transform:translate(-50%,-50%) scale(1.08);
+    }
+}
+
+@keyframes vixPaymentSweep{
+    0%,55%,100%{transform:translateX(-120%);}
+    72%{transform:translateX(120%);}
+}
+
+@media(prefers-reduced-motion:reduce){
+    .vix-payment-wrap::before,
+    .vix-payment-button::after{
+        animation:none!important;
+    }
+}
+
+@media(max-width:700px){
+    #vix94GlobalMenuBrand img{
+        width:165px!important;
+    }
+
+    #vix94GlobalMenuFrequency{
+        margin-bottom:18px!important;
+    }
+}
+
+/* RESTORE VIX 94' ANIMATED FREQUENCY WAVES */
+#vix94GlobalMenuFrequency::before,
+#vix94GlobalMenuFrequency::after{
+    display:none!important;
+    content:none!important;
+}
+
+#vix94GlobalMenuFrequencyLine{
+    display:block!important;
+}
+
+#vix94GlobalMenuFrequency{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:7px!important;
+    margin:2px 0 20px!important;
+}
+
+#vix94GlobalMenuFrequency .vix94-wave{
+    display:block!important;
+    width:38px!important;
+    height:10px!important;
+    flex:0 0 38px!important;
+}
+
+#vix94GlobalMenuFrequency .vix94-wave svg{
+    width:100%!important;
+    height:100%!important;
+    fill:none!important;
+    stroke:rgba(255,255,255,.42)!important;
+    stroke-width:1.2!important;
+    overflow:visible!important;
+}
+
+#vix94GlobalMenuFrequency .vix94-wave path{
+    transform-origin:center!important;
+    animation:vix94FrequencyPulse 1.45s ease-in-out infinite!important;
+}
+
+#vix94GlobalMenuFrequency .vix94-wave:nth-child(1) path{
+    animation-delay:-.35s!important;
+}
+
+#vix94GlobalMenuFrequency .vix94-wave:nth-child(2) path{
+    animation-delay:-.85s!important;
+}
+
+@keyframes vix94FrequencyPulse{
+    0%,100%{
+        opacity:.28;
+        transform:scaleY(.55);
+    }
+
+    25%{
+        opacity:.65;
+        transform:scaleY(1.15);
+    }
+
+    50%{
+        opacity:.38;
+        transform:scaleY(.72);
+    }
+
+    75%{
+        opacity:.75;
+        transform:scaleY(1);
+    }
+}
+
+@media(max-width:700px){
+
+    #vix94GlobalMenuFrequency{
+        gap:6px!important;
+        margin-bottom:17px!important;
+    }
+
+    #vix94GlobalMenuFrequency .vix94-wave{
+        width:31px!important;
+        flex-basis:31px!important;
+    }
+}
+
+
+/* ==========================================================
+   VIX 94' — TIGHT MENU BRAND LOCKUP
+   ========================================================== */
+
+#vix94GlobalMenuEyebrow{
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    text-align:center!important;
+    line-height:1!important;
+    font-size:8px!important;
+    letter-spacing:.22em!important;
+}
+
+#vix94GlobalMenuBrand{
+    display:flex!important;
+    width:100%!important;
+    height:auto!important;
+    margin:3px 0 0!important;
+    padding:0!important;
+    justify-content:center!important;
+    align-items:center!important;
+    line-height:0!important;
+}
+
+#vix94GlobalMenuBrand img{
+    display:block!important;
+    width:175px!important;
+    height:auto!important;
+    margin:0!important;
+    padding:0!important;
+}
+
+#vix94GlobalMenuFrequency{
+    display:flex!important;
+    width:100%!important;
+    height:12px!important;
+    margin:1px 0 16px!important;
+    padding:0!important;
+    justify-content:center!important;
+    align-items:center!important;
+    gap:6px!important;
+    line-height:1!important;
+}
+
+#vix94GlobalMenuFrequency .vix94-wave{
+    display:block!important;
+    width:34px!important;
+    height:10px!important;
+    margin:0!important;
+    padding:0!important;
+    flex:0 0 34px!important;
+}
+
+#vix94GlobalMenuFrequency > span:not(.vix94-wave){
+    display:block!important;
+    margin:0!important;
+    padding:0!important;
+    line-height:1!important;
+    font-size:7px!important;
+    letter-spacing:.22em!important;
+}
+
+@media(max-width:700px){
+
+    #vix94GlobalMenuEyebrow{
+        font-size:7px!important;
+    }
+
+    #vix94GlobalMenuBrand{
+        margin-top:3px!important;
+    }
+
+    #vix94GlobalMenuBrand img{
+        width:155px!important;
+    }
+
+    #vix94GlobalMenuFrequency{
+        margin-top:1px!important;
+        margin-bottom:14px!important;
+        gap:5px!important;
+    }
+
+    #vix94GlobalMenuFrequency .vix94-wave{
+        width:29px!important;
+        flex-basis:29px!important;
+    }
+}
+
+
+/* ==========================================================
+   FINAL COMPACT VIX 94' MENU BRAND LOCKUP
+   ========================================================== */
+
+#vix94GlobalMenuPanel{
+    gap:0!important;
+}
+
+#vix94GlobalMenuEyebrow{
+    margin:0!important;
+    padding:0!important;
+    height:auto!important;
+    min-height:0!important;
+    line-height:1!important;
+}
+
+#vix94GlobalMenuBrand{
+    margin:1px 0 0!important;
+    padding:0!important;
+    height:auto!important;
+    min-height:0!important;
+    line-height:0!important;
+}
+
+#vix94GlobalMenuBrand img{
+    display:block!important;
+    margin:0!important;
+    padding:0!important;
+}
+
+#vix94GlobalMenuFrequency{
+    margin:0 0 14px!important;
+    padding:0!important;
+    height:10px!important;
+    min-height:0!important;
+    line-height:1!important;
+}
+
+/* Remove any inherited spacing between the lockup elements */
+#vix94GlobalMenuEyebrow + #vix94GlobalMenuBrand{
+    margin-top:1px!important;
+}
+
+#vix94GlobalMenuBrand + #vix94GlobalMenuFrequency{
+    margin-top:0!important;
+}
+
+/* Keep the navigation itself separated from the branding */
+#vix94GlobalMenuFrequency + #vix94GlobalMenuLinks{
+    margin-top:8px!important;
+}
+
+@media(max-width:700px){
+    #vix94GlobalMenuFrequency{
+        margin-bottom:11px!important;
+    }
+
+    #vix94GlobalMenuFrequency + #vix94GlobalMenuLinks{
+        margin-top:6px!important;
+    }
+}
+

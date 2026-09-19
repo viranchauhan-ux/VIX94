@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact VIX 94&#x27; — Partnerships &amp; Music</title>
+<meta name="description" content="Contact VIX 94&#x27; for music submissions, artist promotion, partnerships, sponsorships and general enquiries.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vix94.buzz/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact VIX 94&#x27; — Partnerships &amp; Music">
+<meta property="og:description" content="Contact VIX 94&#x27; for music submissions, artist promotion, partnerships, sponsorships and general enquiries.">
+<meta property="og:url" content="https://vix94.buzz/contact.html">
+<meta property="og:image" content="https://vix94.buzz/vix94logobg.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact VIX 94&#x27; — Partnerships &amp; Music">
+<meta name="twitter:description" content="Contact VIX 94&#x27; for music submissions, artist promotion, partnerships, sponsorships and general enquiries.">
+<meta name="twitter:image" content="https://vix94.buzz/vix94logobg.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/vix94logobg.png">
+<link rel="stylesheet" href="vix94-site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Contact VIX 94' \u2014 Partnerships & Music",
+  "description": "Contact VIX 94' for music submissions, artist promotion, partnerships, sponsorships and general enquiries.",
+  "url": "https://vix94.buzz/contact.html"
+}
+</script>
+</head>
+<body>
+
+<div class="vix-site-bg"></div>
+<div class="vix-site-stars"></div>
+<header class="vix-nav">
+  <a href="index.html" aria-label="VIX 94' Home"><img src="vix94logo.png" alt="VIX 94'"></a>
+  <nav class="vix-nav-links" aria-label="Primary"></nav>
+</header>
+
+<main class="vix-page">
+
+    <div class="vix-kicker">CONTACT</div>
+    <h1 class="vix-title">Let’s build<br>something worth hearing.</h1>
+    <p class="vix-lead">For artist submissions, promotions, sponsorships, partnerships or general enquiries, use the channel that best fits your request.</p>
+    <div class="vix-grid">
+      <div class="vix-card"><h2>Music</h2><p>Submit a track for consideration through the music submission page.</p><div class="vix-meta"><a href="submit.html">SUBMIT MUSIC →</a></div></div>
+      <div class="vix-card"><h2>Artist Promotion</h2><p>Talk to VIX 94' about featured artist placements, track spotlights and promotional campaigns.</p></div>
+      <div class="vix-card"><h2>Partnerships</h2><p>For brand partnerships, sponsorships and media opportunities, contact the VIX 94' team directly through your preferred business channel.</p></div>
+    </div>
+    
+</main>
+
+<footer class="vix-footer">
+  <div class="vix-footer-inner">
+    <span>VIX 94' — ONLINE RADIO</span>
+    <span>Independent music. Handpicked sounds.</span>
+  </div>
+</footer>
+
+<script src="vix94-site.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About VIX 94&#x27; — Independent Online Radio</title>
+<meta name="description" content="Learn about VIX 94&#x27;, an independent online radio platform focused on music discovery, emerging artists and curated listening.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vix94.buzz/about.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About VIX 94&#x27; — Independent Online Radio">
+<meta property="og:description" content="Learn about VIX 94&#x27;, an independent online radio platform focused on music discovery, emerging artists and curated listening.">
+<meta property="og:url" content="https://vix94.buzz/about.html">
+<meta property="og:image" content="https://vix94.buzz/vix94logobg.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About VIX 94&#x27; — Independent Online Radio">
+<meta name="twitter:description" content="Learn about VIX 94&#x27;, an independent online radio platform focused on music discovery, emerging artists and curated listening.">
+<meta name="twitter:image" content="https://vix94.buzz/vix94logobg.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/vix94logobg.png">
+<link rel="stylesheet" href="vix94-site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "About VIX 94' \u2014 Independent Online Radio",
+  "description": "Learn about VIX 94', an independent online radio platform focused on music discovery, emerging artists and curated listening.",
+  "url": "https://vix94.buzz/about.html"
+}
+</script>
+</head>
+<body>
+
+<div class="vix-site-bg"></div>
+<div class="vix-site-stars"></div>
+<header class="vix-nav">
+  <a href="index.html" aria-label="VIX 94' Home"><img src="vix94logo.png" alt="VIX 94'"></a>
+  <nav class="vix-nav-links" aria-label="Primary"></nav>
+</header>
+
+<main class="vix-page">
+
+    <div class="vix-kicker">ABOUT VIX 94'</div>
+    <h1 class="vix-title">Independent music.<br>Curated frequency.</h1>
+    <p class="vix-lead">VIX 94' is an independent online radio platform built around music discovery, handpicked listening and emerging artists. The station is designed to feel like a late-night frequency: focused, visual and always moving.</p>
+    <div class="vix-grid">
+      <div class="vix-card"><h2>Radio</h2><p>Listen to the live VIX 94' player with shuffle, artwork, listener count and interactive controls.</p></div>
+      <div class="vix-card"><h2>Discover</h2><p>Explore tracks and artists from the VIX 94' music library.</p></div>
+      <div class="vix-card"><h2>Artists</h2><p>Find artists featured in the VIX 94' rotation and follow their work beyond the station.</p></div>
+    </div>
+    
+</main>
+
+<footer class="vix-footer">
+  <div class="vix-footer-inner">
+    <span>VIX 94' — ONLINE RADIO</span>
+    <span>Independent music. Handpicked sounds.</span>
+  </div>
+</footer>
+
+<script src="vix94-site.js"></script>
+
+</body>
+</html>
