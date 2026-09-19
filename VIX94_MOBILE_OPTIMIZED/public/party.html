@@ -6457,6 +6457,187 @@ body{
     overflow-wrap:anywhere!important;
 }
 
+/* Mobile app layout: keep the same party tools, but give each task room to breathe. */
+@media(max-width:600px){
+    html,body{
+        background:#080808!important;
+    }
+
+    #partyPage{
+        min-height:100svh!important;
+        overflow:visible!important;
+        background:
+            linear-gradient(180deg,rgba(5,5,5,.72),rgba(5,5,5,.94)),
+            url("/DISCOBG.jpg") center top / cover fixed!important;
+    }
+
+    #partyPage::before{
+        opacity:.025!important;
+    }
+
+    #partyHeader{
+        width:auto!important;
+        padding:calc(18px + env(safe-area-inset-top)) 20px 12px!important;
+    }
+
+    #partyBrand img{
+        width:124px!important;
+    }
+
+    #partyConnection{
+        padding-top:5px!important;
+        font-size:8px!important;
+    }
+
+    #partyMain{
+        width:auto!important;
+        min-height:0!important;
+        padding:18px 20px calc(104px + env(safe-area-inset-bottom))!important;
+    }
+
+    #partyHeroTitle{
+        max-width:320px!important;
+        margin:16px 0 14px!important;
+        font-size:clamp(48px,15vw,64px)!important;
+        letter-spacing:.04em!important;
+        line-height:.86!important;
+    }
+
+    #partyHeroCopy{
+        max-width:310px!important;
+        color:rgba(255,255,255,.58)!important;
+        font-size:12px!important;
+        line-height:1.55!important;
+        letter-spacing:.02em!important;
+    }
+
+    #partyRule{
+        width:96px!important;
+        margin:24px 0 28px!important;
+    }
+
+    #partyEntry{
+        width:100%!important;
+        max-width:420px!important;
+        padding:20px!important;
+        border:1px solid rgba(255,255,255,.16)!important;
+        border-radius:16px!important;
+        background:rgba(8,8,8,.66)!important;
+        box-shadow:0 18px 48px rgba(0,0,0,.28)!important;
+        backdrop-filter:blur(12px)!important;
+        -webkit-backdrop-filter:blur(12px)!important;
+    }
+
+    .party-label{
+        margin-bottom:9px!important;
+        font-size:9px!important;
+        letter-spacing:.16em!important;
+    }
+
+    .party-input{
+        height:52px!important;
+        padding:0 15px!important;
+        font-size:12px!important;
+        border-radius:10px!important;
+    }
+
+    .party-entry-buttons{
+        grid-template-columns:1fr!important;
+        gap:10px!important;
+        margin-top:12px!important;
+    }
+
+    .party-btn,
+    #partyExit,
+    #partySend{
+        min-height:50px!important;
+        font-size:9px!important;
+        letter-spacing:.12em!important;
+        border-radius:10px!important;
+    }
+
+    #partyLive{
+        margin-top:28px!important;
+        padding:20px!important;
+        border:1px solid rgba(255,255,255,.12)!important;
+        border-radius:16px!important;
+        background:rgba(8,8,8,.54)!important;
+    }
+
+    .party-now{
+        font-size:9px!important;
+    }
+
+    .party-track{
+        grid-template-columns:72px minmax(0,1fr)!important;
+        gap:15px!important;
+        margin-top:16px!important;
+    }
+
+    #partyArtwork{
+        width:72px!important;
+        height:72px!important;
+    }
+
+    #partyTrackTitle{
+        font-size:20px!important;
+    }
+
+    #partyTrackArtist,
+    #partySync{
+        font-size:9px!important;
+    }
+
+    #partyHostControls{
+        gap:8px!important;
+    }
+
+    #partyHostControls .party-btn,
+    #partyRoomTools .party-btn{
+        min-height:46px!important;
+        padding:0 8px!important;
+        font-size:8px!important;
+    }
+
+    #partyChat{
+        min-height:0!important;
+        margin-top:28px!important;
+        padding:24px 0 0!important;
+        border-top-color:rgba(255,255,255,.16)!important;
+    }
+
+    #partyChatHeader strong{
+        font-size:14px!important;
+    }
+
+    #partyChatLive{
+        font-size:8px!important;
+    }
+
+    #partyMessages{
+        height:220px!important;
+        max-height:none!important;
+        padding-top:18px!important;
+    }
+
+    .party-message{
+        font-size:11px!important;
+        line-height:1.5!important;
+    }
+
+    #partyChatInput{
+        height:50px!important;
+        font-size:12px!important;
+    }
+
+    #vix94MenuButton{
+        left:20px!important;
+        bottom:calc(18px + env(safe-area-inset-bottom))!important;
+        min-height:46px!important;
+        padding:10px 17px!important;
+    }
+}
+
 </style>
 
 
