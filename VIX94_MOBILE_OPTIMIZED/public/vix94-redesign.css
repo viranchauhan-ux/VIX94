@@ -1122,3 +1122,173 @@ body:has(#partyPage) .party-btn{
     padding-right:16px!important;
   }
 }
+
+/* ==========================================================
+   READABILITY PASS
+   Keep the visual language restrained while making every label
+   and secondary sentence comfortable to read on small screens.
+   ========================================================== */
+
+html[data-vix-theme="dark"]{
+  --v94-text-2:rgba(244,247,239,.82);
+  --v94-text-3:rgba(244,247,239,.62);
+  --v94-border:rgba(230,255,224,.20);
+  --v94-border-strong:rgba(230,255,224,.36);
+}
+
+html[data-vix-theme="light"]{
+  --v94-text-2:rgba(17,23,20,.78);
+  --v94-text-3:rgba(17,23,20,.62);
+  --v94-border:rgba(7,9,9,.16);
+  --v94-border-strong:rgba(7,9,9,.30);
+}
+
+html[data-vix-theme="light"] body:has(.page) .page,
+html[data-vix-theme="light"] body:has(.vix-page) .vix-page,
+html[data-vix-theme="light"] body:has(.legal-page) .legal-page{
+  --bg:var(--v94-bg);
+  --fg:var(--v94-text);
+  --muted:var(--v94-text-2);
+  --line:var(--v94-border);
+  --panel:var(--v94-surface-2);
+  background:
+    radial-gradient(circle at 14% 0%,rgba(123,157,29,.10),transparent 28%),
+    linear-gradient(145deg,var(--v94-bg),var(--v94-bg-2))!important;
+  color:var(--v94-text)!important;
+}
+
+html[data-vix-theme="light"] body:has(.page) .page .stars,
+html[data-vix-theme="light"] body:has(.vix-page) .vix-page .stars{
+  opacity:.16!important;
+  filter:invert(1)!important;
+}
+
+html[data-vix-theme="light"] body:has(.page) header,
+html[data-vix-theme="light"] body:has(.vix-page) .vix-nav,
+html[data-vix-theme="light"] body:has(.legal-page) .legal-top{
+  background:rgba(242,244,238,.86)!important;
+  border-bottom-color:var(--v94-border)!important;
+}
+
+html[data-vix-theme="light"] body:has(.page) .button,
+html[data-vix-theme="light"] body:has(.page) .open,
+html[data-vix-theme="light"] body:has(.vix-page) .button{
+  background:var(--v94-text)!important;
+  color:var(--v94-bg)!important;
+  border-color:var(--v94-text)!important;
+}
+
+html[data-vix-theme="light"] body:has(.page) .button:hover,
+html[data-vix-theme="light"] body:has(.page) .open:hover,
+html[data-vix-theme="light"] body:has(.vix-page) .button:hover{
+  background:var(--v94-accent)!important;
+  color:var(--v94-ink)!important;
+}
+
+html[data-vix-theme="light"] body:has(.page) .list,
+html[data-vix-theme="light"] body:has(.page) .row,
+html[data-vix-theme="light"] body:has(.vix-page) .list{
+  border-color:var(--v94-border)!important;
+}
+
+body:has(.page) header nav a,
+body:has(.vix-page) .vix-nav nav a,
+body:has(.legal-page) .legal-top nav a{
+  color:var(--v94-text-2)!important;
+  font-size:10px!important;
+  letter-spacing:.10em!important;
+}
+
+body:has(.page) .kicker,
+body:has(.page) .status,
+body:has(.page) .number,
+body:has(.page) .artist,
+body:has(.page) .empty,
+body:has(.page) footer,
+body:has(.vix-page) .kicker,
+body:has(.vix-page) .status,
+body:has(.vix-page) .artist,
+body:has(.vix-page) footer,
+body:has(.legal-page) .kicker,
+body:has(.legal-page) footer{
+  color:var(--v94-text-3)!important;
+}
+
+body:has(.page) .kicker,
+body:has(.vix-page) .kicker,
+body:has(.legal-page) .kicker{
+  font-size:11px!important;
+  letter-spacing:.20em!important;
+}
+
+body:has(.page) .status,
+body:has(.page) .artist,
+body:has(.page) .empty,
+body:has(.vix-page) .status,
+body:has(.vix-page) .artist{
+  font-size:13px!important;
+  line-height:1.55!important;
+}
+
+body:has(.page) .title,
+body:has(.vix-page) .title{
+  color:var(--v94-text)!important;
+  font-size:17px!important;
+  line-height:1.4!important;
+}
+
+body:has(.page) .button,
+body:has(.page) .open,
+body:has(.vix-page) .button,
+body:has(.vix-page) button,
+body:has(.legal-page) button,
+#vix94ThemeToggle{
+  font-size:11px!important;
+  letter-spacing:.10em!important;
+}
+
+#vix94GlobalMenuLinks a{
+  color:var(--v94-text-2)!important;
+  font-size:12px!important;
+}
+
+#vix94GlobalMenuFrequency{
+  color:var(--v94-text)!important;
+  font-size:11px!important;
+}
+
+#vix94ThemeControl{
+  color:var(--v94-text-2)!important;
+  font-size:10px!important;
+}
+
+@media(max-width:700px){
+  body:has(.page) .lead,
+  body:has(.page) .intro,
+  body:has(.vix-page) .lead,
+  body:has(.vix-page) .intro,
+  body:has(.legal-page) p,
+  body:has(.legal-page) li{
+    font-size:17px!important;
+    line-height:1.62!important;
+  }
+
+  body:has(.page) .title,
+  body:has(.vix-page) .title{
+    font-size:18px!important;
+  }
+
+  body:has(.page) .artist,
+  body:has(.page) .status,
+  body:has(.page) .empty,
+  body:has(.vix-page) .artist,
+  body:has(.vix-page) .status{
+    font-size:14px!important;
+  }
+
+  body:has(.page) header nav a,
+  body:has(.vix-page) .vix-nav nav a,
+  body:has(.legal-page) .legal-top nav a{
+    font-size:10px!important;
+  }
+}
