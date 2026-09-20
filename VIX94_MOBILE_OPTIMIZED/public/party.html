@@ -8,6 +8,7 @@
 <link rel="preload" as="image" href="/DISCOBG.jpg">
 <link rel="stylesheet" href="/style.css">
 
+
 <style>
 /* ==========================================================
    VIX 94' PARTY MODE — STANDALONE PAGE
@@ -3133,6 +3134,7 @@ body.party-is-host #partyExit{
 
     <link rel="stylesheet" href="/vix94-global-menu.css" id="vix94-global-menu-css">
 <link rel="stylesheet" href="/vix94-redesign.css" id="vix94-redesign-css">
+
 </head>
 
 <body>
@@ -6641,7 +6643,49 @@ body{
 </style>
 
 
-    <script src="/vix94-global-menu.js" id="vix94-global-menu-js"></script>
-<script src="/vix94-theme.js" id="vix94-theme-js"></script>
+    <script src="/vix94-theme.js" id="vix94-theme-js"></script>
+<style id="vix94-party-redesign">
+:root{--party-red:#f0443e;--party-line:rgba(255,255,255,.13);--party-panel:rgba(17,19,19,.94)}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;background:#080909!important}
+#partyPage{background:radial-gradient(circle at 15% 10%,rgba(240,68,62,.13),transparent 28%),linear-gradient(145deg,#111414,#050606 66%)!important}
+#partyHeader{width:min(1240px,92vw)!important;padding:24px 0 18px!important;border-bottom:1px solid var(--party-line)!important}
+#partyConnection{color:rgba(255,255,255,.56)!important}
+#partyConnectionDot.connected{background:var(--party-red)!important;box-shadow:0 0 14px rgba(240,68,62,.8)!important}
+#partyMain{width:min(1240px,92vw)!important;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;gap:18px!important;padding:40px 0 70px!important}
+#partyHero,#partyPlayer,#partyChat,#partyEntry{
+    border:1px solid var(--party-line)!important;
+    border-radius:24px!important;
+    background:var(--party-panel)!important;
+    background-image:none!important;
+    box-shadow:0 24px 80px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.06)!important;
+}
+#partyHero{padding:clamp(26px,5vw,54px)!important}
+.party-eyebrow,.party-label,.party-room-label{color:rgba(255,255,255,.5)!important;letter-spacing:.2em!important}
+#partyHeroTitle{font-size:clamp(42px,7vw,92px)!important;line-height:.92!important;letter-spacing:-.06em!important}
+#partyHeroCopy{max-width:480px!important;color:rgba(255,255,255,.58)!important;font-size:15px!important;line-height:1.6!important}
+#partyEntry{padding:24px!important;margin-top:28px!important}
+.party-input{border-radius:12px!important;background:rgba(0,0,0,.35)!important;border-color:var(--party-line)!important}
+.party-btn{border-radius:999px!important;border-color:rgba(255,255,255,.22)!important;background:rgba(255,255,255,.06)!important;background-image:none!important}
+.party-btn.primary{background:var(--party-red)!important;background-image:none!important;border-color:var(--party-red)!important}
+#partyPlayer{padding:26px!important}
+.party-now{color:var(--party-red)!important;letter-spacing:.2em!important}
+.party-track{margin-top:22px!important}
+#partyArtwork{border-radius:50%!important;box-shadow:0 0 0 10px rgba(0,0,0,.16),0 26px 60px rgba(0,0,0,.4)!important}
+#partyTrackTitle{font-size:clamp(26px,4vw,44px)!important;letter-spacing:-.04em!important}
+.party-track{color:#fff!important}
+#partyProgress{accent-color:var(--party-red)!important}
+#partyChat{padding:22px!important}
+.party-message{border-bottom-color:var(--party-line)!important}
+#partyChatInput{border-radius:999px!important;background:rgba(0,0,0,.35)!important;border-color:var(--party-line)!important}
+#partySend{border-radius:999px!important;background:var(--party-red)!important;background-image:none!important}
+@media (max-width:800px){
+    #partyHeader{padding-top:max(18px,env(safe-area-inset-top))!important}
+    #partyMain{grid-template-columns:1fr!important;padding:24px 0 46px!important}
+    #partyHero{padding:28px 22px!important}
+    #partyHeroTitle{font-size:clamp(50px,17vw,76px)!important}
+    #partyChat{min-height:360px!important}
+}
+</style>
+
 </body>
 </html>

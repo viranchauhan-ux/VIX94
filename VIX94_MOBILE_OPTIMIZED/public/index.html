@@ -4294,9 +4294,13 @@ input[type="range"]:focus-visible {
 <meta name="twitter:image" content="https://vix94.buzz/vix94logobg.png">
 <meta name="twitter:image:alt" content="VIX 94'">
 
+<link rel="manifest" href="/site.webmanifest">
 <link rel="icon" type="image/png" sizes="48x48" href="/vix94logobg.png">
 <link rel="shortcut icon" type="image/png" href="/vix94logobg.png">
 <link rel="apple-touch-icon" href="/vix94logobg.png">
+
+<link rel="manifest" href="/site.webmanifest">
+
 
 <style id="vix94-final-site-navigation">
 /* ==========================================================
@@ -7145,6 +7149,7 @@ html[data-vix-theme="light"] .vix94MiniControl svg{
     }
 }
 </style>
+
 </head>
 
 
@@ -13191,8 +13196,7 @@ window.vix94PlayFromRadioHome=function(){
 }
 </style>
 
-    <script src="/vix94-global-menu.js" id="vix94-global-menu-js"></script>
-<script src="/vix94-theme.js" id="vix94-theme-js"></script>
+    <script src="/vix94-theme.js" id="vix94-theme-js"></script>
 <style id="vix94-final-theme-surfaces">
 /* Final theme surfaces win over legacy homepage presentation blocks. */
 #app{
@@ -13453,6 +13457,7 @@ html[data-vix-theme="light"] #landing .vix94-party-button{
     }
 }
 </style>
+
 </body>
 
 </html>
@@ -13559,4 +13564,118 @@ html[data-vix-theme="light"] #radio#radio .player-buttons #playButton{
         box-sizing:border-box!important;
     }
 }
+</style>
+
+<style id="vix94-product-redesign">
+:root{
+    --vix-red:#f0443e;
+    --vix-ink:#080909;
+    --vix-panel:rgba(18,20,20,.9);
+    --vix-line:rgba(255,255,255,.14);
+}
+
+body{
+    background:#080909!important;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;
+}
+
+#app{background:#080909!important}
+.background{
+    background-image:linear-gradient(120deg,rgba(4,5,5,.94),rgba(4,5,5,.62)),url("DISCOBG.jpg")!important;
+    filter:saturate(.72) contrast(1.08)!important;
+}
+.header{
+    top:0!important;left:0!important;right:0!important;padding:24px clamp(20px,4vw,56px)!important;
+    border-bottom:1px solid rgba(255,255,255,.1)!important;
+    background:linear-gradient(180deg,rgba(5,6,6,.82),transparent)!important;
+}
+.corner-logo{width:132px!important}
+.status{font-size:10px!important;letter-spacing:2px!important;color:rgba(255,255,255,.62)!important;opacity:1!important}
+.status #status{color:#fff!important}
+.online-status{color:rgba(255,255,255,.48)!important}
+.online-dot{background:var(--vix-red)!important;box-shadow:0 0 14px rgba(240,68,62,.8)!important}
+
+.landing{
+    justify-content:center!important;
+    padding:112px 24px 70px!important;
+}
+.hero-logo{width:min(390px,62vw)!important;filter:drop-shadow(0 20px 42px rgba(0,0,0,.42))!important}
+.landing-listeners{
+    order:2!important;margin:22px 0 28px!important;color:rgba(255,255,255,.55)!important;
+    font-size:10px!important;letter-spacing:.2em!important;
+}
+.vix94-home-options{
+    order:3!important;display:grid!important;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)!important;
+    gap:12px!important;width:min(760px,100%)!important;margin:0!important;
+}
+.vix94-radio-box,.vix94-party-hero{
+    min-height:220px!important;padding:28px!important;border:1px solid var(--vix-line)!important;border-radius:20px!important;
+    background:var(--vix-panel)!important;background-image:none!important;
+    box-shadow:0 24px 70px rgba(0,0,0,.32)!important;text-align:left!important;
+}
+.vix94-radio-box{border-color:rgba(240,68,62,.5)!important}
+.vix94-mode-label{font-size:10px!important;letter-spacing:.2em!important;color:rgba(255,255,255,.5)!important}
+.vix94-radio-box h2,.vix94-party-hero h3{margin:24px 0 10px!important;font-size:clamp(22px,3vw,32px)!important;font-weight:500!important;letter-spacing:-.03em!important}
+.vix94-radio-box p,.vix94-party-hero p{max-width:300px!important;color:rgba(255,255,255,.58)!important;font-size:14px!important;line-height:1.55!important}
+.enter.vix94-radio-button,.enter.vix94-party-button{
+    display:inline-flex!important;align-items:center!important;gap:18px!important;margin-top:28px!important;padding:0!important;border:0!important;
+    background:none!important;color:#fff!important;font-size:11px!important;letter-spacing:.15em!important;opacity:1!important;
+}
+.vix94-radio-button b,.vix94-party-button b{font-weight:500!important}
+.cta-arrow{display:grid!important;place-items:center!important;width:34px!important;height:34px!important;border:1px solid rgba(255,255,255,.38)!important;border-radius:50%!important;transition:background .2s,transform .2s!important}
+.enter:hover .cta-arrow{background:var(--vix-red)!important;border-color:var(--vix-red)!important;transform:translateX(4px)!important}
+
+.radio{padding:112px 20px 90px!important;align-items:center!important;background:rgba(5,6,6,.18)!important}
+.radio .player{
+    width:min(940px,100%)!important;display:grid!important;grid-template-columns:minmax(280px,42%) minmax(0,1fr)!important;
+    grid-template-rows:auto auto 1fr!important;column-gap:clamp(30px,6vw,78px)!important;align-items:center!important;
+    padding:clamp(24px,5vw,64px)!important;border:1px solid rgba(255,255,255,.13)!important;border-radius:28px!important;
+    background:var(--vix-panel)!important;background-image:none!important;
+    box-shadow:0 28px 100px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.08)!important;
+}
+.artwork-disc{grid-row:1 / span 3!important;align-self:center!important;width:100%!important;max-width:360px!important;margin:auto!important}
+.artwork{width:100%!important;height:auto!important;aspect-ratio:1!important;border:1px solid rgba(255,255,255,.22)!important;box-shadow:0 0 0 10px rgba(0,0,0,.16),0 30px 60px rgba(0,0,0,.42)!important}
+.on-air{margin:0 0 18px!important;color:var(--vix-red)!important;font-size:10px!important;letter-spacing:.24em!important;text-align:left!important}
+.song-title{font-size:clamp(28px,4vw,52px)!important;line-height:1.02!important;letter-spacing:-.045em!important;text-align:left!important}
+.song-artist{margin-top:12px!important;color:rgba(255,255,255,.55)!important;font-size:14px!important;letter-spacing:.04em!important;text-align:left!important}
+.controls{margin-top:38px!important}
+.progress{height:5px!important;border-radius:10px!important;background:rgba(255,255,255,.16)!important}
+.player-buttons{justify-content:flex-start!important;gap:10px!important;margin-top:22px!important}
+.player-button,.player-button.main{min-width:0!important;min-height:46px!important;padding:0 18px!important;border-radius:999px!important;border-color:rgba(255,255,255,.2)!important;background:rgba(255,255,255,.06)!important;background-image:none!important;font-size:10px!important;letter-spacing:.16em!important}
+.player-button.main{min-width:108px!important;background:#f4f2ed!important;color:#131414!important;border-color:#f4f2ed!important}
+.player-button:hover{background:var(--vix-red)!important;border-color:var(--vix-red)!important;color:#fff!important}
+#radio#radio .player-buttons #playButton{
+    background:#f4f2ed!important;border-color:#f4f2ed!important;color:#131414!important;box-shadow:none!important;
+}
+#radio#radio .player-buttons #playButton:hover{
+    background:var(--vix-red)!important;border-color:var(--vix-red)!important;color:#fff!important;
+}
+.volume{justify-content:flex-start!important;margin:24px 0 0!important;width:100%!important;max-width:320px!important}
+.volume input[type=range]{accent-color:var(--vix-red)!important}
+
+#vix94MiniNowPlaying{border-color:rgba(255,255,255,.14)!important;background:rgba(12,14,14,.9)!important;backdrop-filter:blur(18px)!important}
+#vix94MenuButton{border-color:rgba(255,255,255,.3)!important;background:rgba(12,14,14,.72)!important}
+
+@media (max-width:700px){
+    .header{padding:18px 18px 14px!important}
+    .corner-logo{width:102px!important}
+    .status{font-size:9px!important}
+    .landing{padding:94px 16px 36px!important;overflow-y:auto!important;justify-content:flex-start!important}
+    .hero-logo{width:min(280px,70vw)!important;margin:5vh auto 0!important}
+    .landing-listeners{margin:18px 0 22px!important}
+    .vix94-home-options{grid-template-columns:1fr!important;gap:10px!important}
+    .vix94-radio-box,.vix94-party-hero{min-height:0!important;padding:22px!important}
+    .vix94-radio-box h2,.vix94-party-hero h3{margin-top:16px!important;font-size:24px!important}
+    .enter.vix94-radio-button,.enter.vix94-party-button{margin-top:22px!important}
+    .radio{padding:86px 14px 84px!important;overflow-y:auto!important}
+    .radio .player{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:24px 18px 28px!important;border-radius:22px!important}
+    .artwork-disc{width:min(72vw,290px)!important;margin:0 auto 24px!important}
+    .on-air{text-align:center!important;margin-bottom:14px!important}
+    .song-title,.song-artist{text-align:center!important}
+    .controls{margin-top:28px!important}
+    .player-buttons{justify-content:center!important}
+    .player-button,.player-button.main{flex:1!important;padding:0 8px!important}
+    .volume{margin:22px auto 0!important}
+}
+@media (prefers-reduced-motion:reduce){.hero-logo,.artwork,.vix94-galaxy{animation:none!important}}
 </style>

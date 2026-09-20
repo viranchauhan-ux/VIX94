@@ -220,6 +220,15 @@ body{
   transform:translateY(-1px)!important;
 }
 
+/* Hide the floating menu trigger while its own drawer is open so it
+   never overlaps the drawer's CLOSE control. */
+#vix94GlobalMenuButton[aria-expanded="true"],
+#vix94MenuButton[aria-expanded="true"]{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:scale(.92)!important;
+}
+
 /* ==========================================================
    THEME CONTROL
    ========================================================== */
@@ -1148,35 +1157,7 @@ body:has(#partyPage) .party-btn{
   body:has(.page) header nav,
   body:has(.vix-page) .vix-nav nav,
   body:has(.legal-page) .legal-top nav{
-    display:flex!important;
-    flex:1 1 auto!important;
-    justify-content:flex-start!important;
-    flex-wrap:nowrap!important;
-    gap:18px!important;
-    min-width:0!important;
-    overflow-x:auto!important;
-    overscroll-behavior-x:contain!important;
-    scrollbar-width:none!important;
-    -webkit-overflow-scrolling:touch!important;
-    padding:2px 2px 4px!important;
-  }
-
-  body:has(.page) header nav::-webkit-scrollbar,
-  body:has(.vix-page) .vix-nav nav::-webkit-scrollbar,
-  body:has(.legal-page) .legal-top nav::-webkit-scrollbar{
     display:none!important;
-  }
-
-  body:has(.page) header nav a,
-  body:has(.vix-page) .vix-nav nav a,
-  body:has(.legal-page) .legal-top nav a{
-    flex:0 0 auto!important;
-    min-height:40px!important;
-    display:inline-flex!important;
-    align-items:center!important;
-    font-size:9px!important;
-    letter-spacing:.11em!important;
-    white-space:nowrap!important;
   }
 
   body:has(.page) .logo img,
