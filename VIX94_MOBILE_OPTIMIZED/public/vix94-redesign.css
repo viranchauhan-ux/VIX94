@@ -7,18 +7,21 @@ DO NOT alter audio/player/equalizer behaviour.
 */
 
 :root{
-  --v94-bg:#050505;
-  --v94-bg-2:#090909;
-  --v94-surface:#101010;
-  --v94-surface-2:#151515;
-  --v94-surface-3:#1b1b1b;
-  --v94-border:rgba(255,255,255,.10);
-  --v94-border-strong:rgba(255,255,255,.18);
-  --v94-text:#f7f7f7;
-  --v94-text-2:rgba(255,255,255,.68);
-  --v94-text-3:rgba(255,255,255,.42);
-  --v94-accent:#fff;
-  --v94-shadow:0 24px 70px rgba(0,0,0,.34);
+  --v94-bg:#030303;
+  --v94-bg-2:#080807;
+  --v94-surface:#0e0e0d;
+  --v94-surface-2:#141412;
+  --v94-surface-3:#1a1a17;
+  --v94-border:rgba(212,175,55,.22);
+  --v94-border-strong:rgba(212,175,55,.42);
+  --v94-text:#f7f7f5;
+  --v94-text-2:rgba(247,247,245,.70);
+  --v94-text-3:rgba(247,247,245,.46);
+  --v94-gold:#d4af37;
+  --v94-gold-bright:#f2d377;
+  --v94-gold-deep:#8a6b1f;
+  --v94-accent:var(--v94-gold);
+  --v94-shadow:0 24px 70px rgba(0,0,0,.5);
   --v94-radius:18px;
   --v94-radius-sm:12px;
   --v94-ease:cubic-bezier(.22,.8,.2,1);
@@ -26,19 +29,19 @@ DO NOT alter audio/player/equalizer behaviour.
 }
 
 html[data-vix-theme="light"]{
-  --v94-bg:#f4f4f1;
-  --v94-bg-2:#ededeb;
-  --v94-surface:#ffffff;
-  --v94-surface-2:#f8f8f6;
-  --v94-surface-3:#ececea;
-  --v94-border:rgba(0,0,0,.10);
-  --v94-border-strong:rgba(0,0,0,.18);
-  --v94-text:#111;
-  --v94-text-2:rgba(0,0,0,.66);
-  --v94-text-3:rgba(0,0,0,.44);
-  --v94-accent:#111;
-  --v94-shadow:0 24px 70px rgba(0,0,0,.12);
-  color-scheme:light;
+  --v94-bg:#030303;
+  --v94-bg-2:#080807;
+  --v94-surface:#0e0e0d;
+  --v94-surface-2:#141412;
+  --v94-surface-3:#1a1a17;
+  --v94-border:rgba(212,175,55,.22);
+  --v94-border-strong:rgba(212,175,55,.42);
+  --v94-text:#f7f7f5;
+  --v94-text-2:rgba(247,247,245,.70);
+  --v94-text-3:rgba(247,247,245,.46);
+  --v94-accent:var(--v94-gold);
+  --v94-shadow:0 24px 70px rgba(0,0,0,.5);
+  color-scheme:dark;
 }
 
 html,
@@ -407,7 +410,7 @@ body:not(:has(#radio)) button{
 }
 
 #partyProgressFill{
-  background:#fff!important;
+  background:#d4af37!important;
   border-radius:999px!important;
 }
 
@@ -447,14 +450,14 @@ body:not(:has(#radio)) button{
 }
 
 .party-btn.primary{
-  background:#fff!important;
-  color:#050505!important;
-  border-color:#fff!important;
+  background:#d4af37!important;
+  color:#030303!important;
+  border-color:#d4af37!important;
 }
 
 .party-btn.primary:hover{
-  background:#e9e9e9!important;
-  color:#000!important;
+  background:#f2d377!important;
+  color:#030303!important;
 }
 
 #partyPrev,
@@ -523,53 +526,53 @@ html[data-vix-theme="light"] body:not(:has(#radio)){
 
 html[data-vix-theme="light"] body:not(:has(#radio)) #partyPage{
   background:
-    radial-gradient(circle at 50% 0%,rgba(0,0,0,.045),transparent 32%),
-    linear-gradient(180deg,#f6f6f3 0%,#eeeeeb 48%,#f6f6f3 100%)!important;
-  color:#111!important;
+    radial-gradient(circle at 50% 0%,rgba(212,175,55,.10),transparent 32%),
+    linear-gradient(180deg,#030303 0%,#0e0e0d 48%,#030303 100%)!important;
+  color:#f7f7f5!important;
 }
 
 html[data-vix-theme="light"] body:not(:has(#radio)) #partyHero,
 html[data-vix-theme="light"] body:not(:has(#radio)) #partyEntry,
 html[data-vix-theme="light"] body:not(:has(#radio)) #partyPlayer,
 html[data-vix-theme="light"] body:not(:has(#radio)) #partyChat{
-  border-color:rgba(0,0,0,.09)!important;
-  background:rgba(255,255,255,.72)!important;
-  box-shadow:0 22px 70px rgba(0,0,0,.08)!important;
+  border-color:rgba(212,175,55,.22)!important;
+  background:rgba(20,20,18,.82)!important;
+  box-shadow:0 22px 70px rgba(0,0,0,.4)!important;
 }
 
 html[data-vix-theme="light"] #partyHeroTitle,
 html[data-vix-theme="light"] #partyTrackTitle{
-  color:#111!important;
+  color:#f7f7f5!important;
 }
 
 html[data-vix-theme="light"] #partyHeroCopy,
 html[data-vix-theme="light"] #partyTrackArtist,
 html[data-vix-theme="light"] #partyConnectionText,
 html[data-vix-theme="light"] #partySync{
-  color:rgba(0,0,0,.58)!important;
+  color:rgba(247,247,245,.62)!important;
 }
 
 html[data-vix-theme="light"] .party-input{
-  border-color:rgba(0,0,0,.12)!important;
-  background:#fff!important;
-  color:#111!important;
+  border-color:rgba(212,175,55,.22)!important;
+  background:rgba(0,0,0,.28)!important;
+  color:#f7f7f5!important;
 }
 
 html[data-vix-theme="light"] .party-btn{
-  border-color:rgba(0,0,0,.12)!important;
-  background:rgba(0,0,0,.025)!important;
-  color:#222!important;
+  border-color:rgba(212,175,55,.22)!important;
+  background:rgba(255,255,255,.035)!important;
+  color:rgba(247,247,245,.82)!important;
 }
 
 html[data-vix-theme="light"] .party-btn:hover{
-  background:rgba(0,0,0,.06)!important;
-  border-color:rgba(0,0,0,.20)!important;
+  background:rgba(212,175,55,.12)!important;
+  border-color:rgba(212,175,55,.42)!important;
 }
 
 html[data-vix-theme="light"] .party-btn.primary{
-  background:#111!important;
-  color:#fff!important;
-  border-color:#111!important;
+  background:#d4af37!important;
+  color:#030303!important;
+  border-color:#d4af37!important;
 }
 
 /* ==========================================================
@@ -627,37 +630,37 @@ html[data-vix-theme="light"] .party-btn.primary{
    ========================================================== */
 
 :root{
-  --v94-acid:#d9ff64;
-  --v94-coral:#ff8c6b;
-  --v94-ink:#070909;
-  --v94-paper:#f2f4ee;
+  --v94-acid:#d4af37;
+  --v94-coral:#f2d377;
+  --v94-ink:#030303;
+  --v94-paper:#f7f7f5;
   --v94-font:"Avenir Next",Avenir,"Helvetica Neue",sans-serif;
 }
 
 html[data-vix-theme="dark"]{
-  --v94-bg:#070909;
-  --v94-bg-2:#101514;
-  --v94-surface:#111817;
-  --v94-surface-2:#18201e;
-  --v94-border:rgba(230,255,224,.14);
-  --v94-border-strong:rgba(230,255,224,.28);
-  --v94-text:#f4f7ef;
-  --v94-text-2:rgba(244,247,239,.68);
-  --v94-text-3:rgba(244,247,239,.42);
+  --v94-bg:#030303;
+  --v94-bg-2:#080807;
+  --v94-surface:#0e0e0d;
+  --v94-surface-2:#141412;
+  --v94-border:rgba(212,175,55,.22);
+  --v94-border-strong:rgba(212,175,55,.42);
+  --v94-text:#f7f7f5;
+  --v94-text-2:rgba(247,247,245,.70);
+  --v94-text-3:rgba(247,247,245,.46);
   --v94-accent:var(--v94-acid);
 }
 
 html[data-vix-theme="light"]{
-  --v94-bg:#f2f4ee;
-  --v94-bg-2:#e7ebe2;
-  --v94-surface:#ffffff;
-  --v94-surface-2:#edf1e9;
-  --v94-border:rgba(7,9,9,.12);
-  --v94-border-strong:rgba(7,9,9,.24);
-  --v94-text:#111714;
-  --v94-text-2:rgba(17,23,20,.68);
-  --v94-text-3:rgba(17,23,20,.46);
-  --v94-accent:#7b9d1d;
+  --v94-bg:#030303;
+  --v94-bg-2:#080807;
+  --v94-surface:#0e0e0d;
+  --v94-surface-2:#141412;
+  --v94-border:rgba(212,175,55,.22);
+  --v94-border-strong:rgba(212,175,55,.42);
+  --v94-text:#f7f7f5;
+  --v94-text-2:rgba(247,247,245,.70);
+  --v94-text-3:rgba(247,247,245,.46);
+  --v94-accent:#d4af37;
 }
 
 body:has(.page),
@@ -666,8 +669,8 @@ body:has(.legal-page),
 body:has(#partyPage){
   min-height:100svh!important;
   background:
-    radial-gradient(circle at 10% 0%,rgba(217,255,100,.08),transparent 28%),
-    radial-gradient(circle at 92% 20%,rgba(255,140,107,.08),transparent 25%),
+    radial-gradient(circle at 10% 0%,rgba(212,175,55,.10),transparent 28%),
+    radial-gradient(circle at 92% 20%,rgba(212,175,55,.06),transparent 25%),
     linear-gradient(145deg,var(--v94-bg),var(--v94-bg-2))!important;
   color:var(--v94-text)!important;
   font-family:var(--v94-font)!important;
@@ -844,10 +847,10 @@ body:has(.page) .button,
 body:has(.vix-page) button,
 body:has(.vix-page) .button,
 #vix94ThemeToggle{
-  border:1px solid var(--v94-border-strong)!important;
+  border:1px solid var(--v94-accent)!important;
   border-radius:999px!important;
-  background:var(--v94-text)!important;
-  color:var(--v94-bg)!important;
+  background:var(--v94-accent)!important;
+  color:var(--v94-ink,#030303)!important;
   font-family:var(--v94-font)!important;
   font-weight:700!important;
   letter-spacing:.12em!important;
@@ -859,8 +862,9 @@ body:has(.page) .button:hover,
 body:has(.vix-page) button:hover,
 body:has(.vix-page) .button:hover,
 #vix94ThemeToggle:hover{
-  background:var(--v94-accent)!important;
-  color:var(--v94-ink)!important;
+  background:var(--v94-text)!important;
+  border-color:var(--v94-text)!important;
+  color:var(--v94-ink,#030303)!important;
   transform:translateY(-2px)!important;
 }
 
@@ -935,8 +939,8 @@ body:has(.legal-page) #vix94GlobalMenuButton{
 
 #app{
   background:
-    radial-gradient(circle at 50% 36%,rgba(217,255,100,.08),transparent 28%),
-    linear-gradient(145deg,#070909,#111817)!important;
+    radial-gradient(circle at 50% 36%,rgba(212,175,55,.09),transparent 28%),
+    linear-gradient(145deg,#030303,#0e0e0d)!important;
 }
 
 #app .background{
@@ -971,36 +975,36 @@ body:has(.legal-page) #vix94GlobalMenuButton{
 }
 
 #radio .progress{
-  background:var(--v94-border-strong,rgba(230,255,224,.36))!important;
+  background:var(--v94-border-strong,rgba(212,175,55,.42))!important;
 }
 
 #radio .player-button,
 #radio .player-button.main,
 #radio .eq-button,
 #radio .volume input[type="range"]{
-  border-color:var(--v94-border-strong,rgba(230,255,224,.36))!important;
+  border-color:var(--v94-border-strong,rgba(212,175,55,.42))!important;
   background:color-mix(in srgb,var(--v94-surface,#111817) 84%,transparent)!important;
   color:var(--v94-text,#f4f7ef)!important;
 }
 
 #radio .player-button:hover,
 #radio .eq-button:hover{
-  background:var(--v94-accent,#d9ff64)!important;
-  border-color:var(--v94-accent,#d9ff64)!important;
+  background:var(--v94-accent,#d4af37)!important;
+  border-color:var(--v94-accent,#d4af37)!important;
   color:var(--v94-ink,#070909)!important;
 }
 
 html[data-vix-theme="light"] body:has(#radio),
 html[data-vix-theme="light"] body:has(#radio) #app{
   background:
-    radial-gradient(circle at 50% 18%,rgba(123,157,29,.12),transparent 30%),
-    linear-gradient(145deg,#f2f4ee,#e7ebe2)!important;
+    radial-gradient(circle at 50% 18%,rgba(212,175,55,.09),transparent 30%),
+    linear-gradient(145deg,#030303,#0e0e0d)!important;
   color:var(--v94-text)!important;
 }
 
 html[data-vix-theme="light"] #app .background{
-  opacity:.16!important;
-  filter:grayscale(1) saturate(.35) contrast(.94)!important;
+  opacity:.72!important;
+  filter:grayscale(.35) saturate(.78) contrast(1.08)!important;
 }
 
 html[data-vix-theme="light"] #app .background::after{
@@ -1242,17 +1246,17 @@ body:has(#partyPage) .party-btn{
    ========================================================== */
 
 html[data-vix-theme="dark"]{
-  --v94-text-2:rgba(244,247,239,.82);
-  --v94-text-3:rgba(244,247,239,.62);
-  --v94-border:rgba(230,255,224,.20);
-  --v94-border-strong:rgba(230,255,224,.36);
+  --v94-text-2:rgba(247,247,245,.82);
+  --v94-text-3:rgba(247,247,245,.62);
+  --v94-border:rgba(212,175,55,.22);
+  --v94-border-strong:rgba(212,175,55,.42);
 }
 
 html[data-vix-theme="light"]{
-  --v94-text-2:rgba(17,23,20,.78);
-  --v94-text-3:rgba(17,23,20,.62);
-  --v94-border:rgba(7,9,9,.16);
-  --v94-border-strong:rgba(7,9,9,.30);
+  --v94-text-2:rgba(247,247,245,.82);
+  --v94-text-3:rgba(247,247,245,.62);
+  --v94-border:rgba(212,175,55,.22);
+  --v94-border-strong:rgba(212,175,55,.42);
 }
 
 html[data-vix-theme="light"] body:has(.page) .page,
@@ -1264,37 +1268,37 @@ html[data-vix-theme="light"] body:has(.legal-page) .legal-page{
   --line:var(--v94-border);
   --panel:var(--v94-surface-2);
   background:
-    radial-gradient(circle at 14% 0%,rgba(123,157,29,.10),transparent 28%),
+    radial-gradient(circle at 14% 0%,rgba(212,175,55,.10),transparent 28%),
     linear-gradient(145deg,var(--v94-bg),var(--v94-bg-2))!important;
   color:var(--v94-text)!important;
 }
 
 html[data-vix-theme="light"] body:has(.page) .page .stars,
 html[data-vix-theme="light"] body:has(.vix-page) .vix-page .stars{
-  opacity:.16!important;
-  filter:invert(1)!important;
+  opacity:.32!important;
+  filter:none!important;
 }
 
 html[data-vix-theme="light"] body:has(.page) header,
 html[data-vix-theme="light"] body:has(.vix-page) .vix-nav,
 html[data-vix-theme="light"] body:has(.legal-page) .legal-top{
-  background:rgba(242,244,238,.86)!important;
+  background:color-mix(in srgb,var(--v94-bg) 84%,transparent)!important;
   border-bottom-color:var(--v94-border)!important;
 }
 
 html[data-vix-theme="light"] body:has(.page) .button,
 html[data-vix-theme="light"] body:has(.page) .open,
 html[data-vix-theme="light"] body:has(.vix-page) .button{
-  background:var(--v94-text)!important;
-  color:var(--v94-bg)!important;
-  border-color:var(--v94-text)!important;
+  background:var(--v94-accent)!important;
+  color:var(--v94-ink,#030303)!important;
+  border-color:var(--v94-accent)!important;
 }
 
 html[data-vix-theme="light"] body:has(.page) .button:hover,
 html[data-vix-theme="light"] body:has(.page) .open:hover,
 html[data-vix-theme="light"] body:has(.vix-page) .button:hover{
-  background:var(--v94-accent)!important;
-  color:var(--v94-ink)!important;
+  background:var(--v94-text)!important;
+  color:var(--v94-ink,#030303)!important;
 }
 
 html[data-vix-theme="light"] body:has(.page) .list,
@@ -1329,7 +1333,9 @@ body:has(.legal-page) footer{
 body:has(.page) .kicker,
 body:has(.vix-page) .kicker,
 body:has(.legal-page) .kicker{
+  color:var(--v94-accent)!important;
   font-size:11px!important;
+  font-weight:700!important;
   letter-spacing:.20em!important;
 }
 
